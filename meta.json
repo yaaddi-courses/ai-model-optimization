@@ -1,0 +1,61 @@
+{
+  "id": "e87e69818348",
+  "title": "Optimizing AI Models for Inference",
+  "description": "How to make trained AI models smaller, faster and cheaper to run: quantization, pruning, distillation, batching, compilers and runtimes, LLM tricks like the KV cache and speculative decoding, plus serving cost and how to verify nothing broke. Built for developers new to ML. Builds on this library's mlops course for the wider production lifecycle (registries, pipelines, monitoring) — see it for that foundation.",
+  "image": "cover.png",
+  "file": "ai-model-optimization.zip",
+  "version": "1.1.0",
+  "tags": [
+    "ai",
+    "machine-learning",
+    "optimization",
+    "inference",
+    "llm",
+    "intermediate"
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-09-21",
+      "notes": "Initial release — 31 decks, each pack with a preview card teaching the concept before its graded main card and practice cards, including scenario questions and packs on modern LLM serving topics."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-09-24",
+      "notes": "Rewrote 42 preview true/false card(s) whose answer was false, so every preview statement is true; Wrapped code, commands and file names in backticks so they render as code (1 card(s))."
+    }
+  ],
+  "toc": [
+    "What a Model Is: Weights and Tensors",
+    "Training vs Inference",
+    "Latency, Memory and Money",
+    "Measure First: Profiling and Benchmarks",
+    "Accuracy vs Speed Trade-offs",
+    "Numeric Precision: FP32 to INT8",
+    "Post-Training Quantization",
+    "Quantization-Aware Training",
+    "Pruning",
+    "Knowledge Distillation",
+    "Low-Rank and Weight Sharing",
+    "CPU, GPU and Accelerators",
+    "Batching",
+    "Operator Fusion and Graph Compilers",
+    "Model Formats: ONNX and GGUF",
+    "Inference Runtimes",
+    "Tokens and Context Length",
+    "The KV Cache",
+    "FlashAttention and Attention Tricks",
+    "Speculative Decoding",
+    "Continuous Batching and Serving Engines",
+    "LoRA and QLoRA",
+    "LLM Serving Metrics",
+    "Splitting Models Across GPUs",
+    "Caching and Model Routing",
+    "Autoscaling and Cold Starts",
+    "Cost per Request",
+    "Edge and On-Device Deployment",
+    "Regression-Testing After Optimizing",
+    "Choosing an Optimization Strategy",
+    "Common Optimization Pitfalls"
+  ]
+}
