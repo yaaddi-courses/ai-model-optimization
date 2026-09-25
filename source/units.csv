@@ -30,3 +30,4 @@ id,title,description,min_level,section,image,section_image
 27,Regression-Testing After Optimizing,"Check that a faster, smaller model still works as well, using baselines, test sets, and safe rollouts.",3,Validating and Shipping,unit27.png,
 28,Choosing an Optimization Strategy,"Pick the right optimizations by finding your bottleneck, setting a target, and starting with cheap wins.",3,Validating and Shipping,unit28.png,
 29,Common Optimization Pitfalls,"Spot common mistakes like guessing, bad benchmarks, hidden accuracy loss, and over-tuning.",3,Validating and Shipping,unit29.png,
+32,Recap: Key Terms,Quick matching practice that revisits the key terms from earlier decks.,1,Review,unit32.png,

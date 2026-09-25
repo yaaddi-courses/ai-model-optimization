@@ -1,183 +1,208 @@
 term,definition,link,introduced_by_card_id
-Weights,The weights are the numbers inside a model that were learned during training and that decide what it predicts. Change the weights and the model's behavior changes; the model file is mostly just a big list of them.,,2
+Weights,The weights are the numbers inside a model that were learned during training and that decide what it predicts. Change the weights and the model's behavior changes; the model file is mostly just a big list of them.,https://developers.google.com/machine-learning/glossary#weight,2
 Tensor,"A tensor is a multi-dimensional grid of numbers: a scalar is 0-D, a vector 1-D, a matrix 2-D, and images or batches are higher. Model weights, inputs and outputs are all stored as tensors.",https://en.wikipedia.org/wiki/Tensor_(machine_learning),8
-Scalar,"A scalar is a single number, the simplest tensor with zero dimensions.",,8
+Scalar,"A scalar is a single number, the simplest tensor with zero dimensions.",https://developers.google.com/machine-learning/glossary#scalar,8
 Vector,"A vector is a one-dimensional list of numbers, a 1-D tensor.",https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics),8
 Matrix,"A matrix is a two-dimensional table of numbers with rows and columns, a 2-D tensor; most model layers are big matrices of weights.",https://en.wikipedia.org/wiki/Matrix_(mathematics),8
-Parameter count,"The parameter count is how many individual weights a model has, often written like 7B for seven billion. It is the quickest guide to how large and how expensive a model will be.",,14
-Training,Training is the process of adjusting a model's weights on lots of example data until its predictions get good. It is expensive but happens rarely.,"https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets",20
+Parameter count,"The parameter count is how many individual weights a model has, often written like 7B for seven billion. It is the quickest guide to how large and how expensive a model will be.",https://en.wikipedia.org/wiki/Neural_network_(machine_learning),14
+Training,Training is the process of adjusting a model's weights on lots of example data until its predictions get good. It is expensive but happens rarely.,"https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets",2
 Inference,"Inference is running an already-trained model on new input to get a prediction. It happens on every user request, so its speed and cost matter a lot.",https://en.wikipedia.org/wiki/Inference,20
-Forward pass,"The forward pass sends input through the model's layers, one after another, to produce an output. Inference is only forward passes.",,26
-Backward pass,"The backward pass computes gradients, meaning how much each weight should change, so training can improve the model. Inference skips it.",,26
+Forward pass,"The forward pass sends input through the model's layers, one after another, to produce an output. Inference is only forward passes.",https://en.wikipedia.org/wiki/Feedforward_neural_network,26
+Backward pass,"The backward pass computes gradients, meaning how much each weight should change, so training can improve the model. Inference skips it.",https://en.wikipedia.org/wiki/Backpropagation,26
 Gradients,Gradients are numbers that say which way and how much to nudge each weight to reduce error. They are computed during training only.,https://en.wikipedia.org/wiki/Gradient_descent,26
 Latency,"Latency is the time one request takes from being sent to getting its answer. Lower is better, especially for interactive apps.",https://en.wikipedia.org/wiki/Latency_(engineering),38
 Throughput,"Throughput is how much work a system finishes per unit of time, such as requests per second. Higher throughput means more users served on the same hardware.",https://en.wikipedia.org/wiki/Throughput,38
-Memory footprint,"The memory footprint is how much memory a model needs while running, mainly its weights plus activations. It decides which hardware can run the model at all.",,44
+Memory footprint,"The memory footprint is how much memory a model needs while running, mainly its weights plus activations. It decides which hardware can run the model at all.",https://en.wikipedia.org/wiki/Memory_footprint,44
 Activations,Activations are the intermediate results each layer computes while processing an input. They take memory during inference alongside the weights.,https://en.wikipedia.org/wiki/Activation_function,44
 GPU,"A GPU (graphics processing unit) is a chip with thousands of small cores and its own fast memory, which makes it the usual choice for running and training models.",https://en.wikipedia.org/wiki/Graphics_processing_unit,44
 Profiling,"Profiling is measuring how long each part of a program or model takes, so you can see where time and memory really go before trying to speed things up.",https://en.wikipedia.org/wiki/Profiling_(computer_programming),56
 Bottleneck,A bottleneck is the single slowest step that limits how fast the whole system can go. Speeding up anything else won't help much.,https://en.wikipedia.org/wiki/Bottleneck_(engineering),56
 Benchmark,"A benchmark is a repeatable test that measures speed or accuracy under fixed conditions, so you can compare versions of a model fairly.",https://en.wikipedia.org/wiki/Benchmark_(computing),62
-Warm-up run,"A warm-up run is an untimed trial executed before measuring, because first runs are slower while weights load and caches fill.",,62
+Warm-up run,"A warm-up run is an untimed trial executed before measuring, because first runs are slower while weights load and caches fill.",https://en.wikipedia.org/wiki/Benchmark_(computing),62
 p95 latency,"p95 latency is the response time that 95% of requests are faster than. Percentiles like p50, p95 and p99 reveal slow outliers that an average hides.",https://en.wikipedia.org/wiki/Percentile,68
-Accuracy-speed trade-off,"The accuracy-speed trade-off is the usual price of optimization: making a model smaller or faster often costs a little accuracy, so you choose how much to give up.",,80
-Accuracy budget,"An accuracy budget is the largest accuracy drop you will accept from an optimization, decided in advance so you know when to stop.",,86
-Baseline,"A baseline is the measured accuracy and speed of the original, unoptimized model. You compare every optimized version against it.",,92
+Accuracy-speed trade-off,"The accuracy-speed trade-off is the usual price of optimization: making a model smaller or faster often costs a little accuracy, so you choose how much to give up.",https://en.wikipedia.org/wiki/Trade-off,80
+Accuracy budget,"An accuracy budget is the largest accuracy drop you will accept from an optimization, decided in advance so you know when to stop.",https://en.wikipedia.org/wiki/Accuracy_and_precision,86
+Baseline,"A baseline is the measured accuracy and speed of the original, unoptimized model. You compare every optimized version against it.",https://developers.google.com/machine-learning/glossary#baseline,92
 Held-out test set,"A held-out test set is data kept aside and never used for training, so measuring accuracy on it shows how the model handles new inputs.","https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets",98
 FP32,"FP32 is 32-bit floating point, the standard full-precision number format, using 4 bytes per value.",https://en.wikipedia.org/wiki/Single-precision_floating-point_format,104
 Bit,"A bit is a single 0 or 1, the smallest unit of digital storage; 8 bits make a byte.",https://en.wikipedia.org/wiki/Bit,104
 FP16,"FP16 is 16-bit half-precision floating point, using 2 bytes per value: half the memory of FP32.",https://en.wikipedia.org/wiki/Half-precision_floating-point_format,110
 BF16,"BF16 (brain floating point) is a 16-bit format that keeps FP32's wide number range but with less fine detail, making it more stable than FP16 for training and inference.",https://en.wikipedia.org/wiki/Bfloat16_floating-point_format,116
-Overflow,"Overflow happens when a number is too large for the format to hold, which can break results. FP16 overflows more easily than BF16.",,116
+Overflow,"Overflow happens when a number is too large for the format to hold, which can break results. FP16 overflows more easily than BF16.",https://en.wikipedia.org/wiki/Integer_overflow,116
 INT8,"INT8 is an 8-bit integer format, using 1 byte per value; it is the most common target for shrinking models.",https://en.wikipedia.org/wiki/Integer_(computer_science),122
-4-bit weights,"4-bit weights store each weight in just 4 bits, about a quarter of FP16's memory, at the price of coarser numbers.",,122
+4-bit weights,"4-bit weights store each weight in just 4 bits, about a quarter of FP16's memory, at the price of coarser numbers.",https://huggingface.co/docs/optimum/concept_guides/quantization,122
 Rounding error,Rounding error is the small difference between a real number and the nearest value a format can store. Lower precision means bigger errors that can slightly hurt accuracy.,https://en.wikipedia.org/wiki/Round-off_error,128
 Quantization,"Quantization means storing a model's numbers with fewer bits, for example INT8 instead of FP32, to save memory and often speed things up.",https://en.wikipedia.org/wiki/Quantization_(signal_processing),134
-Post-training quantization,"Post-training quantization (PTQ) shrinks an already trained model to lower precision without any retraining, using at most a small calibration sample.",,134
-Quantization scale,The quantization scale is the factor that converts stored integers back to approximate real values: real ≈ integer × scale. It is chosen from the range of the numbers being quantized.,,140
-Calibration data,Calibration data is a small sample of typical inputs run through a model to measure value ranges so good quantization scales can be chosen. No weights are updated.,,146
-Weight-only quantization,Weight-only quantization stores just the weights in low precision while activations stay at higher precision. It mainly saves memory and file size.,,152
-Dequantize,"To dequantize is to turn stored low-bit integers back into approximate real numbers by multiplying by the scale, so the math can use them.",,140
-Quantization-aware training,"Quantization-aware training (QAT) trains or fine-tunes a model while simulating low-precision rounding, so the weights adapt and accuracy holds up better after real quantization.",,158
-Fake quantization,"Fake quantization rounds values to low-precision levels during training but keeps them in floating point, letting the model feel quantization error without actually changing formats.",,158
-Pretrained model,"A pretrained model is one that has already been trained on lots of data, so you can reuse or adapt it instead of training from scratch.",,170
-Fine-tuning,Fine-tuning is a short extra round of training on top of a pretrained model to adapt it to a new goal or condition.,https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning),170
-Pruning,"Pruning removes weights (or bigger chunks) that contribute little to a model's output, making it smaller and cheaper to run, usually followed by a short fine-tune to recover accuracy.",https://en.wikipedia.org/wiki/Pruning_(artificial_neural_network),302
-Magnitude pruning,Magnitude pruning is the simplest pruning rule: weights with the smallest absolute values are assumed least important and are set to zero first.,,302
-Structured pruning,"Structured pruning deletes whole neurons, channels or attention heads, leaving a smaller dense model that ordinary hardware runs faster.",,308
-Unstructured pruning,"Unstructured pruning zeroes out individual weights wherever they are, leaving scattered zeros that need sparse-aware software or hardware to translate into real speedups.",,308
-Sparsity,Sparsity is the fraction of a model's weights that are exactly zero; a 90%-sparse model has nine zeros for every non-zero weight.,https://en.wikipedia.org/wiki/Sparse_matrix,314
+Post-training quantization,"Post-training quantization (PTQ) shrinks an already trained model to lower precision without any retraining, using at most a small calibration sample.",https://huggingface.co/docs/optimum/concept_guides/quantization,134
+Quantization scale,The quantization scale is the factor that converts stored integers back to approximate real values: real ≈ integer × scale. It is chosen from the range of the numbers being quantized.,https://huggingface.co/docs/optimum/concept_guides/quantization,1694
+Calibration data,Calibration data is a small sample of typical inputs run through a model to measure value ranges so good quantization scales can be chosen. No weights are updated.,https://huggingface.co/docs/optimum/concept_guides/quantization,146
+Weight-only quantization,Weight-only quantization stores just the weights in low precision while activations stay at higher precision. It mainly saves memory and file size.,https://huggingface.co/docs/optimum/concept_guides/quantization,152
+Dequantize,"To dequantize is to turn stored low-bit integers back into approximate real numbers by multiplying by the scale, so the math can use them.",https://huggingface.co/docs/optimum/concept_guides/quantization,140
+Quantization-aware training,"Quantization-aware training (QAT) trains or fine-tunes a model while simulating low-precision rounding, so the weights adapt and accuracy holds up better after real quantization.",https://huggingface.co/docs/optimum/concept_guides/quantization,158
+Fake quantization,"Fake quantization rounds values to low-precision levels during training but keeps them in floating point, letting the model feel quantization error without actually changing formats.",https://huggingface.co/docs/optimum/concept_guides/quantization,158
+Pretrained model,"A pretrained model is one that has already been trained on lots of data, so you can reuse or adapt it instead of training from scratch.",https://en.wikipedia.org/wiki/Transfer_learning,170
+Fine-tuning,Fine-tuning is a short extra round of training on top of a pretrained model to adapt it to a new goal or condition.,https://en.wikipedia.org/wiki/Fine-tuning_(deep_learning),20
+Pruning,"Pruning removes weights (or bigger chunks) that contribute little to a model's output, making it smaller and cheaper to run, usually followed by a short fine-tune to recover accuracy.",https://en.wikipedia.org/wiki/Pruning_(artificial_neural_network),164
+Magnitude pruning,Magnitude pruning is the simplest pruning rule: weights with the smallest absolute values are assumed least important and are set to zero first.,https://en.wikipedia.org/wiki/Pruning_(artificial_neural_network),302
+Structured pruning,"Structured pruning deletes whole neurons, channels or attention heads, leaving a smaller dense model that ordinary hardware runs faster.",https://en.wikipedia.org/wiki/Pruning_(artificial_neural_network),308
+Unstructured pruning,"Unstructured pruning zeroes out individual weights wherever they are, leaving scattered zeros that need sparse-aware software or hardware to translate into real speedups.",https://en.wikipedia.org/wiki/Pruning_(artificial_neural_network),308
+Sparsity,Sparsity is the fraction of a model's weights that are exactly zero; a 90%-sparse model has nine zeros for every non-zero weight.,https://en.wikipedia.org/wiki/Sparse_matrix,1664
 Knowledge distillation,"Knowledge distillation trains a small student model to imitate a large teacher model's outputs, giving a compact model that keeps much of the teacher's quality.",https://en.wikipedia.org/wiki/Knowledge_distillation,326
-Teacher model,"The teacher model is the large, accurate model whose outputs guide the smaller student during distillation.",,326
-Student model,The student model is the small model trained to mimic a teacher; it's the one you actually deploy.,,326
-Soft labels,"Soft labels are a teacher's full probability outputs (such as 70% cat, 25% dog) rather than a single right answer, revealing which wrong answers are nearly right.",,332
-Temperature,Temperature is a knob that divides a model's raw scores before turning them into probabilities; higher values flatten the distribution and lower values make it more peaked.,,338
-DistilBERT,"DistilBERT is a smaller version of BERT made by distillation, roughly 40% smaller while keeping most of BERT's accuracy.",,343
+Teacher model,"The teacher model is the large, accurate model whose outputs guide the smaller student during distillation.",https://en.wikipedia.org/wiki/Knowledge_distillation,1699
+Student model,The student model is the small model trained to mimic a teacher; it's the one you actually deploy.,https://en.wikipedia.org/wiki/Knowledge_distillation,326
+Soft labels,"Soft labels are a teacher's full probability outputs (such as 70% cat, 25% dog) rather than a single right answer, revealing which wrong answers are nearly right.",https://en.wikipedia.org/wiki/Knowledge_distillation,332
+Temperature,Temperature is a knob that divides a model's raw scores before turning them into probabilities; higher values flatten the distribution and lower values make it more peaked.,https://developers.google.com/machine-learning/glossary#temperature,8
+DistilBERT,"DistilBERT is a smaller version of BERT made by distillation, roughly 40% smaller while keeping most of BERT's accuracy.",https://en.wikipedia.org/wiki/BERT_(language_model),343
 Low-rank factorization,"Low-rank factorization approximates one big weight matrix as the product of two thinner matrices, storing far fewer numbers.",https://en.wikipedia.org/wiki/Low-rank_approximation,349
-Rank,"Rank, in low-rank factorization, is the inner width shared by the two thin matrices; lower rank compresses more but approximates less faithfully.",,355
-Weight sharing,"Weight sharing reuses the same set of weights in several places in a model, cutting the number of stored parameters.",,361
-ALBERT,ALBERT is a BERT variant that shares weights across its layers to shrink the parameter count.,,361
-Tied embeddings,"Tied embeddings share one embedding table between a model's input and output sides, saving parameters.",,361
+Rank,"Rank, in low-rank factorization, is the inner width shared by the two thin matrices; lower rank compresses more but approximates less faithfully.",https://en.wikipedia.org/wiki/Rank_(linear_algebra),140
+Weight sharing,"Weight sharing reuses the same set of weights in several places in a model, cutting the number of stored parameters.",https://en.wikipedia.org/wiki/Artificial_neural_network,361
+ALBERT,ALBERT is a BERT variant that shares weights across its layers to shrink the parameter count.,https://en.wikipedia.org/wiki/BERT_(language_model),361
+Tied embeddings,"Tied embeddings share one embedding table between a model's input and output sides, saving parameters.",https://en.wikipedia.org/wiki/Word_embedding,361
 CPU,"A CPU (central processing unit) has a few powerful, flexible cores that excel at branching, sequential logic.",https://en.wikipedia.org/wiki/Central_processing_unit,373
-Parallelism,"Parallelism means doing many operations at the same time, which is what lets GPUs speed up matrix math.",,373
-VRAM,VRAM is the GPU's own dedicated memory; a model's weights generally need to fit in it for fast inference.,,379
+Parallelism,"Parallelism means doing many operations at the same time, which is what lets GPUs speed up matrix math.",https://en.wikipedia.org/wiki/Parallel_computing,1629
+VRAM,VRAM is the GPU's own dedicated memory; a model's weights generally need to fit in it for fast inference.,https://en.wikipedia.org/wiki/Video_random-access_memory,379
 NPU,"An NPU (neural processing unit) is a low-power chip built for neural-network math, common in phones and laptops.",https://en.wikipedia.org/wiki/Neural_processing_unit,385
 TPU,A TPU (tensor processing unit) is Google's custom chip designed for tensor operations in machine learning.,https://en.wikipedia.org/wiki/Tensor_Processing_Unit,385
-Accelerator,"An accelerator is a chip specialized for a workload such as neural networks, e.g. GPU, TPU or NPU.",,385
-Memory-bound,Memory-bound work is limited by how fast data can be read from memory rather than by math speed; LLM text generation is often memory-bound.,,391
-Compute-bound,"Compute-bound work is limited by the chip's math speed rather than by memory reads, as in large dense matrix multiplies.",,391
-Bandwidth,Memory bandwidth is how many bytes per second a chip can read or write to its memory.,,391
-Batching,"Batching groups several inputs and processes them in one pass, keeping hardware busy and raising throughput.",,397
-Utilization,Utilization is the share of a chip's capacity that is actually doing useful work.,,399
-Dynamic batching,"Dynamic batching has a server collect incoming requests for a short window, up to a maximum size, and run them together.",,409
-Padding,Padding adds dummy filler values to shorter inputs so all inputs in a batch have the same length; it costs compute without adding information.,,415
-Operator fusion,Operator fusion merges adjacent operations into a single step so intermediate results don't have to be written to and read from memory.,,421
+Accelerator,"An accelerator is a chip specialized for a workload such as neural networks, e.g. GPU, TPU or NPU.",https://en.wikipedia.org/wiki/AI_accelerator,1704
+Memory-bound,Memory-bound work is limited by how fast data can be read from memory rather than by math speed; LLM text generation is often memory-bound.,https://en.wikipedia.org/wiki/Memory-bound_function,391
+Compute-bound,"Compute-bound work is limited by the chip's math speed rather than by memory reads, as in large dense matrix multiplies.",https://en.wikipedia.org/wiki/CPU-bound,391
+Bandwidth,Memory bandwidth is how many bytes per second a chip can read or write to its memory.,https://en.wikipedia.org/wiki/Memory_bandwidth,391
+Batching,"Batching groups several inputs and processes them in one pass, keeping hardware busy and raising throughput.",https://en.wikipedia.org/wiki/Batch_processing,158
+Utilization,Utilization is the share of a chip's capacity that is actually doing useful work.,https://en.wikipedia.org/wiki/Computer_performance,397
+Dynamic batching,"Dynamic batching has a server collect incoming requests for a short window, up to a maximum size, and run them together.",https://en.wikipedia.org/wiki/Batch_processing,409
+Padding,Padding adds dummy filler values to shorter inputs so all inputs in a batch have the same length; it costs compute without adding information.,https://www.tensorflow.org/guide/keras/understanding_masking_and_padding,1664
+Operator fusion,Operator fusion merges adjacent operations into a single step so intermediate results don't have to be written to and read from memory.,https://en.wikipedia.org/wiki/Loop_fission_and_fusion,421
 Kernel,"A kernel is a small program that runs on a GPU to perform one operation, such as a matrix multiply.",https://en.wikipedia.org/wiki/Compute_kernel,421
 Computation graph,A computation graph represents a model as operations (nodes) connected by the tensors flowing between them (edges).,https://en.wikipedia.org/wiki/Computation_graph,427
-Graph compiler,A graph compiler analyzes a model's computation graph and rewrites it into faster code by fusing operations and choosing efficient kernels for the target hardware.,,433
-TensorRT,TensorRT is NVIDIA's inference optimizer and compiler for running models fast on NVIDIA GPUs.,,433
-XLA,"XLA is Google's compiler for machine-learning graphs, used with JAX and TensorFlow.",,433
-TVM,Apache TVM is an open-source compiler that optimizes models for many kinds of hardware.,,433
-torch.compile,torch.compile is PyTorch 2's one-line way to compile a model's graph for faster execution.,,433
+Graph compiler,A graph compiler analyzes a model's computation graph and rewrites it into faster code by fusing operations and choosing efficient kernels for the target hardware.,https://en.wikipedia.org/wiki/Compiler,433
+TensorRT,TensorRT is NVIDIA's inference optimizer and compiler for running models fast on NVIDIA GPUs.,https://en.wikipedia.org/wiki/TensorRT,433
+XLA,"XLA is Google's compiler for machine-learning graphs, used with JAX and TensorFlow.",https://en.wikipedia.org/wiki/Accelerated_Linear_Algebra,433
+TVM,Apache TVM is an open-source compiler that optimizes models for many kinds of hardware.,https://tvm.apache.org/,1708
+torch.compile,torch.compile is PyTorch 2's one-line way to compile a model's graph for faster execution.,https://pytorch.org/docs/stable/generated/torch.compile.html,1712
 ONNX,"ONNX (Open Neural Network Exchange) is an open file format for a model's graph and weights, letting models move between frameworks and runtimes.",https://en.wikipedia.org/wiki/Open_Neural_Network_Exchange,445
-ONNX Runtime,ONNX Runtime is an engine that runs ONNX models efficiently on many kinds of hardware.,,445
-GGUF,GGUF is the single-file model format used by llama.cpp and tools like Ollama for running quantized language models locally.,,451
+ONNX Runtime,ONNX Runtime is an engine that runs ONNX models efficiently on many kinds of hardware.,https://en.wikipedia.org/wiki/Open_Neural_Network_Exchange,445
+GGUF,GGUF is the single-file model format used by llama.cpp and tools like Ollama for running quantized language models locally.,https://en.wikipedia.org/wiki/Llama.cpp,451
 llama.cpp,llama.cpp is an open-source C/C++ engine for running language models efficiently on ordinary computers.,https://github.com/ggml-org/llama.cpp,451
-Q4,Q4 in a GGUF file name signals roughly 4-bit quantized weights; lower numbers give smaller files with more quality loss.,,463
-Inference runtime,"An inference runtime is a program that loads a trained model's weights and runs them efficiently on your target hardware, so you get predictions quickly without writing low-level code yourself.",,602
-OpenVINO,"OpenVINO is Intel's toolkit for running trained models quickly on Intel hardware, so you can speed up inference on CPUs, integrated GPUs and NPUs without rewriting your model.",,608
-Execution provider,"In ONNX Runtime, an execution provider is a pluggable backend for one kind of hardware, so the runtime can hand parts of your model to a GPU, NPU or CPU as available.",,614
-Token,"A token is a small chunk of text, such as a word, part of a word or a symbol, which means a language model reads and writes text one token at a time rather than letter by letter.",,620
-Tokenizer,"A tokenizer is the program that splits raw text into tokens using a fixed vocabulary, so the model gets numbers to work with, and then turns generated tokens back into readable text.",,620
-Prompt,"A prompt is the input text you give a language model, such as a question or instruction, which the model reads first and then continues with its response.",,626
-Context window,"The context window is the maximum number of tokens a model can consider at once, counting both your prompt and its reply, so longer conversations eventually need trimming or summarizing.",,626
-Autoregressive decoding,"Autoregressive decoding is how language models write: they generate one token at a time, and each new token is predicted from all the tokens before it, which makes long replies take many sequential steps.",,639
-KV cache,Memory that stores the attention keys and values of earlier tokens so a language model does not recompute them for each new token.,,645
-Attention,"Attention is the transformer step where each token is compared with the other tokens to decide which ones matter most, which means the model can use context when predicting the next token.",,644
-FlashAttention,"An exact attention algorithm that reduces slow GPU memory traffic by working in small tiles, making attention faster and lighter on memory.",,663
-SRAM,"SRAM is very fast but tiny memory built onto the GPU chip itself, which means it is great for working data that is used right now but far too small to hold a whole model.",,663
-HBM,"HBM, or high-bandwidth memory, is the large main memory of a GPU where model weights live, so it holds much more than on-chip SRAM but is noticeably slower to read from.",,663
-Grouped-query attention,"Grouped-query attention lets several attention heads share one set of keys and values, which means the KV cache gets much smaller so you can serve longer chats or more users per GPU.",,669
-Sliding-window attention,"An attention variant where each token attends only to a fixed number of recent tokens, keeping cost from growing with length.",,669
-Attention head,"An attention head is one of several parallel attention computations in a layer, and each can focus on a different kind of relationship between tokens, such as grammar or topic.",,669
-Draft model,"In speculative decoding, the draft model is a small, fast model that quickly guesses several upcoming tokens, so the big model can check them in one go instead of writing each one slowly.",,675
-Target model,"In speculative decoding, the target model is the large, high-quality model whose output you actually want, and it verifies the draft model's guesses so quality stays the same as running it alone.",,675
-Speculative decoding,"A speedup where a small model drafts several tokens and the big model verifies them together, keeping the big model's output.",,675
-Acceptance rate,"In speculative decoding, the acceptance rate is the share of drafted tokens the target model agrees with, so a higher rate means fewer wasted guesses and a bigger speedup.",,687
-Static batching,"Static batching groups a fixed set of requests and runs them together until every one finishes, which means short requests wait idle for the longest one and GPU time is wasted.",,693
-Continuous batching,"Continuous batching adds and removes requests from the running batch after every token step, so finished requests free their slot immediately and the GPU stays busy instead of waiting.",,699
-Serving engine,"A serving engine is software that runs a model as a service, handling request scheduling, batching and memory for you, so many users can be served at high throughput on shared hardware.",,705
-vLLM,"vLLM is an open-source engine for serving language models efficiently, known for continuous batching and PagedAttention, which help it handle many users at once on the same GPU.",,705
-PagedAttention,"A technique that stores the KV cache in small fixed-size blocks allocated on demand, instead of one big reserved chunk per request, so much less GPU memory is wasted.",,1687
-TensorRT-LLM,"TensorRT-LLM is NVIDIA's library for compiling and serving fast language-model engines, which means you get heavily tuned inference, but only on NVIDIA GPUs.",,705
-LoRA,"LoRA, or Low-Rank Adaptation, fine-tunes a model by freezing the original weights and training only small add-on matrices, so customizing a model is cheap and the files stay tiny.",,717
-Adapter,"An adapter is a small set of extra trainable weights attached to a frozen base model, such as LoRA matrices, so one big model can be specialized for many tasks by swapping small files.",,717
-QLoRA,"QLoRA is LoRA fine-tuning done on top of a base model compressed to 4-bit, which saves a lot of memory, so you can tune fairly large models on a modest GPU.",,723
-Response cache,"A response cache stores previous model answers keyed by the request, so when the same request comes in again you return the saved answer without running the model at all.",,902
-Cache hit,"A cache hit happens when a lookup finds a stored answer, which means the model does not have to run at all and you get the reply almost instantly and for free.",,902
-Cache miss,"A cache miss happens when a lookup finds nothing stored, so the model has to run as usual, and the fresh result can then be saved to serve future repeat requests.",,902
-TTL,"TTL, or time to live, is how long a cache entry stays valid before it expires, which means old answers get refreshed instead of being served stale forever.",,902
-Semantic caching,"Semantic caching reuses a stored answer when a new request means about the same thing, found by comparing embeddings, so differently worded repeat questions can still skip the model.",,909
-Embedding,"An embedding is a list of numbers that captures the meaning of a piece of text, so texts with similar meanings get numbers that sit close together and can be compared mathematically.",,909
-Similarity threshold,"The similarity threshold is the cutoff for how close two embeddings must be before a cached answer is reused, so a higher value is safer but gets fewer cache hits.",,909
-Prefix caching,"Prefix caching stores the KV cache computed for a prompt's shared beginning, such as a long system prompt, so later requests with that same start skip reprocessing it and respond faster.",,916
-Prefill,"Prefill is the first step of inference, where the model reads the whole prompt in one pass before it starts generating, so long prompts mostly slow down the time to the first token.",,916
-Model routing,"Model routing sends each request to the most suitable model, such as a cheap small one for easy tasks and a large one for hard tasks, so you save money without hurting quality.",,922
-Cascade,"A cascade is a routing setup where a small, cheap model answers first and passes the request to a larger model only when it is unsure, so most traffic stays inexpensive.",,922
-Autoscaling,"Autoscaling automatically adds or removes running copies of your service as demand changes, so you have enough capacity at peak times and stop paying for idle machines at quiet times.",,929
-Replica,"A replica is one running copy of your model server, and several replicas share the incoming traffic, so adding more of them lets the service handle more users at once.",,929
-Scale out,"Scaling out means adding more replicas of your service to handle more load, instead of making a single machine bigger, so capacity grows by running more copies side by side.",,929
-Cold start,"A cold start is the extra delay when a fresh instance must boot and load model weights before serving its first request, which can make that one user wait many seconds.",,936
-Warm pool,"A warm pool is a set of instances kept already started and loaded with the model, so new traffic can be sent to them right away and users avoid the cold start delay.",,943
-Minimum replicas,"Minimum replicas is a floor on how many copies of your service always stay running, which means some capacity is always loaded and ready even when traffic drops to nothing.",,943
-Scale-to-zero,"Scale-to-zero shuts down every replica when there is no traffic so nothing is billed, at the cost of a cold start the next time a request arrives.",,950
-Queue depth,"Queue depth is the number of requests waiting to be processed, and because a growing queue means users are waiting, it is a common signal for deciding when to add replicas.",,950
-Cost per request,"Cost per request is the money spent on serving divided by the number of requests handled in that period, which gives you one number to compare optimizations and hardware choices.",,957
-GPU utilization,The share of a GPU's capacity that is doing useful work; low utilization means you are paying for idle hardware.,,399
-Right-sizing,"Right-sizing means choosing hardware just big enough for your workload instead of overprovisioning, so you avoid paying for an expensive GPU that mostly sits idle.",,964
-Per-token pricing,"Per-token pricing bills an LLM by the tokens you send in and receive back, often quoted per million tokens, so longer prompts and longer answers directly cost more.",,971
-Break-even point,"The break-even point is the traffic level where two options, such as self-hosting and paying an API, cost exactly the same, so below it one is cheaper and above it the other wins.",,978
-Self-hosting,"Self-hosting means running a model on hardware you rent or own instead of calling a provider's API, which gives you control and can cost less at high volume but adds operations work.",,978
-On-device inference,"On-device inference runs a model directly on the user's own phone, laptop or gadget instead of a remote server, which means faster replies, offline use and data that stays private.",,985
-Edge deployment,"Edge deployment runs models on devices or servers close to the user rather than in a central data center, which cuts network delay and can keep data local.",,985
-Thermal throttling,"Thermal throttling is when hardware slows itself down to avoid overheating, which is common on phones running heavy models, so speed can drop after a few minutes of sustained work.",,992
-Core ML,"Core ML is Apple's framework for running machine learning models on iPhones, iPads and Macs, and it can use the device's Neural Engine, GPU and CPU to run them efficiently.",,999
-Hybrid deployment,"Hybrid deployment splits inference between the device and the cloud, for example answering easy requests locally and sending hard ones to a server, so you balance speed, cost and quality.",,1006
-Regression,"A regression is a change that makes something that used to work correctly get worse, such as accuracy dropping after an optimization, so you should test for it before shipping.",,1013
-Golden set,"A golden set is a fixed collection of test inputs with known good outputs, which you reuse to compare models before and after a change so you can spot quality drops.",,1020
-p99 latency,"p99 latency is the time within which 99 percent of requests finish, so it reveals the slowest experiences that an average hides and shows what your unluckiest users actually see.",,1027
-Canary release,"A canary release sends a small share of live traffic to a new model first, so any problems show up for a few users and you can roll back before everyone is affected.",,1034
-Shadow testing,"Shadow testing runs a new model on copies of real requests without showing its answers to users, so you can compare it against the current model on real traffic with no risk.",,1034
-Low-hanging fruit,"Low-hanging fruit means optimizations that are cheap and low-risk to apply, such as caching or batching, so you should try them first before harder changes like retraining.",,1048
-Accuracy floor,"An accuracy floor is the lowest quality level you are willing to accept, so any optimization that drops results below it is rejected no matter how much faster or cheaper it is.",,1062
-Premature optimization,"Premature optimization is spending effort speeding something up before measuring whether it is really the bottleneck, which often wastes time and adds complexity for no real gain.",,1069
-Slice,"A slice is a subgroup of your test data, such as one language or input type, evaluated on its own, so a problem hidden inside a good overall average still shows up.",,1083
-Latency-throughput trade-off,"The latency-throughput trade-off is the tension where a bigger batch size serves more requests per second overall, but makes each individual request wait longer for its answer.",,1090
-Decode phase,"The step-by-step part of LLM inference where the model generates the reply one token at a time, re-reading the weights and KV cache each step and so usually limited by memory bandwidth.",,1601
-Time to first token (TTFT),How long a user waits after sending a prompt until the first output token appears; mostly the cost of prefill.,,1608
-Time per output token (TPOT),The average time between output tokens after the first one; mostly decode speed. Its inverse is roughly tokens per second.,,1608
-Tokens per second,"How many output tokens are generated each second, either for one user (about 1 divided by TPOT) or summed across all users on a server.",,1608
-Chunked prefill,"Splitting a long prompt's prefill into smaller chunks that are scheduled together with other requests' decode steps, so long prompts don't stall everyone's token generation.",,1615
-Goodput,"The rate of requests a serving system completes while still meeting its latency targets (SLOs), unlike raw throughput which counts everything.",,1622
-SLO (service level objective),"A measurable target a service promises, such as time to first token under one second for 99% of requests.",,1622
-Sharding,Splitting a model's weights into pieces stored on different GPUs so a model too big for one GPU can run.,,1629
-Data parallelism,Running several full copies of a model on different GPUs so each copy serves different requests; it adds traffic capacity but not room for a bigger model.,,1629
-Tensor parallelism,"Splitting each layer's weight matrices across several GPUs that work on the same request together and combine results after every layer, lowering latency but needing fast links.",,1636
-Pipeline parallelism,Splitting a model by layers so each GPU runs a consecutive block and passes activations onward like an assembly line; less communication than tensor parallelism but no latency gain for a single request.,,1643
-Mixture of experts (MoE),"A model design made of many expert sub-networks where a router activates only a few per token, cutting compute per token while all experts still need to be held in memory.",,1650
-Expert,"One of the sub-networks inside a mixture-of-experts layer, chosen by the router for some tokens.",,1650
-Active parameters,The parameters actually used to process one token; in a mixture-of-experts model this is much smaller than the total parameter count.,,1650
-Interconnect,The wiring that moves data between GPUs (or between GPUs and the rest of the machine); its bandwidth limits how well a model can be split across GPUs.,,1657
-NVLink,"NVIDIA's high-bandwidth link that connects GPUs directly, typically many times faster than PCIe.",,1657
-PCIe,The general-purpose expansion slot connection between GPUs and the rest of a computer; slower than NVLink for GPU-to-GPU traffic.,,1657
-FP8,"An 8-bit floating point format supported by newer GPUs; half the memory of FP16, with variants E4M3 and E5M2.",,1664
-E4M3,"The FP8 variant with 4 exponent bits and 3 detail bits: more precision, narrower range.",,1664
-E5M2,"The FP8 variant with 5 exponent bits and 2 detail bits: wider range, less precision.",,1664
-GPTQ,"A popular post-training method for 4-bit weight-only quantization that works layer by layer, rounding weights one at a time and adjusting the rest to minimize error.",,1672
-AWQ,Activation-aware Weight Quantization: a post-training 4-bit weight-only method that uses activations from calibration data to find important weights and scale them so rounding hurts less.,,1672
-Group-wise quantization,"Quantizing weights in small groups (often 32 to 128 values) that each get their own scale, which limits damage from outliers at the cost of storing more scales.",,1679
-Group size,The number of weights that share one quantization scale in group-wise quantization.,,1679
-KV block,"A small fixed-size chunk of KV cache memory, holding keys and values for a set number of tokens, that PagedAttention allocates on demand.",,1687
-Block table,"A block table is a lookup that maps a request's logical KV cache positions to the physical memory blocks where they are stored, so the cache need not sit in one contiguous chunk.",,1687
-Memory fragmentation,"Memory fragmentation is wasted GPU memory caused by reserved-but-unused space and scattered gaps between allocations, which means free memory exists but cannot fit a new request.",,1687
-Outlier (quantization),An unusually large or small weight value that stretches a quantization scale and hurts precision for its neighbors; group-wise quantization limits the damage to one group.,,1679
+Q4,Q4 in a GGUF file name signals roughly 4-bit quantized weights; lower numbers give smaller files with more quality loss.,https://huggingface.co/docs/optimum/concept_guides/quantization,463
+Inference runtime,"An inference runtime is a program that loads a trained model's weights and runs them efficiently on your target hardware, so you get predictions quickly without writing low-level code yourself.",https://en.wikipedia.org/wiki/Inference_engine,602
+OpenVINO,"OpenVINO is Intel's toolkit for running trained models quickly on Intel hardware, so you can speed up inference on CPUs, integrated GPUs and NPUs without rewriting your model.",https://en.wikipedia.org/wiki/OpenVINO,608
+Execution provider,"In ONNX Runtime, an execution provider is a pluggable backend for one kind of hardware, so the runtime can hand parts of your model to a GPU, NPU or CPU as available.",https://onnxruntime.ai/docs/execution-providers/,614
+Token,"A token is a small chunk of text, such as a word, part of a word or a symbol, which means a language model reads and writes text one token at a time rather than letter by letter.",https://developers.google.com/machine-learning/glossary#token,409
+Tokenizer,"A tokenizer is the program that splits raw text into tokens using a fixed vocabulary, so the model gets numbers to work with, and then turns generated tokens back into readable text.",https://developers.google.com/machine-learning/glossary#tokenizer,1699
+Prompt,"A prompt is the input text you give a language model, such as a question or instruction, which the model reads first and then continues with its response.",https://developers.google.com/machine-learning/glossary#prompt,1785
+Context window,"The context window is the maximum number of tokens a model can consider at once, counting both your prompt and its reply, so longer conversations eventually need trimming or summarizing.",https://developers.google.com/machine-learning/glossary#context-window,626
+Autoregressive decoding,"Autoregressive decoding is how language models write: they generate one token at a time, and each new token is predicted from all the tokens before it, which makes long replies take many sequential steps.",https://en.wikipedia.org/wiki/Autoregressive_model,639
+KV cache,Memory that stores the attention keys and values of earlier tokens so a language model does not recompute them for each new token.,https://en.wikipedia.org/wiki/Transformer_(deep_learning),645
+Attention,"Attention is the transformer step where each token is compared with the other tokens to decide which ones matter most, which means the model can use context when predicting the next token.",https://developers.google.com/machine-learning/glossary#attention,308
+FlashAttention,"An exact attention algorithm that reduces slow GPU memory traffic by working in small tiles, making attention faster and lighter on memory.",https://en.wikipedia.org/wiki/FlashAttention,663
+SRAM,"SRAM is very fast but tiny memory built onto the GPU chip itself, which means it is great for working data that is used right now but far too small to hold a whole model.",https://en.wikipedia.org/wiki/Static_random-access_memory,663
+HBM,"HBM, or high-bandwidth memory, is the large main memory of a GPU where model weights live, so it holds much more than on-chip SRAM but is noticeably slower to read from.",https://en.wikipedia.org/wiki/High_Bandwidth_Memory,663
+Grouped-query attention,"Grouped-query attention lets several attention heads share one set of keys and values, which means the KV cache gets much smaller so you can serve longer chats or more users per GPU.",https://en.wikipedia.org/wiki/Attention_(machine_learning),669
+Sliding-window attention,"An attention variant where each token attends only to a fixed number of recent tokens, keeping cost from growing with length.",https://en.wikipedia.org/wiki/Attention_(machine_learning),669
+Attention head,"An attention head is one of several parallel attention computations in a layer, and each can focus on a different kind of relationship between tokens, such as grammar or topic.",https://en.wikipedia.org/wiki/Attention_(machine_learning),308
+Draft model,"In speculative decoding, the draft model is a small, fast model that quickly guesses several upcoming tokens, so the big model can check them in one go instead of writing each one slowly.",https://en.wikipedia.org/wiki/Speculative_decoding,675
+Target model,"In speculative decoding, the target model is the large, high-quality model whose output you actually want, and it verifies the draft model's guesses so quality stays the same as running it alone.",https://en.wikipedia.org/wiki/Speculative_decoding,675
+Speculative decoding,"A speedup where a small model drafts several tokens and the big model verifies them together, keeping the big model's output.",https://en.wikipedia.org/wiki/Speculative_decoding,675
+Acceptance rate,"In speculative decoding, the acceptance rate is the share of drafted tokens the target model agrees with, so a higher rate means fewer wasted guesses and a bigger speedup.",https://en.wikipedia.org/wiki/Speculative_decoding,687
+Static batching,"Static batching groups a fixed set of requests and runs them together until every one finishes, which means short requests wait idle for the longest one and GPU time is wasted.",https://en.wikipedia.org/wiki/Batch_processing,693
+Continuous batching,"Continuous batching adds and removes requests from the running batch after every token step, so finished requests free their slot immediately and the GPU stays busy instead of waiting.",https://en.wikipedia.org/wiki/Batch_processing,699
+Serving engine,"A serving engine is software that runs a model as a service, handling request scheduling, batching and memory for you, so many users can be served at high throughput on shared hardware.",https://en.wikipedia.org/wiki/Inference_engine,705
+vLLM,"vLLM is an open-source engine for serving language models efficiently, known for continuous batching and PagedAttention, which help it handle many users at once on the same GPU.",https://docs.vllm.ai/en/latest/,705
+PagedAttention,"A technique that stores the KV cache in small fixed-size blocks allocated on demand, instead of one big reserved chunk per request, so much less GPU memory is wasted.",https://en.wikipedia.org/wiki/PagedAttention,1687
+TensorRT-LLM,"TensorRT-LLM is NVIDIA's library for compiling and serving fast language-model engines, which means you get heavily tuned inference, but only on NVIDIA GPUs.",https://en.wikipedia.org/wiki/TensorRT,705
+LoRA,"LoRA, or Low-Rank Adaptation, fine-tunes a model by freezing the original weights and training only small add-on matrices, so customizing a model is cheap and the files stay tiny.",https://developers.google.com/machine-learning/glossary#lora,717
+Adapter,"An adapter is a small set of extra trainable weights attached to a frozen base model, such as LoRA matrices, so one big model can be specialized for many tasks by swapping small files.",https://huggingface.co/docs/peft/conceptual_guides/lora,717
+QLoRA,"QLoRA is LoRA fine-tuning done on top of a base model compressed to 4-bit, which saves a lot of memory, so you can tune fairly large models on a modest GPU.",https://arxiv.org/abs/2305.14314,723
+Response cache,"A response cache stores previous model answers keyed by the request, so when the same request comes in again you return the saved answer without running the model at all.",https://en.wikipedia.org/wiki/Cache_(computing),902
+Cache hit,"A cache hit happens when a lookup finds a stored answer, which means the model does not have to run at all and you get the reply almost instantly and for free.",https://en.wikipedia.org/wiki/Cache_(computing),902
+Cache miss,"A cache miss happens when a lookup finds nothing stored, so the model has to run as usual, and the fresh result can then be saved to serve future repeat requests.",https://en.wikipedia.org/wiki/Cache_(computing),693
+TTL,"TTL, or time to live, is how long a cache entry stays valid before it expires, which means old answers get refreshed instead of being served stale forever.",https://developers.google.com/machine-learning/glossary#ttl,1725
+Semantic caching,"Semantic caching reuses a stored answer when a new request means about the same thing, found by comparing embeddings, so differently worded repeat questions can still skip the model.",https://en.wikipedia.org/wiki/Cache_(computing),909
+Embedding,"An embedding is a list of numbers that captures the meaning of a piece of text, so texts with similar meanings get numbers that sit close together and can be compared mathematically.",https://en.wikipedia.org/wiki/Word_embedding,909
+Similarity threshold,"The similarity threshold is the cutoff for how close two embeddings must be before a cached answer is reused, so a higher value is safer but gets fewer cache hits.",https://en.wikipedia.org/wiki/Cosine_similarity,909
+Prefix caching,"Prefix caching stores the KV cache computed for a prompt's shared beginning, such as a long system prompt, so later requests with that same start skip reprocessing it and respond faster.",https://en.wikipedia.org/wiki/Cache_(computing),916
+Prefill,"Prefill is the first step of inference, where the model reads the whole prompt in one pass before it starts generating, so long prompts mostly slow down the time to the first token.",https://en.wikipedia.org/wiki/Transformer_(deep_learning),1601
+Model routing,"Model routing sends each request to the most suitable model, such as a cheap small one for easy tasks and a large one for hard tasks, so you save money without hurting quality.",https://en.wikipedia.org/wiki/Load_balancing_(computing),922
+Cascade,"A cascade is a routing setup where a small, cheap model answers first and passes the request to a larger model only when it is unsure, so most traffic stays inexpensive.",https://en.wikipedia.org/wiki/Cascading_classifiers,922
+Autoscaling,"Autoscaling automatically adds or removes running copies of your service as demand changes, so you have enough capacity at peak times and stop paying for idle machines at quiet times.",https://en.wikipedia.org/wiki/Autoscaling,929
+Replica,"A replica is one running copy of your model server, and several replicas share the incoming traffic, so adding more of them lets the service handle more users at once.",https://developers.google.com/machine-learning/glossary#replica,929
+Scale out,"Scaling out means adding more replicas of your service to handle more load, instead of making a single machine bigger, so capacity grows by running more copies side by side.",https://en.wikipedia.org/wiki/Scalability,929
+Cold start,"A cold start is the extra delay when a fresh instance must boot and load model weights before serving its first request, which can make that one user wait many seconds.",https://en.wikipedia.org/wiki/Cold_start_(computing),936
+Warm pool,"A warm pool is a set of instances kept already started and loaded with the model, so new traffic can be sent to them right away and users avoid the cold start delay.",https://en.wikipedia.org/wiki/Autoscaling,943
+Minimum replicas,"Minimum replicas is a floor on how many copies of your service always stay running, which means some capacity is always loaded and ready even when traffic drops to nothing.",https://en.wikipedia.org/wiki/Autoscaling,943
+Scale-to-zero,"Scale-to-zero shuts down every replica when there is no traffic so nothing is billed, at the cost of a cold start the next time a request arrives.",https://en.wikipedia.org/wiki/Serverless_computing,950
+Queue depth,"Queue depth is the number of requests waiting to be processed, and because a growing queue means users are waiting, it is a common signal for deciding when to add replicas.",https://en.wikipedia.org/wiki/Queue_(abstract_data_type),950
+Cost per request,"Cost per request is the money spent on serving divided by the number of requests handled in that period, which gives you one number to compare optimizations and hardware choices.",https://en.wikipedia.org/wiki/Unit_cost,50
+GPU utilization,The share of a GPU's capacity that is doing useful work; low utilization means you are paying for idle hardware.,https://en.wikipedia.org/wiki/Graphics_processing_unit,397
+Right-sizing,"Right-sizing means choosing hardware just big enough for your workload instead of overprovisioning, so you avoid paying for an expensive GPU that mostly sits idle.",https://en.wikipedia.org/wiki/Capacity_planning,964
+Per-token pricing,"Per-token pricing bills an LLM by the tokens you send in and receive back, often quoted per million tokens, so longer prompts and longer answers directly cost more.",https://en.wikipedia.org/wiki/Large_language_model,1734
+Break-even point,"The break-even point is the traffic level where two options, such as self-hosting and paying an API, cost exactly the same, so below it one is cheaper and above it the other wins.",https://en.wikipedia.org/wiki/Break-even_point,978
+Self-hosting,"Self-hosting means running a model on hardware you rent or own instead of calling a provider's API, which gives you control and can cost less at high volume but adds operations work.",https://en.wikipedia.org/wiki/Self-hosting_(web_services),978
+On-device inference,"On-device inference runs a model directly on the user's own phone, laptop or gadget instead of a remote server, which means faster replies, offline use and data that stays private.",https://en.wikipedia.org/wiki/Edge_computing,985
+Edge deployment,"Edge deployment runs models on devices or servers close to the user rather than in a central data center, which cuts network delay and can keep data local.",https://en.wikipedia.org/wiki/Edge_computing,1738
+Thermal throttling,"Thermal throttling is when hardware slows itself down to avoid overheating, which is common on phones running heavy models, so speed can drop after a few minutes of sustained work.",https://en.wikipedia.org/wiki/Dynamic_frequency_scaling,992
+Core ML,"Core ML is Apple's framework for running machine learning models on iPhones, iPads and Macs, and it can use the device's Neural Engine, GPU and CPU to run them efficiently.",https://en.wikipedia.org/wiki/Core_ML,999
+Hybrid deployment,"Hybrid deployment splits inference between the device and the cloud, for example answering easy requests locally and sending hard ones to a server, so you balance speed, cost and quality.",https://en.wikipedia.org/wiki/Hybrid_cloud,1006
+Regression,"A regression is a change that makes something that used to work correctly get worse, such as accuracy dropping after an optimization, so you should test for it before shipping.",https://en.wikipedia.org/wiki/Regression_testing,1013
+Golden set,"A golden set is a fixed collection of test inputs with known good outputs, which you reuse to compare models before and after a change so you can spot quality drops.","https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets",1020
+p99 latency,"p99 latency is the time within which 99 percent of requests finish, so it reveals the slowest experiences that an average hides and shows what your unluckiest users actually see.",https://en.wikipedia.org/wiki/Percentile,68
+Canary release,"A canary release sends a small share of live traffic to a new model first, so any problems show up for a few users and you can roll back before everyone is affected.",https://en.wikipedia.org/wiki/Feature_toggle,1743
+Shadow testing,"Shadow testing runs a new model on copies of real requests without showing its answers to users, so you can compare it against the current model on real traffic with no risk.",https://en.wikipedia.org/wiki/Continuous_delivery,1034
+Low-hanging fruit,"Low-hanging fruit means optimizations that are cheap and low-risk to apply, such as caching or batching, so you should try them first before harder changes like retraining.",https://en.wikipedia.org/wiki/Low-hanging_fruit,1748
+Accuracy floor,"An accuracy floor is the lowest quality level you are willing to accept, so any optimization that drops results below it is rejected no matter how much faster or cheaper it is.",https://en.wikipedia.org/wiki/Accuracy_and_precision,1062
+Premature optimization,"Premature optimization is spending effort speeding something up before measuring whether it is really the bottleneck, which often wastes time and adds complexity for no real gain.",https://en.wikipedia.org/wiki/Program_optimization,1752
+Slice,"A slice is a subgroup of your test data, such as one language or input type, evaluated on its own, so a problem hidden inside a good overall average still shows up.",https://en.wikipedia.org/wiki/Array_slicing,1694
+Latency-throughput trade-off,"The latency-throughput trade-off is the tension where a bigger batch size serves more requests per second overall, but makes each individual request wait longer for its answer.",https://en.wikipedia.org/wiki/Throughput,1756
+Decode phase,"The step-by-step part of LLM inference where the model generates the reply one token at a time, re-reading the weights and KV cache each step and so usually limited by memory bandwidth.",https://en.wikipedia.org/wiki/Transformer_(deep_learning),1761
+Time to first token,How long a user waits after sending a prompt until the first output token appears; mostly the cost of prefill.,https://en.wikipedia.org/wiki/Latency_(engineering),1765
+Time per output token,The average time between output tokens after the first one; mostly decode speed. Its inverse is roughly tokens per second.,https://en.wikipedia.org/wiki/Latency_(engineering),1769
+Tokens per second,"How many output tokens are generated each second, either for one user (about 1 divided by TPOT) or summed across all users on a server.",https://en.wikipedia.org/wiki/Throughput,1608
+Chunked prefill,"Splitting a long prompt's prefill into smaller chunks that are scheduled together with other requests' decode steps, so long prompts don't stall everyone's token generation.",https://en.wikipedia.org/wiki/Transformer_(deep_learning),1615
+Goodput,"The rate of requests a serving system completes while still meeting its latency targets (SLOs), unlike raw throughput which counts everything.",https://en.wikipedia.org/wiki/Goodput,1622
+Service level objective,"A measurable target a service promises, such as time to first token under one second for 99% of requests.",https://en.wikipedia.org/wiki/Service-level_objective,1773
+Sharding,Splitting a model's weights into pieces stored on different GPUs so a model too big for one GPU can run.,https://en.wikipedia.org/wiki/Shard_(database_architecture),1629
+Data parallelism,Running several full copies of a model on different GPUs so each copy serves different requests; it adds traffic capacity but not room for a bigger model.,https://developers.google.com/machine-learning/glossary#data-parallelism,1629
+Tensor parallelism,"Splitting each layer's weight matrices across several GPUs that work on the same request together and combine results after every layer, lowering latency but needing fast links.",https://en.wikipedia.org/wiki/Parallel_computing,1636
+Pipeline parallelism,Splitting a model by layers so each GPU runs a consecutive block and passes activations onward like an assembly line; less communication than tensor parallelism but no latency gain for a single request.,https://en.wikipedia.org/wiki/Parallel_computing,1643
+Mixture of experts,"A model design made of many expert sub-networks where a router activates only a few per token, cutting compute per token while all experts still need to be held in memory.",https://en.wikipedia.org/wiki/Mixture_of_experts,1777
+Expert,"One of the sub-networks inside a mixture-of-experts layer, chosen by the router for some tokens.",https://en.wikipedia.org/wiki/Mixture_of_experts,1650
+Active parameters,The parameters actually used to process one token; in a mixture-of-experts model this is much smaller than the total parameter count.,https://en.wikipedia.org/wiki/Mixture_of_experts,1650
+Interconnect,The wiring that moves data between GPUs (or between GPUs and the rest of the machine); its bandwidth limits how well a model can be split across GPUs.,https://en.wikipedia.org/wiki/NVLink,1657
+NVLink,"NVIDIA's high-bandwidth link that connects GPUs directly, typically many times faster than PCIe.",https://en.wikipedia.org/wiki/NVLink,1657
+PCIe,The general-purpose expansion slot connection between GPUs and the rest of a computer; slower than NVLink for GPU-to-GPU traffic.,https://en.wikipedia.org/wiki/PCI_Express,1657
+FP8,"An 8-bit floating point format supported by newer GPUs; half the memory of FP16, with variants E4M3 and E5M2.",https://en.wikipedia.org/wiki/Minifloat,1664
+E4M3,"The FP8 variant with 4 exponent bits and 3 detail bits: more precision, narrower range.",https://en.wikipedia.org/wiki/Minifloat,1664
+E5M2,"The FP8 variant with 5 exponent bits and 2 detail bits: wider range, less precision.",https://en.wikipedia.org/wiki/Minifloat,1794
+GPTQ,"A popular post-training method for 4-bit weight-only quantization that works layer by layer, rounding weights one at a time and adjusting the rest to minimize error.",https://huggingface.co/docs/transformers/quantization/gptq,1672
+AWQ,Activation-aware Weight Quantization: a post-training 4-bit weight-only method that uses activations from calibration data to find important weights and scale them so rounding hurts less.,https://huggingface.co/docs/transformers/quantization/awq,1672
+Group-wise quantization,"Quantizing weights in small groups (often 32 to 128 values) that each get their own scale, which limits damage from outliers at the cost of storing more scales.",https://huggingface.co/docs/optimum/concept_guides/quantization,1679
+Group size,The number of weights that share one quantization scale in group-wise quantization.,https://huggingface.co/docs/optimum/concept_guides/quantization,1679
+KV block,"A small fixed-size chunk of KV cache memory, holding keys and values for a set number of tokens, that PagedAttention allocates on demand.",https://arxiv.org/abs/2309.06180,1687
+Block table,"A block table is a lookup that maps a request's logical KV cache positions to the physical memory blocks where they are stored, so the cache need not sit in one contiguous chunk.",https://arxiv.org/abs/2309.06180,1687
+Memory fragmentation,"Memory fragmentation is wasted GPU memory caused by reserved-but-unused space and scattered gaps between allocations, which means free memory exists but cannot fit a new request.",https://en.wikipedia.org/wiki/Fragmentation_(computing),1781
+Outlier,An unusually large or small weight value that stretches a quantization scale and hurts precision for its neighbors; group-wise quantization limits the damage to one group.,https://huggingface.co/docs/optimum/concept_guides/quantization,1785
+GPUs,"Graphics processing units: chips with thousands of small cores, used to run neural networks fast.",https://en.wikipedia.org/wiki/Graphics_processing_unit,
+CPUs,Central processing units: a computer's general-purpose processors.,https://en.wikipedia.org/wiki/Central_processing_unit,
+NPUs,Neural processing units: chips built specifically to run neural network maths efficiently.,https://en.wikipedia.org/wiki/Neural_processing_unit,
+QAT,Quantization-aware training: training a model while simulating low-precision numbers so it survives quantization well.,https://huggingface.co/docs/optimum/concept_guides/quantization,
+PTQ,Post-training quantization: converting a finished model to low-precision numbers without retraining it.,https://huggingface.co/docs/optimum/concept_guides/quantization,
+Q8,An 8-bit quantized model: each weight is stored in 8 bits instead of 16 or 32.,https://huggingface.co/docs/optimum/concept_guides/quantization,
+KV,Key and value: the per-token attention vectors a transformer keeps in its KV cache while generating text.,https://en.wikipedia.org/wiki/Transformer_(deep_learning),
+GB,"Gigabyte: one billion bytes, the usual unit for a model's memory size.",https://en.wikipedia.org/wiki/Gigabyte,
+RAM,Random-access memory: the fast working memory a computer uses to hold running programs and data.,https://en.wikipedia.org/wiki/Random-access_memory,
+LLM,Large language model: a neural network trained on huge amounts of text to predict and generate language.,https://en.wikipedia.org/wiki/Large_language_model,
+LLMs,Large language models: neural networks trained on huge amounts of text to predict and generate language.,https://en.wikipedia.org/wiki/Large_language_model,
+TTFT,Time to first token: how long a user waits before a model produces the first piece of its answer.,https://en.wikipedia.org/wiki/Latency_(engineering),
+TPOT,Time per output token: the average time a model needs to generate each further token after the first.,https://en.wikipedia.org/wiki/Latency_(engineering),
+SLO,"Service-level objective: a target for how a service should perform, such as 95% of requests under one second.",https://en.wikipedia.org/wiki/Service-level_objective,
+PyTorch,A popular open-source Python library for building and training neural networks.,https://en.wikipedia.org/wiki/PyTorch,
+NVIDIA,The company that makes most GPUs used to train and run AI models.,https://en.wikipedia.org/wiki/Nvidia,
+CUDA,NVIDIA's platform for running general-purpose programs on its GPUs.,https://en.wikipedia.org/wiki/CUDA,
+BERT,Bidirectional Encoder Representations from Transformers: a language model released by Google in 2018.,https://en.wikipedia.org/wiki/BERT_(language_model),
+ReLU,Rectified linear unit: an activation function that outputs zero for negative inputs and the input itself otherwise.,https://en.wikipedia.org/wiki/Rectifier_(neural_networks),
+MoE,Mixture of experts: a model built from many specialist sub-networks where only a few run for each token.,https://en.wikipedia.org/wiki/Mixture_of_experts,
+AI,Artificial intelligence: software that performs tasks that normally need human intelligence.,https://en.wikipedia.org/wiki/Artificial_intelligence,
+ML,Machine learning: methods that let computers learn patterns from data instead of following hand-written rules.,https://en.wikipedia.org/wiki/Machine_learning,
+API,Application programming interface: a defined way for one program to ask another for something.,https://en.wikipedia.org/wiki/API,
+APIs,Application programming interfaces: defined ways for one program to ask another for something.,https://en.wikipedia.org/wiki/API,
+TPUs,Tensor processing units: Google's chips built to run neural network maths fast.,https://en.wikipedia.org/wiki/Tensor_Processing_Unit,

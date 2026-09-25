@@ -237,7 +237,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 309,9,select_blank,exercise,308,Unstructured pruning zeroes ___ weights.,individual|whole-layer|entire-head,0,,,
 310,9,multiple_choice,exercise,308,Which pruning speeds up ordinary GPUs?,Structured|Unstructured,0,,,"A smaller dense matrix just works on normal hardware, while scattered zeros usually need special support."
 311,9,categorize,exercise,308,Which pruning style?,Single weight↔Unstructured|Whole channel↔Structured|Entire neuron↔Structured|Scattered zero↔Unstructured,,,,
-312,9,multi_select,exercise,308,Structured pruning can remove:,Channels|Whole neurons|Single weights|Scattered zeros,0|1,,,Structured pruning removes whole chunks such as channels or neurons. Single weights and scattered zeros belong to unstructured pruning.
+312,9,multiple_choice,exercise,308,Removing a whole attention head is which pruning?,Structured|Unstructured|Neither|Both,0,,,"Whole heads go as one block, so it is structured pruning."
 1330,9,multiple_choice,exercise,308,You deleted 20 whole channels. Pruning type?,Structured|Unstructured|Dense,0,,,Removing whole channels or neurons is structured pruning.
 313,9,true_false,preview,314,Zeros only save time if skipped.,,true,,,Zeros only save time when the hardware or software actually skips them; otherwise they get multiplied like any other number.
 314,9,multiple_choice,main,,What is sparsity?,Parameter count|Share of zeros|Weight range,1,,,A 90%-sparse model has 90% of its weights equal to zero. That only speeds things up if the runtime skips the zeros; a dense engine still multiplies them.
@@ -861,3 +861,134 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1094,29,match_pairs,exercise,1090,Match each optimization to its cost.,Big batch↔Higher latency|Pruning↔Some accuracy|Caching↔Stale answers,,,,"Each optimization gives up something, so know the price."
 1095,29,order,exercise,1090,Order by batch size.,Batch 1|Batch 8|Batch 64,,,,Larger batches raise throughput and typically increase waiting time.
 1533,29,multiple_choice,exercise,1090,Live chat feels laggy at batch 128. Fix?,More retries|Smaller batches|Bigger batches,1,,,"Smaller batches cut waiting time, trading away some throughput."
+1693,7,true_false,preview,1694,A quantization scale turns stored integers back into real values.,,true,,,Real value is about the integer times the scale.
+1694,7,multiple_choice,main,,Real value equals integer times what?,Scale|Rank|Batch,0,,,The quantization scale converts a stored integer back to an approximate real value.
+1695,7,multiple_choice,exercise,1694,"Integer 40, quantization scale 0.5. Real value?",20|80|40|0.5,0,,,"40 x 0.5 = 20, so the approximate real value is 20."
+1696,7,select_blank,exercise,1694,The quantization scale comes from the number ___.,range|colour|name,0,,,It is chosen from the range of the numbers being quantized.
+1697,7,true_false,exercise,1694,A bigger quantization scale means coarser steps.,,true,,,Each integer step then covers a larger slice of the real range.
+1698,10,true_false,preview,1699,A teacher model guides a smaller student during distillation.,,true,,,The student learns from the teacher's outputs.
+1699,10,multiple_choice,main,,"In distillation, who is the teacher model?",Large model|Small model|Dataset,0,,,"The teacher model is the large, accurate model whose outputs guide the student."
+1700,10,select_blank,exercise,1699,The student learns from the teacher ___ outputs.,model's|user's|GPU's,0,,,"The student copies the teacher model's outputs, not raw labels alone."
+1701,10,true_false,exercise,1699,A teacher model is usually smaller than its student.,,false,,,"The teacher model is the larger, more accurate one."
+1702,10,multiple_choice,exercise,1699,Which model is the teacher model?,70B model|1B model|Tokenizer,0,,,Distilling a 70B model into a 1B model makes the 70B model the teacher.
+1703,12,true_false,preview,1704,An accelerator is a chip specialized for a workload.,,true,,,"GPUs, TPUs and NPUs are all accelerators."
+1704,12,multiple_choice,main,,Which is an accelerator?,GPU|Keyboard|Router,0,,,An accelerator is a chip specialized for a workload such as neural networks.
+1705,12,multi_select,exercise,1704,Which are accelerators for neural networks?,GPU|TPU|NPU|Printer,0|1|2,,,"GPUs, TPUs and NPUs are accelerator chips; a printer is not."
+1706,12,true_false,exercise,1704,Every accelerator is also a CPU.,,false,,,An accelerator is specialized; a CPU is general purpose.
+1707,14,true_false,preview,1708,TVM optimizes models for many kinds of hardware.,,true,,,Apache TVM is an open-source compiler.
+1708,14,multiple_choice,main,,What kind of tool is TVM?,Compiler|Database|Browser,0,,,Apache TVM is an open-source compiler that optimizes models for many kinds of hardware.
+1709,14,true_false,exercise,1708,TVM only targets one brand of chip.,,false,,,"It targets many kinds of hardware, which is its point."
+1710,14,select_blank,exercise,1708,TVM is an open-source ___.,compiler|dataset|cloud,0,,,TVM compiles model graphs into fast code for a chosen device.
+1711,14,true_false,preview,1712,torch.compile speeds up a PyTorch model in one line.,,true,,,It compiles the model's graph for faster execution.
+1712,14,multiple_choice,main,,What does torch.compile do?,Compiles graph|Trains model|Deletes weights,0,,,torch.compile compiles a model's graph for faster execution.
+1713,14,select_blank,exercise,1712,Call ___ on a model to speed it up.,torch.compile|print|open,0,,,One call to torch.compile wraps the model with a compiled version.
+1714,14,true_false,exercise,1712,torch.compile needs a rewrite of the model.,,false,,,It is a one-line change; the model code stays as it is.
+1715,19,true_false,preview,1716,An attention head is one parallel attention computation.,,true,,,A layer runs several heads side by side.
+1716,19,multiple_choice,main,,One layer has several what?,Attention heads|Tokenizers|Datasets,0,,,A layer runs several attention heads in parallel.
+1717,19,true_false,exercise,1716,Each attention head can focus on different relationships.,,true,,,One attention head may track grammar while another tracks topic.
+1718,19,select_blank,exercise,1716,One attention head might follow ___.,grammar|colour|price,0,,,"Heads specialise, for example on grammar or topic."
+1719,23,true_false,preview,1720,A cache miss means nothing was stored for the lookup.,,true,,,The model then runs as usual.
+1720,23,multiple_choice,main,,What happens on a cache miss?,Model runs|Request fails|Cache clears,0,,,"The model runs as usual, and the fresh result can be saved."
+1721,23,true_false,exercise,1720,A cache miss can save its result for later.,,true,,,The fresh answer is stored so future repeat requests hit the cache.
+1722,23,select_blank,exercise,1720,"After a cache miss, a repeat is a ___.",hit|miss|crash,0,,,"Once saved, the same request finds the stored answer: a cache hit."
+1723,23,multiple_choice,exercise,1720,First ever request to a cache?,Cache miss|Cache hit|Expired,0,,,"Nothing is stored yet, so the first lookup is a cache miss."
+1724,23,true_false,preview,1725,A TTL sets how long a cache entry stays valid.,,true,,,TTL stands for time to live.
+1725,23,multiple_choice,main,,What does a TTL control?,Entry lifetime|Batch size|Model size,0,,,"TTL, or time to live, is how long a cache entry stays valid before it expires."
+1726,23,select_blank,exercise,1725,An expired entry gets ___.,refreshed|kept forever|ignored,0,,,A TTL makes old answers refresh instead of being served stale forever.
+1727,23,true_false,exercise,1725,A very long TTL risks serving stale answers.,,true,,,"The longer an entry lives, the older the answer it may return."
+1728,23,multiple_choice,exercise,1725,News answers change hourly. TTL?,Short|Very long|None,0,,,Fast-changing content needs a short TTL so answers refresh quickly.
+1729,25,true_false,preview,1730,Cost per request is spend divided by requests served.,,true,,,It gives one number to compare optimizations.
+1730,25,multiple_choice,main,,Cost per request divides spend by what?,Requests|Tokens only|GPUs,0,,,Cost per request is the money spent on serving divided by the requests handled.
+1731,25,multiple_choice,exercise,1730,"$50 spent, 1000 requests. Cost per request?",5 cents|50 cents|$5|$50,0,,,"$50 / 1000 = $0.05 per request, which is 5 cents."
+1732,25,true_false,exercise,1730,A cheaper GPU always lowers cost per request.,,false,,,"If it is slower, it may serve fewer requests and cost more per request."
+1733,25,true_false,preview,1734,Per-token pricing bills you by tokens in and out.,,true,,,It is often quoted per million tokens.
+1734,25,multiple_choice,main,,Per-token pricing bills by what?,Tokens|Hours|Users,0,,,Per-token pricing charges for the tokens you send and receive.
+1735,25,true_false,exercise,1734,Longer answers cost more under per-token pricing.,,true,,,More output tokens directly means a higher bill.
+1736,25,multiple_choice,exercise,1734,Shorter prompts lower which bill?,Per-token|Fixed hardware|Flat fee,0,,,Only per-token pricing shrinks when you send fewer tokens.
+1737,26,true_false,preview,1738,Edge deployment runs models close to the user.,,true,,,It avoids a trip to a central data center.
+1738,26,multiple_choice,main,,Edge deployment runs models where?,Near users|Only central|In orbit,0,,,Edge deployment runs models on devices or servers close to the user.
+1739,26,select_blank,exercise,1738,Edge deployment cuts ___ delay.,network|training|labeling,0,,,Running near the user removes much of the network round trip.
+1740,26,true_false,exercise,1738,Edge deployment can keep data on the device.,,true,,,Data need not travel to a central data center.
+1741,26,multiple_choice,exercise,1738,Phone runs the model itself. Which is it?,Edge deployment|Cloud|Batch,0,,,A model running on the device is the clearest edge deployment.
+1742,27,true_false,preview,1743,A canary release tests few users first.,,true,,,Only a small share of traffic sees it first.
+1743,27,multiple_choice,main,,A canary release sends traffic where?,Few users|Everyone|Nobody,0,,,A small share of live traffic goes to the new model first.
+1744,27,true_false,exercise,1743,A canary release lets you roll back early.,,true,,,"Problems show up for a few users, so you can roll back before everyone is affected."
+1745,27,multiple_choice,exercise,1743,Canary release at 5% of 2000 requests. How many?,100|500|50|1000,0,,,5% of 2000 is 100 requests sent to the new model.
+1746,27,multiple_choice,exercise,1743,Canary release shows errors. Next?,Roll back|Ship all|Ignore,0,,,"Roll back, since only a few users were affected."
+1747,28,true_false,preview,1748,"Low-hanging fruit means cheap, low-risk optimizations.",,true,,,Try these first.
+1748,28,multiple_choice,main,,Which is low-hanging fruit?,Caching|Retraining|New chip,0,,,"Caching is cheap and low-risk, unlike retraining."
+1749,28,true_false,exercise,1748,Retraining is low-hanging fruit.,,false,,,It is expensive and risky; low-hanging fruit is cheap and low-risk.
+1750,28,select_blank,exercise,1748,Try low-hanging fruit like ___ first.,batching|redesign|rewriting,0,,,Batching is easy to apply and often gives quick wins.
+1751,29,true_false,preview,1752,Premature optimization speeds things up before measuring.,,true,,,It often wastes time for no real gain.
+1752,29,multiple_choice,main,,Premature optimization skips what?,Measuring|Coding|Testing UI,0,,,It means optimizing before measuring whether something is really the bottleneck.
+1753,29,true_false,exercise,1752,Profiling first avoids premature optimization.,,true,,,Measuring shows the real bottleneck before you spend effort.
+1754,29,multiple_choice,exercise,1752,Rewrote a fast function unmeasured. Which is it?,Premature optimization|Profiling|Caching,0,,,Optimizing something never shown to be slow is premature optimization.
+1755,29,true_false,preview,1756,The latency-throughput trade-off links batch size to waiting.,,true,,,Bigger batches serve more requests but each waits longer.
+1756,29,multiple_choice,main,,Bigger batches raise throughput but raise what?,Latency|Accuracy|Model size,0,,,"Each request waits longer, which is the latency-throughput trade-off."
+1757,29,true_false,exercise,1756,Batch size 1 gives the highest throughput.,,false,,,Small batches waste hardware; throughput rises with bigger batches.
+1758,29,multiple_choice,exercise,1756,Chat app needs snappy replies. Batch size?,Small|Huge|Zero,0,,,"Interactive apps favour low latency, so smaller batches."
+1759,29,multiple_choice,exercise,1756,"Overnight job, only speed overall. Batch?",Large|Tiny|One,0,,,"With no one waiting, favour throughput with large batches."
+1760,30,true_false,preview,1761,The decode phase writes the reply.,,true,,,Each step re-reads the weights and the KV cache.
+1761,30,multiple_choice,main,,The decode phase produces tokens how?,Stepwise|Together|Backwards,0,,,The decode phase generates the reply one token at a time.
+1762,30,true_false,exercise,1761,The decode phase is limited by memory bandwidth.,,true,,,"Every step re-reads the weights and KV cache, so memory speed dominates."
+1763,30,select_blank,exercise,1761,Prefill reads the prompt; ___ writes the reply.,decode|compile|cache,0,,,The decode phase follows prefill and emits tokens step by step.
+1764,30,true_false,preview,1765,Time to first token is the wait before any output.,,true,,,It is mostly the cost of prefill.
+1765,30,multiple_choice,main,,Time to first token mostly measures what?,Prefill|Decode|Caching,0,,,The wait before the first output token is mostly the cost of prefill.
+1766,30,multiple_choice,exercise,1765,First token arrives after 0.8 s. Milliseconds?,800|80|8000|8,0,,,0.8 seconds is 800 milliseconds.
+1767,30,true_false,exercise,1765,A longer prompt usually raises time to first token.,,true,,,More prompt tokens means more prefill work before the first output.
+1768,30,true_false,preview,1769,Time per output token is the gap between later tokens.,,true,,,It is mostly decode speed.
+1769,30,multiple_choice,main,,Time per output token mostly reflects what?,Decode speed|Prefill|Tokenizer,0,,,The gap between output tokens after the first is mostly decode speed.
+1770,30,multiple_choice,exercise,1769,Time per output token 50 ms. Tokens per second?,20|50|5|200,0,,,1000 ms / 50 ms = 20 tokens per second.
+1771,30,true_false,exercise,1769,Lower time per output token means faster streaming.,,true,,,Smaller gaps between tokens make the reply appear faster.
+1772,30,true_false,preview,1773,A service level objective is a measurable performance target.,,true,,,"For example, first token under one second for 99% of requests."
+1773,30,multiple_choice,main,,What is a service level objective?,Target|Bug|Model,0,,,It is a measurable target a service promises to meet.
+1774,30,true_false,exercise,1773,A service level objective can be vague.,,false,,,"It must be measurable, such as 99% of requests under one second."
+1775,30,multiple_choice,exercise,1773,99% of replies under 2 s is a what?,SLO|Cache|Batch,0,,,A measurable promise like this is a service level objective.
+1776,31,true_false,preview,1777,A mixture of experts activates few experts.,,true,,,A router picks the experts.
+1777,31,multiple_choice,main,,"In a mixture of experts, who picks experts?",Router|Tokenizer|User,0,,,A router activates only a few experts for each token.
+1778,31,true_false,exercise,1777,A mixture of experts cuts compute per token.,,true,,,"Only a few experts run, so each token needs less compute."
+1779,31,true_false,exercise,1777,A mixture of experts needs less memory for weights.,,false,,,All experts still have to be held in memory.
+1780,21,true_false,preview,1781,Memory fragmentation wastes GPU memory in scattered gaps.,,true,,,Free memory exists but cannot fit a new request.
+1781,21,multiple_choice,main,,Memory fragmentation leaves memory how?,Scattered|Encrypted|Doubled,0,,,Reserved-but-unused space and gaps leave free memory that cannot fit a new request.
+1782,21,true_false,exercise,1781,Memory fragmentation can block a request despite free memory.,,true,,,The free memory sits in gaps too small for the new allocation.
+1783,21,multiple_choice,exercise,1781,Which technique reduces memory fragmentation?,PagedAttention|Dropout|Rounding,0,,,"PagedAttention stores the KV cache in blocks, avoiding big scattered gaps."
+1784,7,true_false,preview,1785,An outlier weight can hurt quantization precision.,,true,,,It stretches the quantization scale.
+1785,7,multiple_choice,main,,An outlier stretches the what?,Scale|Prompt|Batch,0,,,An unusually large weight stretches the quantization scale for its neighbours.
+1786,7,true_false,exercise,1785,One outlier can hurt its neighbours' precision.,,true,,,A stretched scale leaves fewer distinct steps for ordinary values.
+1787,7,multiple_choice,exercise,1785,Which limits an outlier's damage?,Group-wise|Longer prompts|Bigger batch,0,,,Group-wise quantization keeps an outlier's effect inside one group.
+1788,1,true_false,preview,1789,Temperature reshapes a model's probabilities before sampling.,,true,,,Temperature divides the raw scores first.
+1789,1,multiple_choice,main,,Higher temperature makes the distribution what?,Flatter|Sharper|Smaller,0,,,Higher temperature flattens the distribution; lower makes it more peaked.
+1790,1,true_false,exercise,1789,Low temperature makes replies more predictable.,,true,,,A peaked distribution keeps picking the most likely answer.
+1791,1,multiple_choice,exercise,1789,Creative story wanted. Temperature?,Higher|Lower|Zero,0,,,"A higher temperature adds variety, which suits creative writing."
+1792,1,multiple_choice,exercise,1789,Exact facts wanted. Temperature?,Lower|Higher|Random,0,,,A lower temperature makes the model stick to its likeliest answer.
+1793,6,true_false,preview,1794,E5M2 is an FP8 format with a wide range.,,true,,,It has 5 exponent bits and 2 detail bits.
+1794,6,multiple_choice,main,,E5M2 has how many exponent bits?,Five|Two|Four,0,,,"E5M2 uses 5 exponent bits and 2 detail bits: wider range, less precision."
+1795,6,true_false,exercise,1794,E5M2 has more precision than E4M3.,,false,,,"E5M2 has fewer detail bits, so it trades precision for range."
+1796,6,multiple_choice,exercise,1794,Which FP8 format suits huge value ranges?,E5M2|E4M3|INT8,0,,,More exponent bits give E5M2 a wider range.
+1797,32,true_false,preview,1798,This recap revisits Scalar.,,true,,,"Right: Scalar means single number, and the cards that follow revisit it with other terms."
+1798,32,match_pairs,main,,Match each term to its meaning.,Scalar↔Single number|Vector↔List of numbers|Backward pass↔Computes gradients|Warm-up run↔Untimed trial,,,,Each term is paired with its plain-language meaning.
+1799,32,match_pairs,exercise,1798,Pair every term with its gloss.,Accuracy-speed trade-off↔Price of optimizing|Held-out test set↔Unseen test data|Dequantize↔Integers to reals|Weight-only quantization↔Weights stored small,,,,Each term is paired with its plain-language meaning.
+1800,32,match_pairs,exercise,1798,Which meaning fits each term?,GPTQ↔Layer-wise 4-bit|AWQ↔Activation-aware 4-bit|Group size↔Weights per scale|Magnitude pruning↔Drop smallest weights,,,,Each term is paired with its plain-language meaning.
+1801,32,match_pairs,exercise,1798,Connect the terms to what they mean.,Structured pruning↔Removes whole channels|Unstructured pruning↔Zeroes single weights|Knowledge distillation↔Student mimics teacher|Soft labels↔Full probabilities,,,,Each term is paired with its plain-language meaning.
+1802,32,match_pairs,exercise,1798,Match the terms and meanings.,DistilBERT↔Smaller BERT|Low-rank factorization↔Two thin matrices|ALBERT↔Shared-layer BERT|Tied embeddings↔Shared embedding table,,,,Each term is paired with its plain-language meaning.
+1803,32,true_false,exercise,1798,Scalar means list of numbers.,,false,,,No: Scalar means single number.
+1804,32,true_false,preview,1805,This recap revisits VRAM.,,true,,,"Right: VRAM means gPU's own memory, and the cards that follow revisit it with other terms."
+1805,32,match_pairs,main,,Match each term to its meaning.,VRAM↔GPU's own memory|Compute-bound↔Limited by math|Dynamic batching↔Collect requests briefly|Operator fusion↔Merge adjacent operations,,,,Each term is paired with its plain-language meaning.
+1806,32,match_pairs,exercise,1805,Pair every term with its gloss.,Computation graph↔Operations as nodes|Graph compiler↔Rewrites graph faster|XLA↔Google's graph compiler|Q4↔About 4-bit,,,,Each term is paired with its plain-language meaning.
+1807,32,match_pairs,exercise,1805,Which meaning fits each term?,Inference runtime↔Runs trained models|OpenVINO↔Intel's toolkit|Execution provider↔Hardware backend plugin|Autoregressive decoding↔Token by token,,,,Each term is paired with its plain-language meaning.
+1808,32,match_pairs,exercise,1805,Connect the terms to what they mean.,Grouped-query attention↔Heads share keys|Sliding-window attention↔Only recent tokens|Speculative decoding↔Draft then verify|Acceptance rate↔Drafts kept,,,,Each term is paired with its plain-language meaning.
+1809,32,true_false,preview,1810,This recap revisits Serving engine.,,true,,,"Right: Serving engine means runs model service, and the cards that follow revisit it with other terms."
+1810,32,match_pairs,main,,Match each term to its meaning.,Serving engine↔Runs model service|KV block↔Chunk of cache|Block table↔Maps cache positions|QLoRA↔LoRA on 4-bit,,,,Each term is paired with its plain-language meaning.
+1811,32,match_pairs,exercise,1810,Pair every term with its gloss.,Chunked prefill↔Split long prompts|Goodput↔Requests meeting SLO|Sharding↔Split across GPUs|Data parallelism↔Replicated model copies,,,,Each term is paired with its plain-language meaning.
+1812,32,match_pairs,exercise,1810,Which meaning fits each term?,Expert↔One sub-network|Active parameters↔Used per token|Interconnect↔GPU-to-GPU wiring|NVLink↔Fast GPU link,,,,Each term is paired with its plain-language meaning.
+1813,32,match_pairs,exercise,1810,Connect the terms to what they mean.,PCIe↔Slower expansion link|Semantic caching↔Reuse similar answers|Embedding↔Meaning as numbers|Similarity threshold↔Match cutoff,,,,Each term is paired with its plain-language meaning.
+1814,32,true_false,preview,1815,This recap revisits Model routing.,,true,,,"Right: Model routing means pick best model, and the cards that follow revisit it with other terms."
+1815,32,match_pairs,main,,Match each term to its meaning.,Model routing↔Pick best model|Cascade↔Small model first|Scale out↔Add replicas|Queue depth↔Requests waiting,,,,Each term is paired with its plain-language meaning.
+1816,32,match_pairs,exercise,1815,Pair every term with its gloss.,Right-sizing↔Just-enough hardware|Break-even point↔Options cost equal|Self-hosting↔Run it yourself|On-device inference↔Runs on phone,,,,Each term is paired with its plain-language meaning.
+1817,32,match_pairs,exercise,1815,Which meaning fits each term?,Thermal throttling↔Slows when hot|Core ML↔Apple's ML framework|Hybrid deployment↔Device plus cloud|Golden set↔Fixed known-good tests,,,,Each term is paired with its plain-language meaning.
+1818,32,match_pairs,exercise,1815,Connect the terms to what they mean.,Shadow testing↔Silent live comparison|Accuracy floor↔Lowest acceptable quality|Teacher model↔Large guiding model|Accelerator↔Specialized chip,,,,Each term is paired with its plain-language meaning.
+1819,32,true_false,preview,1820,This recap revisits TVM.,,true,,,"Right: TVM means open-source compiler, and the cards that follow revisit it with other terms."
+1820,32,match_pairs,main,,Match each term to its meaning.,TVM↔Open-source compiler|TTL↔Entry lifetime|Per-token pricing↔Pay per token|Edge deployment↔Run near users,,,,Each term is paired with its plain-language meaning.
+1821,32,match_pairs,exercise,1820,Pair every term with its gloss.,Canary release↔Few users first|Low-hanging fruit↔Cheap easy wins|Premature optimization↔Optimizing before measuring|Latency-throughput trade-off↔Bigger batches wait,,,,Each term is paired with its plain-language meaning.
+1822,32,match_pairs,exercise,1820,Which meaning fits each term?,Decode phase↔Writes reply|Time to first token↔Wait for output|Time per output token↔Gap between tokens|Service level objective↔Measurable promise,,,,Each term is paired with its plain-language meaning.
+1823,32,match_pairs,exercise,1820,Connect the terms to what they mean.,Mixture of experts↔Few experts run|Memory fragmentation↔Wasted scattered memory|Outlier↔Extreme weight|E5M2↔Wide-range FP8,,,,Each term is paired with its plain-language meaning.
