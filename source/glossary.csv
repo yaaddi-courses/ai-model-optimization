@@ -73,7 +73,7 @@ Dynamic batching,"Dynamic batching has a server collect incoming requests for a 
 Padding,Padding adds dummy filler values to shorter inputs so all inputs in a batch have the same length; it costs compute without adding information.,https://www.tensorflow.org/guide/keras/understanding_masking_and_padding,1664
 Operator fusion,Operator fusion merges adjacent operations into a single step so intermediate results don't have to be written to and read from memory.,https://en.wikipedia.org/wiki/Loop_fission_and_fusion,421
 Kernel,"A kernel is a small program that runs on a GPU to perform one operation, such as a matrix multiply.",https://en.wikipedia.org/wiki/Compute_kernel,421
-Computation graph,A computation graph represents a model as operations (nodes) connected by the tensors flowing between them (edges).,https://en.wikipedia.org/wiki/Computation_graph,427
+Computation graph,A computation graph represents a model as operations (nodes) connected by the tensors flowing between them (edges).,https://en.wikipedia.org/wiki/Dataflow_programming,427
 Graph compiler,A graph compiler analyzes a model's computation graph and rewrites it into faster code by fusing operations and choosing efficient kernels for the target hardware.,https://en.wikipedia.org/wiki/Compiler,433
 TensorRT,TensorRT is NVIDIA's inference optimizer and compiler for running models fast on NVIDIA GPUs.,https://en.wikipedia.org/wiki/TensorRT,433
 XLA,"XLA is Google's compiler for machine-learning graphs, used with JAX and TensorFlow.",https://en.wikipedia.org/wiki/Accelerated_Linear_Algebra,433
@@ -206,3 +206,44 @@ ML,Machine learning: methods that let computers learn patterns from data instead
 API,Application programming interface: a defined way for one program to ask another for something.,https://en.wikipedia.org/wiki/API,
 APIs,Application programming interfaces: defined ways for one program to ask another for something.,https://en.wikipedia.org/wiki/API,
 TPUs,Tensor processing units: Google's chips built to run neural network maths fast.,https://en.wikipedia.org/wiki/Tensor_Processing_Unit,
+INT32,"A 32-bit whole-number format; it uses 32 bits per value, not 16.",https://en.wikipedia.org/wiki/Integer_(computer_science),120
+FP64,Double-precision floating point: a 64-bit number format that uses twice the memory of FP32.,https://en.wikipedia.org/wiki/Double-precision_floating-point_format,1318
+E8M7,"Not an FP8 format; it names a 1-8-7 bit split like BF16, which has 8 exponent and 7 mantissa bits.",https://en.wikipedia.org/wiki/Bfloat16_floating-point_format,1666
+E2M5,A hypothetical 8-bit split with 2 exponent and 5 mantissa bits; the real FP8 formats are E4M3 and E5M2.,https://en.wikipedia.org/wiki/Minifloat,1666
+INT4,A 4-bit whole-number format used to shrink model weights to a quarter of FP16 size.,https://en.wikipedia.org/wiki/Integer_(computer_science),1670
+ResNet,"A convolutional neural network for images, not a distilled language model.",https://en.wikipedia.org/wiki/Residual_neural_network,344
+NumPy,A Python library for fast numerical arrays; it is not a graph compiler.,https://en.wikipedia.org/wiki/NumPy,434
+JSON,"JavaScript Object Notation: a plain-text data format, not designed for storing model weights.",https://en.wikipedia.org/wiki/JSON,453
+Q2,"A GGUF quantization level that stores weights in about 2 bits, giving the smallest file and lowest quality.",https://huggingface.co/docs/hub/gguf,465
+Q3,"A GGUF quantization level that stores weights in about 3 bits, between Q2 and Q4 in size and quality.",https://huggingface.co/docs/hub/gguf,467
+GQA,Grouped-query attention: several query heads share one set of keys and values to shrink the KV cache.,https://en.wikipedia.org/wiki/Attention_(machine_learning),673
+GPS,"Global Positioning System: satellite navigation, not a chip that runs neural networks.",https://en.wikipedia.org/wiki/Global_Positioning_System,999
+UI,User interface: the screens and controls people use to work with software.,https://en.wikipedia.org/wiki/User_interface,1752
+Tensors,Multi-dimensional arrays of numbers that hold the data and weights of a neural network.,https://en.wikipedia.org/wiki/Tensor_(machine_learning),8
+Vectors,Ordered lists of numbers; in a transformer the keys and values held in the KV cache are vectors.,https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics),8
+Bottlenecks,"The slowest part of a system, which limits the speed of everything else.",https://en.wikipedia.org/wiki/Bottleneck_(software),56
+Benchmarks,Standard tests used to measure and compare the speed or quality of models and systems.,https://en.wikipedia.org/wiki/Benchmark_(computing),62
+Warm-up runs,Untimed early runs that let caches and GPU kernels load so later timings are representative.,https://en.wikipedia.org/wiki/Cache_(computing),62
+Bits,"The smallest unit of data, a 0 or a 1; the number of bits per weight sets a model's precision and size.",https://en.wikipedia.org/wiki/Bit,104
+Overflowing,"When a number grows past the largest value a format can hold, breaking the calculation.",https://en.wikipedia.org/wiki/Integer_overflow,116
+Overflows,Cases where a number exceeds the largest value a format can store.,https://en.wikipedia.org/wiki/Integer_overflow,116
+Ranks,"The order or position of an item in a sorted list, such as the runner-up answers a teacher model ranks.",https://en.wikipedia.org/wiki/Ranking,140
+Accelerators,Chips such as GPUs and NPUs built to run neural-network maths faster than a CPU.,https://en.wikipedia.org/wiki/AI_accelerator,1704
+Kernels,"Small programs that run on a GPU to perform one operation, such as a matrix multiply.",https://en.wikipedia.org/wiki/Compute_kernel,421
+Execution providers,"The ONNX Runtime back ends, such as CPU, CUDA or TensorRT, that actually run the model.",https://onnxruntime.ai/docs/execution-providers/,614
+Tokens,"Small chunks of text, such as word pieces, that a language model reads and writes.",https://en.wikipedia.org/wiki/Large_language_model#Tokenization,409
+Tokenizers,Programs that split text into tokens and convert them to numbers a model can read.,https://en.wikipedia.org/wiki/Large_language_model#Tokenization,1699
+Prompts,The instructions and context you give a language model to get a response.,https://en.wikipedia.org/wiki/Prompt_engineering,1785
+Speculative-decoding,A speed-up where a small draft model guesses several tokens ahead and the large model checks them at once.,https://en.wikipedia.org/wiki/Large_language_model#Speculative_decoding,675
+Serving engines,"Software such as vLLM that runs a model for many users, batching requests and managing the cache.",https://docs.vllm.ai/en/latest/,705
+Adapters,Small trainable layers added to a frozen model so it can be fine-tuned cheaply.,https://huggingface.co/docs/peft/index,717
+Cache misses,"Requests that are not found in the cache, so the full computation has to be done.",https://en.wikipedia.org/wiki/Cache_(computing)#Operation,693
+Embeddings,Lists of numbers that represent the meaning of words or other items so a model can compare them.,https://en.wikipedia.org/wiki/Word_embedding,909
+Replicas,Identical copies of a model server that share the incoming load.,https://en.wikipedia.org/wiki/Replication_(computing),929
+Cold starts,"The slow first request after a model server starts, while weights are still being loaded.",https://en.wikipedia.org/wiki/Cold_start_(computing),936
+Cold-start,The hyphenated form of cold start: the slow first request while weights load.,https://en.wikipedia.org/wiki/Cold_start_(computing),936
+Cost-per-request,"The price of serving a single request, worked out from hardware cost and how many requests it handles.",https://en.wikipedia.org/wiki/Cost_per_action,50
+Slices,Pieces of a tensor split across several GPUs in tensor parallelism.,https://en.wikipedia.org/wiki/Data_parallelism,1694
+Mixture-of-experts,A model design where a router sends each token to only a few specialised sub-networks.,https://en.wikipedia.org/wiki/Mixture_of_experts,1777
+Experts,The specialised sub-networks inside a mixture-of-experts model.,https://en.wikipedia.org/wiki/Mixture_of_experts,1650
+Outliers,"Unusual values far from the rest, such as a few very slow requests.",https://en.wikipedia.org/wiki/Outlier,1785
