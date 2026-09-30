@@ -2,156 +2,156 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1,1,true_false,preview,2,A model's behavior is stored in numbers called weights.,,true,,,A model doesn't hold rules written by a person; what it 'knows' is a big pile of numbers called weights.
 2,1,multiple_choice,main,,What are a model's weights?,Hand-set rules|Learned numbers|Training inputs,1,,,Weights are the numbers a model learns from data. Change them and you change what the model predicts.
 3,1,select_blank,exercise,2,A model's knowledge lives in its ___.,inputs|weights|outputs,1,,,Everything the model learned is packed into its weights.
-4,1,multiple_choice,exercise,2,Which change alters what a model predicts?,Editing weights|Renaming file|Restarting server,0,,,
+4,1,multiple_choice,exercise,2,Which change alters what a model predicts?,Editing weights|Renaming file|Restarting server,0,,,"Editing the weights changes what a model predicts, because the weights are the learned numbers that turn inputs into outputs."
 5,1,multi_select,exercise,2,Which describe a model's weights?,Learned|Numbers|Hand-written|Per-request,0|1,,,"Weights are just numbers, and they are learned from data rather than typed in by a person."
-6,1,match_pairs,exercise,2,Match each idea to its role.,Weights↔Learned numbers|Input↔Data given|Output↔Prediction,,,,
+6,1,match_pairs,exercise,2,Match each idea to its role.,Weights↔Learned numbers|Input↔Data given|Output↔Prediction,,,,"Weights are the learned numbers, the input is the data you give the model, and the output is its prediction."
 1300,1,multiple_choice,exercise,2,"Same code, different weights: same predictions?",Identical|Differ|Slower only,1,,,"Predictions come from the weights, so different weights give different behavior even with the same code."
 7,1,true_false,preview,8,A tensor is a grid of numbers.,,true,,,"True: a tensor is a grid of numbers, like a table or an image. Frameworks such as PyTorch store almost everything as tensors."
 8,1,multiple_choice,main,,What is a tensor?,Number grid|Neural layer|Model file,0,,,"A single number (a scalar) is a 0-D tensor, a list (a vector) is 1-D, a table (matrix) is 2-D, and a color image is usually 3-D: height, width, color channels."
-9,1,order,exercise,8,Order by number of dimensions.,Scalar|Vector|Matrix|3-D tensor,,,,"A scalar has 0 dimensions, a vector 1, a matrix 2, and so on."
+9,1,order,exercise,8,"Order by number of dimensions, fewest first.",Scalar|Vector|Matrix|3-D tensor,,,,"A scalar has 0 dimensions, a vector 1, a matrix 2, and so on."
 10,1,select_blank,exercise,8,A color image is usually a ___ tensor.,3-D|1-D|0-D,0,,,"Height, width and color channels make three dimensions."
-11,1,multiple_choice,exercise,8,Which is a 2-D tensor?,Matrix|Scalar|Vector,0,,,
+11,1,multiple_choice,exercise,8,Which is a 2-D tensor?,Matrix|Scalar|Vector,0,,,A matrix is a 2-D tensor: a grid of numbers with rows and columns.
 12,1,categorize,exercise,8,Learned or fed in?,Weights↔Learned|Photo pixels↔Fed in|Typed text↔Fed in|Layer matrix↔Learned,,,,"Weights are learned tensors, while inputs like pixels are tensors fed in at request time."
 1301,1,multiple_choice,exercise,8,One temperature reading arrives. Which tensor?,Scalar|Vector|Matrix,0,,,"A single number is a scalar, a 0-D tensor."
 13,1,true_false,preview,14,More parameters usually means a bigger model file.,,true,,,"Every parameter is one stored number, so more of them means more bytes on disk and in memory."
 14,1,select_blank,main,,7B parameters means about 7 billion ___.,Weights|Layers|Tokens,0,,,7B means about 7 billion individual weights. At 2 bytes each that is roughly 14 GB.
-15,1,select_blank,exercise,14,File size grows with parameter ___.,order|names|count,2,,,
+15,1,select_blank,exercise,14,File size grows with parameter ___.,order|names|count,2,,,"File size grows with parameter count, since each parameter is a number that must be stored."
 16,1,multiple_choice,exercise,14,7B weights at 2 bytes each ≈?,14 GB|7 GB|70 GB,0,,,"7 billion times 2 bytes is 14 billion bytes, about 14 GB."
-17,1,multiple_choice,exercise,14,Which model is likely smallest on disk?,1B params|7B params|70B params,0,,,
+17,1,multiple_choice,exercise,14,Which model is likely smallest on disk?,1B params|7B params|70B params,0,,,"A 1B-parameter model has the fewest numbers to store, so it is likely the smallest on disk."
 18,1,match_pairs,exercise,14,Match parameter count to size.,1B↔Small|7B↔Medium|70B↔Large,,,,Rough labels only; exact sizes depend on how each number is stored.
 1302,1,multiple_choice,exercise,14,Model doubles its parameter count. File size?,Halves|Stays same|Doubles,2,,,"Each parameter is one stored number, so twice as many means roughly twice the bytes."
 19,2,true_false,preview,20,Training learns weights; inference leaves them unchanged.,,true,,,True: training is when weights get learned. Inference runs a finished model and leaves the weights unchanged.
 20,2,select_blank,main,,"During inference, weights ___.",Get nudged|Stay fixed|Get relearned,1,,,"Inference means running a trained model to get a prediction, like answering a chat message. The weights are only read, never changed."
-21,2,select_blank,exercise,20,Training learns weights; inference ___ them.,uses|updates|relearns,0,,,
-22,2,match_pairs,exercise,20,Match each stage to its job.,Training↔Adjusts weights|Inference↔Makes predictions|Weights↔Learned numbers,,,,
+21,2,select_blank,exercise,20,Training learns weights; inference ___ them.,uses|updates|relearns,0,,,Training learns the weights once; inference then uses those fixed weights to make predictions.
+22,2,match_pairs,exercise,20,Match each stage to its job.,Training↔Adjusts weights|Inference↔Makes predictions|Weights↔Learned numbers,,,,"Training adjusts weights, inference uses them to make predictions, and weights are the learned numbers."
 23,2,multiple_choice,exercise,20,Which stage runs when users chat?,Training|Inference|Fine-tuning,1,,,Users only ever trigger inference; training happened earlier.
-24,2,order,exercise,20,Order a model's life.,Collect data|Train model|Deploy model|Serve requests,,,,
+24,2,order,exercise,20,Order a model's life.,Collect data|Train model|Deploy model|Serve requests,,,,"A model's life runs in order: collect data, train the model, deploy it, then serve requests."
 1303,2,multiple_choice,exercise,20,Chatbot is answering users. Do weights update?,"No, fixed|Yes, live|Yes, nightly",0,,,Inference only reads the weights; learning happened earlier during training.
 25,2,true_false,preview,26,Inference only needs a forward pass.,,true,,,"To answer a request, data flows one way through the layers. The backward step is only needed to learn."
 26,2,multiple_choice,main,,Which pass does inference skip?,Forward|Both passes|Backward,2,,,"The forward pass pushes input through the layers to get an output. The backward pass computes gradients (how to nudge each weight) and only training needs it, which is a big reason training costs more."
-27,2,select_blank,exercise,26,Gradients are computed in the ___ pass.,backward|forward|test,0,,,
-28,2,categorize,exercise,26,"Training only, or both?",Backward pass↔Training only|Forward pass↔Both|Gradients↔Training only|Input to output↔Both,,,,
+27,2,select_blank,exercise,26,Gradients are computed in the ___ pass.,backward|forward|test,0,,,"Gradients are computed in the backward pass, which works out how to change each weight."
+28,2,categorize,exercise,26,"Training only, or both?",Backward pass↔Training only|Forward pass↔Both|Gradients↔Training only|Input to output↔Both,,,,"The backward pass and gradients exist only in training; the forward pass, input to output, runs in both training and inference."
 29,2,multi_select,exercise,26,Which passes does training run?,Forward|Backward|Deploy|Compress,0|1,,,"Training does a forward pass to predict, then a backward pass to learn from the mistake."
 30,2,multiple_choice,exercise,26,Why is training costlier than inference?,Backward pass|Larger files|Slower network,0,,,The backward pass adds extra compute and memory for gradients.
 1304,2,multiple_choice,exercise,26,"Serving only, no learning: drop which step?",Forward pass|Backward pass|Input loading,1,,,"The backward pass computes gradients for learning, so serving never needs it."
 31,2,true_false,preview,32,One trained model can serve millions of requests.,,true,,,"You train a model once, then reuse the same weights for every user."
 32,2,match_pairs,main,,Match each step to how often it runs.,Training↔Rarely|Inference↔Every request|Weights↔Reused,,,,"Training is a one-time (or rare) cost, while inference happens on each request. That is why shaving cost off inference, without retraining, pays off again and again."
-33,2,select_blank,exercise,32,Training happens once; inference happens ___.,rarely|often|once,1,,,
-34,2,multiple_choice,exercise,32,When does inference optimization pay off?,During training|Every request|Only once,1,,,
-35,2,match_pairs,exercise,32,Match each step to its frequency.,Training↔Once|Inference↔Every request|Weights↔Reused,,,,
+33,2,select_blank,exercise,32,Training happens once; inference happens ___.,rarely|often|once,1,,,"Training happens once, but inference happens often, every time someone sends a request."
+34,2,multiple_choice,exercise,32,When does inference optimization pay off?,During training|Every request|Only once,1,,,"Inference optimization pays off on every request, so even a small saving is repeated many times."
+35,2,match_pairs,exercise,32,Match each step to its frequency.,Training↔Once|Inference↔Every request|Weights↔Reused,,,,"Training happens once, inference happens on every request, and the trained weights are reused each time."
 36,2,multi_select,exercise,32,Which repeat for each request?,Forward pass|Weight updates|Inference|Data labeling,0|2,,,"Each request runs inference, which is forward passes. Weights stay unchanged."
 1305,2,multiple_choice,exercise,32,Traffic doubles. Which cost scales up?,Training|Inference|Data labeling,1,,,"Inference runs on every request, so more traffic means more inference work. Training is a one-time cost."
 37,3,true_false,preview,38,Latency is the wait for one request.,,true,,,True: throughput counts requests per second. Latency is the wait for one single request.
 38,3,match_pairs,main,,Pair each measure with its meaning.,Latency↔One wait|Throughput↔Requests/sec|Footprint↔Memory used,,,,"Throughput is how much work is finished per unit of time, such as requests per second. Latency is the wait for one request; a system can have great throughput and still make each user wait."
 39,3,select_blank,exercise,38,Throughput counts finished ___ per second.,requests|weights|epochs,0,,,Throughput is the number of requests completed per unit of time.
-40,3,match_pairs,exercise,38,Match each term to its meaning.,Latency↔Wait time|Throughput↔Requests/sec|Faster reply↔Lower latency,,,,
+40,3,match_pairs,exercise,38,Match each term to its meaning.,Latency↔Wait time|Throughput↔Requests/sec|Faster reply↔Lower latency,,,,"Latency is wait time for one reply, throughput is requests per second, and a faster reply means lower latency."
 41,3,multiple_choice,exercise,38,Which metric does a waiting user feel?,Latency|Throughput|Memory use,0,,,A person staring at a spinner cares about their own wait.
-42,3,categorize,exercise,38,Latency or throughput?,Reply time↔Latency|Requests/min↔Throughput|Wait time↔Latency|Users/hour↔Throughput,,,,
+42,3,categorize,exercise,38,Latency or throughput?,Reply time↔Latency|Requests/min↔Throughput|Wait time↔Latency|Users/hour↔Throughput,,,,Reply time and wait time measure latency; requests per minute and users per hour measure throughput.
 1306,3,multiple_choice,exercise,38,Users say each reply feels slow. Check?,Latency|Throughput|Model size,0,,,"Each user feels their own wait, which is latency."
 43,3,true_false,preview,44,A model must fit in memory to run.,,true,,,"If the numbers don't fit on the chip, the model can't run there at all."
 44,3,multi_select,main,,Which two things fill inference memory?,Weights|Activations|Gradients|Training data,0|1,,,Weights are the stored numbers. Activations are the intermediate results each layer produces while a request runs. Together they set the memory footprint.
 45,3,multiple_choice,exercise,44,"If weights exceed GPU memory, then?",Won't load|Auto-shrinks|Costs less,0,,,"A GPU (graphics processing unit, the chip most models run on) has a fixed memory size."
-46,3,select_blank,exercise,44,Intermediate results are called ___.,gradients|activations|checkpoints,1,,,
-47,3,multiple_choice,exercise,44,Smaller footprint helps you use?,Cheaper chips|Costlier chips|Larger models,0,,,
+46,3,select_blank,exercise,44,Intermediate results are called ___.,gradients|activations|checkpoints,1,,,Intermediate results computed while the model runs are called activations.
+47,3,multiple_choice,exercise,44,Smaller footprint helps you use?,Cheaper chips|Costlier chips|Larger models,0,,,"A smaller footprint lets you run on cheaper chips, because the model needs less memory and compute."
 48,3,order,exercise,44,"Order by typical memory, smallest first.",Smartwatch|Laptop|Datacenter GPU server,,,,"Roughly, and it varies by device."
 1307,3,multiple_choice,exercise,44,"Weights fit the GPU, yet memory runs out. Suspect?",Extra weights|Activations|Throughput,1,,,"Activations, the intermediate results of a request, also fill memory alongside the weights."
 49,3,true_false,preview,50,"Slow, memory-hungry models cost more to serve.",,true,,,"You rent hardware by time, so slower or bigger models mean a bigger bill."
 50,3,select_blank,main,,Serving cost mostly follows ___ time.,hardware|team|training,0,,,"You pay for chip-hours. Handling each request in less time, or on fewer or cheaper chips, lowers the bill."
-51,3,select_blank,exercise,50,Faster inference lowers cost per ___.,epoch|request|layer,1,,,
+51,3,select_blank,exercise,50,Faster inference lowers cost per ___.,epoch|request|layer,1,,,"Faster inference lowers the cost per request, since each request uses the hardware for less time."
 52,3,multiple_choice,exercise,50,Twice requests per GPU: cost per request?,Doubled|Halved|Unchanged,1,,,The same hardware bill is split across twice as many requests.
-53,3,match_pairs,exercise,50,Match each concern to its effect.,Latency↔Wait time|Memory↔Fits hardware|Money↔Hardware hours,,,,
-54,3,multi_select,exercise,50,Which cut serving cost?,Faster requests|Smaller models|Idle GPUs|Bigger chips,0|1,,,
+53,3,match_pairs,exercise,50,Match each concern to its effect.,Latency↔Wait time|Memory↔Fits hardware|Money↔Hardware hours,,,,"Latency is wait time, memory decides what fits on the hardware, and money is the hardware hours you pay for."
+54,3,multi_select,exercise,50,Which cut serving cost?,Faster requests|Smaller models|Idle GPUs|Bigger chips,0|1,,,"Faster requests and smaller models both cut serving cost, since each uses less hardware time or memory."
 1308,3,multiple_choice,exercise,50,GPU bills are too high. Best lever?,Faster requests|Costlier chips|Idle capacity,0,,,"You pay for chip time, so finishing each request faster lowers cost per request."
 55,4,true_false,preview,56,Profiling shows where your model spends time.,,true,,,"A profiler records how long each step takes, so you see the slow spots instead of guessing."
 56,4,multiple_choice,main,,What does a profiler find?,Test failures|Security holes|Bottlenecks,2,,,A bottleneck is the slowest part that limits the whole system's speed. Fixing something that isn't the bottleneck barely helps.
-57,4,select_blank,exercise,56,Fix the slowest part first: the ___.,benchmark|bottleneck|throughput,1,,,
-58,4,multiple_choice,exercise,56,Which finds real slowness reliably?,Guessing|Profiling|Code review,1,,,
+57,4,select_blank,exercise,56,Fix the slowest part first: the ___.,benchmark|bottleneck|throughput,1,,,"Fix the slowest part first: the bottleneck, because speeding up anything else barely changes total time."
+58,4,multiple_choice,exercise,56,Which finds real slowness reliably?,Guessing|Profiling|Code review,1,,,Profiling finds real slowness reliably by measuring where the time goes instead of guessing.
 59,4,order,exercise,56,Order the optimization loop.,Measure|Find bottleneck|Optimize|Re-measure,,,,Measure again afterwards to confirm it actually got faster.
-60,4,match_pairs,exercise,56,Match tool to job.,Profiler↔Finds bottleneck|Latency↔Wait time|Bottleneck↔Slowest part,,,,
+60,4,match_pairs,exercise,56,Match tool to job.,Profiler↔Finds bottleneck|Latency↔Wait time|Bottleneck↔Slowest part,,,,"A profiler finds the bottleneck, latency is wait time, and the bottleneck is the slowest part."
 1309,4,multiple_choice,exercise,56,App feels slow. Where do you start?,Profile it|Rewrite it|Add GPUs,0,,,A profiler shows the real bottleneck before you change anything.
 61,4,true_false,preview,62,First runs are often slower than later ones.,,true,,,Loading weights and filling caches take extra time the first time.
-62,4,order,main,,Order a fair speed test.,Warm-up run|Timed repeats|Combined results,,,,"A warm-up run is a trial you don't count, because the first runs are slow while things load. Then you time many repeats and take the results together."
+62,4,order,main,,Order the steps of a fair speed test.,Warm-up run|Timed repeats|Combined results,,,,"A warm-up run is a trial you don't count, because the first runs are slow while things load. Then you time many repeats and take the results together."
 63,4,select_blank,exercise,62,Time ___ runs after warm-up.,many|one|zero,0,,,"After discarding warm-up, time many repeats and combine the results."
 64,4,multiple_choice,exercise,62,Why is the first run slower?,Caches cold|Model retrains|Weights change,0,,,Data still has to be loaded and cached.
-65,4,order,exercise,62,Order a fair benchmark.,Warm up|Time many runs|Average results|Report,,,,
-66,4,multi_select,exercise,62,Which are good benchmark habits?,Warm up|Repeat runs|Time once|Skip warm-up,0|1,,,
+65,4,order,exercise,62,Order the steps of a fair benchmark.,Warm up|Time many runs|Average results|Report,,,,"A fair benchmark warms up first, times many runs, averages the results, then reports them."
+66,4,multi_select,exercise,62,Which are good benchmark habits?,Warm up|Repeat runs|Time once|Skip warm-up,0|1,,,"Warming up and repeating runs are good benchmark habits, because single cold runs are noisy and unrepresentative."
 1310,4,multiple_choice,exercise,62,First timed run looks awful. Fix?,Shrink model|Add warm-up|Change GPU,1,,,"The first runs are slow while things load, so discard warm-up runs before timing."
 67,4,true_false,preview,68,Averages can hide occasional very slow requests.,,true,,,"If 1 in 100 requests takes 10 seconds, the average still looks fine while some users suffer."
 68,4,match_pairs,main,,Pair each percentile with its meaning.,p50↔Median|p95↔95% finish sooner|p99↔99% finish sooner,,,,"p95 latency is the time that 95% of requests beat; the slowest 5% take longer. p50 is the median, p99 the slowest 1%. These tail numbers show what unlucky users feel."
-69,4,select_blank,exercise,68,The ___ latency hides slow outliers.,average|p99|maximum,0,,,
-70,4,multiple_choice,exercise,68,Which metric shows tail slowness?,Mean|Median|p99,2,,,
-71,4,match_pairs,exercise,68,Match each percentile to its meaning.,p50↔Median|p95↔Slow tail|p99↔Slowest 1%,,,,
-72,4,categorize,exercise,68,Typical or tail?,p50↔Typical|p99↔Tail|Median↔Typical|p95↔Tail,,,,
+69,4,select_blank,exercise,68,The ___ latency hides slow outliers.,average|p99|maximum,0,,,"The average latency hides slow outliers, because a few very slow requests barely move the mean."
+70,4,multiple_choice,exercise,68,Which metric shows tail slowness?,Mean|Median|p99,2,,,"p99 shows tail slowness: it is the latency that 99% of requests beat, so the slowest 1% show up."
+71,4,match_pairs,exercise,68,Match each percentile to its meaning.,p50↔Median|p95↔Slow tail|p99↔Slowest 1%,,,,"p50 is the median, p95 is the start of the slow tail, and p99 is the slowest 1%."
+72,4,categorize,exercise,68,Typical or tail?,p50↔Typical|p99↔Tail|Median↔Typical|p95↔Tail,,,,p50 and the median are typical; p95 and p99 describe the slow tail.
 1311,4,multiple_choice,exercise,68,Average is fine but some users complain. Check?,p99 latency|Mean latency|Model size,0,,,Tail percentiles like p99 expose the slow requests that averages hide.
 73,4,true_false,preview,74,Benchmark on the hardware you will deploy on.,,true,,,Speed on your laptop says little about speed on the server that will really run the model.
 74,4,select_blank,main,,Benchmark on the ___ hardware.,target|laptop|cheapest,0,,,Use the real deployment hardware and realistic input sizes; a model can look fast on tiny test data and be slow on real requests.
-75,4,select_blank,exercise,74,Test with ___ input sizes and data.,minimal|realistic|synthetic,1,,,
-76,4,multiple_choice,exercise,74,Fast on your laptop guarantees what?,Nothing|Fast servers|Low cost,0,,,
-77,4,multi_select,exercise,74,What should a benchmark mimic?,Hardware|Input sizes|Code style|Repo name,0|1,,,
-78,4,match_pairs,exercise,74,Match term to meaning.,Warm-up↔Ignored run|Benchmark↔Repeatable test|p99↔Slow tail,,,,
+75,4,select_blank,exercise,74,Test with ___ input sizes and data.,minimal|realistic|synthetic,1,,,"Test with realistic input sizes and data, because a model that is fast on toy inputs may be slow on real ones."
+76,4,multiple_choice,exercise,74,Fast on your laptop guarantees what?,Nothing|Fast servers|Low cost,0,,,"Fast on your laptop guarantees nothing, because production hardware, input sizes and load are different."
+77,4,multi_select,exercise,74,What should a benchmark mimic?,Hardware|Input sizes|Code style|Repo name,0|1,,,"A benchmark should mimic the real hardware and input sizes, or its numbers will not predict production."
+78,4,match_pairs,exercise,74,Match term to meaning.,Warm-up↔Ignored run|Benchmark↔Repeatable test|p99↔Slow tail,,,,"Warm-up is a run you ignore, a benchmark is a repeatable test, and p99 is the slow tail."
 1312,4,multiple_choice,exercise,74,Laptop benchmark looks fast. Next step?,Ship it|Test target|Rerun laptop,1,,,"Speed on a laptop says little about the deployment hardware, so benchmark there."
 79,5,true_false,preview,80,Faster models usually lose a little accuracy.,,true,,,True: squeezing a model to run faster usually costs a little accuracy.
 80,5,multiple_choice,main,,Making a model faster often costs what?,Some accuracy|Extra weights|Added latency,0,,,This is the accuracy-speed trade-off: you give up a little of one to gain the other. Example: a model 2x faster but 1% less accurate.
-81,5,select_blank,exercise,80,Smaller models trade accuracy for ___.,noise|speed|training,1,,,
-82,5,multiple_choice,exercise,80,"2x faster, slightly less accurate: called?",Baseline|Trade-off|Bottleneck,1,,,
-83,5,match_pairs,exercise,80,Match idea to meaning.,Speed↔Latency|Accuracy↔Right answers|Trade-off↔Give and take,,,,
+81,5,select_blank,exercise,80,Smaller models trade accuracy for ___.,noise|speed|training,1,,,"Smaller models trade accuracy for speed: they are faster, but may get a few more answers wrong."
+82,5,multiple_choice,exercise,80,"2x faster, slightly less accurate: called?",Baseline|Trade-off|Bottleneck,1,,,Getting 2x the speed for slightly less accuracy is a trade-off: you give up a little of one to gain the other.
+83,5,match_pairs,exercise,80,Match idea to meaning.,Speed↔Latency|Accuracy↔Right answers|Trade-off↔Give and take,,,,"Speed is latency, accuracy is how many answers are right, and a trade-off means giving up some of one for the other."
 84,5,multi_select,exercise,80,Which usually get better when compressing?,Accuracy|Memory use|Latency|File size,1|2|3,,,"Compressing shrinks the file and memory and speeds up replies, while accuracy is what may slip."
 1313,5,multiple_choice,exercise,80,Speedup cost 0.5% accuracy. Reaction?,Expected|Alarming|Impossible,0,,,Faster models often lose a little accuracy; that give and take is the trade-off.
 85,5,true_false,preview,86,Decide acceptable accuracy loss before optimizing.,,true,,,"Without a limit, you can't tell when a speedup has gone too far."
 86,5,multiple_choice,main,,What is an accuracy budget?,Cost limit|Allowed loss|Speed target,1,,,"It is the maximum accuracy drop you accept, for example 1%. Stop when an optimization would push you past it."
-87,5,select_blank,exercise,86,Stop optimizing when accuracy leaves the ___.,baseline|budget|trade-off,1,,,
-88,5,multiple_choice,exercise,86,Budget is 1% loss; you got 3%. Action?,Reject it|Ship it|Ship carefully,0,,,
-89,5,order,exercise,86,Order budget-driven optimizing.,Set budget|Optimize|Measure accuracy|Compare to budget,,,,
-90,5,categorize,exercise,86,Within a 1% budget?,0.5% drop↔Within|3% drop↔Over|1% drop↔Within|2% drop↔Over,,,,
+87,5,select_blank,exercise,86,Stop optimizing when accuracy leaves the ___.,baseline|budget|trade-off,1,,,"Stop optimizing when accuracy leaves the budget, the amount of loss you agreed to accept."
+88,5,multiple_choice,exercise,86,Budget is 1% loss; you got 3%. Action?,Reject it|Ship it|Ship carefully,0,,,"A 3% loss is over the 1% budget, so you reject that version or try a gentler optimization."
+89,5,order,exercise,86,Order the steps of budget-driven optimizing.,Set budget|Optimize|Measure accuracy|Compare to budget,,,,"Set the budget first, optimize, measure accuracy, then compare to the budget to decide whether to keep the result."
+90,5,categorize,exercise,86,Within a 1% budget?,0.5% drop↔Within|3% drop↔Over|1% drop↔Within|2% drop↔Over,,,,0.5% and 1% are within a 1% budget; 2% and 3% go over it.
 1314,5,multiple_choice,exercise,86,Speedup drops accuracy 0.5%; budget is 1%. Verdict?,Too much|Acceptable|Untestable,1,,,"The drop is inside the allowed budget, so the optimization is acceptable."
 91,5,true_false,preview,92,Compare optimized models against an unoptimized baseline.,,true,,,You need the 'before' numbers to see what an optimization really changed.
 92,5,multiple_choice,main,,What is a baseline?,Before numbers|After numbers|Target numbers,0,,,A baseline is the accuracy and speed of the model before you changed anything. Every optimization is judged against it.
-93,5,select_blank,exercise,92,Always compare against the ___ numbers.,baseline|optimized|fastest,0,,,
-94,5,multiple_choice,exercise,92,Why keep baseline numbers?,Save memory|Raise accuracy|Show change,2,,,
-95,5,multi_select,exercise,92,What belongs in a baseline?,Accuracy|Latency|Future goals|Team opinions,0|1,,,
-96,5,match_pairs,exercise,92,Match term to meaning.,Baseline↔Before numbers|Budget↔Allowed loss|Trade-off↔Give and take,,,,
+93,5,select_blank,exercise,92,Always compare against the ___ numbers.,baseline|optimized|fastest,0,,,"Always compare against the baseline numbers, the measurements from before you optimized."
+94,5,multiple_choice,exercise,92,Why keep baseline numbers?,Save memory|Raise accuracy|Show change,2,,,Baseline numbers let you show how much accuracy and speed actually changed after optimizing.
+95,5,multi_select,exercise,92,What belongs in a baseline?,Accuracy|Latency|Future goals|Team opinions,0|1,,,"A baseline should include both accuracy and latency, so you can see both sides of any trade-off."
+96,5,match_pairs,exercise,92,Match term to meaning.,Baseline↔Before numbers|Budget↔Allowed loss|Trade-off↔Give and take,,,,"A baseline is the before numbers, a budget is the allowed loss, and a trade-off is giving up one thing for another."
 1315,5,multiple_choice,exercise,92,No original scores were saved. What's missing?,Baseline|Budget|Trade-off,0,,,The baseline is the before-optimization accuracy and speed you compare against.
 97,5,true_false,preview,98,Measure accuracy on data the model never trained on.,,true,,,True: measure on unseen data. Scoring on data it memorized would make any model look great.
 98,5,multiple_choice,main,,What is a held-out test set?,Unseen data|Training data|Cached data,0,,,"It is data set aside that the model never trained on, so its score reflects how it does on new inputs."
-99,5,select_blank,exercise,98,Test accuracy on ___ data only.,unseen|memorized|training,0,,,
-100,5,multiple_choice,exercise,98,Why not test on training data?,Unfair timing|Missing labels|Inflated scores,2,,,
-101,5,categorize,exercise,98,Fair test or not?,Unseen data↔Fair|Training data↔Unfair|Held-out set↔Fair|Memorized data↔Unfair,,,,
-102,5,match_pairs,exercise,98,Match term to meaning.,Test set↔Unseen data|Baseline↔Before numbers|Budget↔Allowed loss,,,,
+99,5,select_blank,exercise,98,Test accuracy on ___ data only.,unseen|memorized|training,0,,,"Test accuracy on unseen data only, because that shows how the model handles inputs it has never met."
+100,5,multiple_choice,exercise,98,Why not test on training data?,Unfair timing|Missing labels|Inflated scores,2,,,"Testing on training data gives inflated scores, since the model has already seen and may have memorized those examples."
+101,5,categorize,exercise,98,Fair test or not?,Unseen data↔Fair|Training data↔Unfair|Held-out set↔Fair|Memorized data↔Unfair,,,,Unseen and held-out data are fair tests; training data and memorized data are unfair because the model already knows them.
+102,5,match_pairs,exercise,98,Match term to meaning.,Test set↔Unseen data|Baseline↔Before numbers|Budget↔Allowed loss,,,,"The test set is unseen data, the baseline is the before numbers, and the budget is the allowed loss."
 1316,5,multiple_choice,exercise,98,99% on training data. Trust it?,"Yes, verified|No, inflated|Yes, mostly",1,,,"The model may have memorized that data, so score on held-out unseen data instead."
 103,6,true_false,preview,104,Each weight is stored using a fixed number of bits.,,true,,,"A number needs space, and the format decides how many bits it takes."
 104,6,match_pairs,main,,Match each format to bytes per number.,FP32↔4 bytes|FP16↔2 bytes|INT8↔1 byte,,,,"FP32 is 32-bit floating point, the classic full-precision format. A byte is 8 bits, so 32 bits is 4 bytes."
-105,6,select_blank,exercise,104,FP32 stores each number in ___ bits.,32|16|8,0,,,
-106,6,multiple_choice,exercise,104,1B FP32 weights take roughly?,4 GB|2 GB|1 GB,0,,,
-107,6,match_pairs,exercise,104,Match bits to bytes.,8 bits↔1 byte|16 bits↔2 bytes|32 bits↔4 bytes,,,,
-108,6,order,exercise,104,"Order by memory per number, smallest first.",8 bits|16 bits|32 bits|64 bits,,,,
+105,6,select_blank,exercise,104,FP32 stores each number in ___ bits.,32|16|8,0,,,"FP32 stores each number in 32 bits, which is 4 bytes."
+106,6,multiple_choice,exercise,104,1B FP32 weights take roughly?,4 GB|2 GB|1 GB,0,,,1B weights at 4 bytes each (32 bits) take about 4 GB.
+107,6,match_pairs,exercise,104,Match bits to bytes.,8 bits↔1 byte|16 bits↔2 bytes|32 bits↔4 bytes,,,,"There are 8 bits in a byte, so 8 bits is 1 byte, 16 bits is 2 bytes, and 32 bits is 4 bytes."
+108,6,order,exercise,104,"Order by memory per number, smallest first.",8 bits|16 bits|32 bits|64 bits,,,,"Memory per number grows with the bits: 8 bits is 1 byte, 16 bits is 2, 32 is 4, and 64 is 8."
 1317,6,multiple_choice,exercise,104,"2B FP32 weights, 6 GB free. Memory needed?",8 GB|4 GB|2 GB,0,,,"FP32 is 4 bytes per weight, so 2 billion weights need about 8 GB."
 109,6,true_false,preview,110,FP16 uses half the memory of FP32.,,true,,,"True: 16 bits is half of 32 bits, so FP16 takes half the space."
 110,6,select_blank,main,,One FP16 number takes ___ bytes.,2|4|1,0,,,"FP16 is half-precision floating point, so a model stored in it is half the size of the FP32 version, with usually little accuracy change."
-111,6,select_blank,exercise,110,FP16 needs ___ the memory of FP32.,half|quarter|double,0,,,
+111,6,select_blank,exercise,110,FP16 needs ___ the memory of FP32.,half|quarter|double,0,,,"FP16 uses 16 bits, half the 32 bits of FP32, so it needs half the memory."
 112,6,multiple_choice,exercise,110,70B weights in FP16 need roughly?,140 GB|70 GB|280 GB,0,,,70 billion times 2 bytes.
-113,6,match_pairs,exercise,110,Match format to name.,FP32↔Single precision|FP16↔Half precision|32-bit↔4 bytes|16-bit↔2 bytes,,,,
-114,6,multi_select,exercise,110,Which are true for FP16?,2 bytes|Half size|4 bytes|64 bits,0|1,,,
+113,6,match_pairs,exercise,110,Match format to name.,FP32↔Single precision|FP16↔Half precision|32-bit↔4 bytes|16-bit↔2 bytes,,,,FP32 is single precision (4 bytes) and FP16 is half precision (2 bytes).
+114,6,multi_select,exercise,110,Which are true for FP16?,2 bytes|Half size|4 bytes|64 bits,0|1,,,"FP16 uses 2 bytes per number, which is half the size of FP32."
 1318,6,multiple_choice,exercise,110,Halve memory starting from FP32. Switch to?,FP16|FP32|FP64,0,,,FP16 uses 2 bytes per number instead of 4.
 115,6,true_false,preview,116,BF16 and FP16 both use 16 bits.,,true,,,They take the same space but split the bits differently.
 116,6,multiple_choice,main,,What does BF16 keep from FP32?,Exact detail|Byte size|Number range,2,,,"BF16 (brain float) has FP32's wide range but fewer detail bits. FP16 has finer detail but a narrower range, so it can overflow (exceed the largest number it can hold)."
-117,6,select_blank,exercise,116,BF16 trades detail to keep ___.,range|speed|size,0,,,
-118,6,multiple_choice,exercise,116,Which is safer against overflow?,BF16|FP16|Both equal,0,,,
-119,6,match_pairs,exercise,116,Match format to trait.,BF16↔Wide range|FP16↔Narrow range|Overflow↔Too large,,,,
-120,6,multi_select,exercise,116,Which use 16 bits?,BF16|FP16|FP32|INT32,0|1,,,
+117,6,select_blank,exercise,116,BF16 trades detail to keep ___.,range|speed|size,0,,,BF16 gives up some fine detail to keep the wide range of values that FP32 can represent.
+118,6,multiple_choice,exercise,116,Which is safer against overflow?,BF16|FP16|Both equal,0,,,BF16 is safer against overflow because it has a much wider range than FP16.
+119,6,match_pairs,exercise,116,Match format to trait.,BF16↔Wide range|FP16↔Narrow range|Overflow↔Too large,,,,"BF16 has a wide range, FP16 a narrow range, and overflow means a value too large to represent."
+120,6,multi_select,exercise,116,Which use 16 bits?,BF16|FP16|FP32|INT32,0|1,,,Both BF16 and FP16 use 16 bits per number; they split those bits differently between range and detail.
 1319,6,multiple_choice,exercise,116,FP16 keeps overflowing. Which 16-bit format helps?,FP16|BF16|INT8,1,,,"BF16 keeps FP32's wide number range, so it overflows less than FP16."
 121,6,true_false,preview,122,INT8 stores each number in 8 bits.,,true,,,"True: INT8 uses 8 bits (1 byte) per number, which is half of FP16."
 122,6,select_blank,main,,INT8 uses ___ the memory of FP16.,half|double|equal,0,,,INT8 uses 1 byte per weight versus 2 for FP16. Going down to 4-bit uses about a quarter of FP16's memory.
-123,6,select_blank,exercise,122,4-bit weights take about ___ of FP16 memory.,1/2|1/4|1/8,1,,,
-124,6,multiple_choice,exercise,122,Which is smallest per weight?,4-bit|INT8|FP16,0,,,
-125,6,order,exercise,122,"Order by memory, largest first.",FP32|FP16|INT8|4-bit,,,,
-126,6,match_pairs,exercise,122,Match format to size.,INT8↔1 byte|FP16↔2 bytes|FP32↔4 bytes|4-bit↔Half byte,,,,
+123,6,select_blank,exercise,122,4-bit weights take about ___ of FP16 memory.,1/2|1/4|1/8,1,,,"4 bits is a quarter of 16 bits, so 4-bit weights take about a quarter of the memory of FP16."
+124,6,multiple_choice,exercise,122,Which is smallest per weight?,4-bit|INT8|FP16,0,,,"4-bit weights need the fewest bits, so they are the smallest per weight."
+125,6,order,exercise,122,"Order by memory, largest first.",FP32|FP16|INT8|4-bit,,,,"From largest to smallest: FP32 is 4 bytes, FP16 is 2, INT8 is 1, and 4-bit is half a byte."
+126,6,match_pairs,exercise,122,Match format to size.,INT8↔1 byte|FP16↔2 bytes|FP32↔4 bytes|4-bit↔Half byte,,,,"INT8 is 1 byte, FP16 is 2, FP32 is 4, and 4-bit is half a byte."
 1320,6,multiple_choice,exercise,122,Need about a quarter of FP16 memory. Choose?,4-bit|INT8|BF16,0,,,"INT8 halves FP16 memory, while 4-bit weights use roughly a quarter."
 127,6,true_false,preview,128,Fewer bits means coarser rounding of each number.,,true,,,"True: fewer bits means coarser rounding, because fewer distinct values can be stored."
 128,6,multiple_choice,main,,What is rounding error?,Range overflow|Lost precision|Data leakage,1,,,"When a number can't be stored exactly it's rounded, like 0.7231 becoming 0.72. Small errors can add up over billions of operations."
-129,6,select_blank,exercise,128,Fewer bits usually means more ___ error.,training|timing|rounding,2,,,
-130,6,multiple_choice,exercise,128,Which precision rounds most coarsely?,4-bit|FP32|FP16,0,,,
-131,6,categorize,exercise,128,Finer or coarser?,FP32↔Finer|4-bit↔Coarser|FP16↔Finer|INT8↔Coarser,,,,
-132,6,multi_select,exercise,128,What can rounding error affect?,Accuracy|Predictions|File size|Load time,0|1,,,
+129,6,select_blank,exercise,128,Fewer bits usually means more ___ error.,training|timing|rounding,2,,,"Fewer bits means fewer possible values, so numbers are rounded more and rounding error grows."
+130,6,multiple_choice,exercise,128,Which precision rounds most coarsely?,4-bit|FP32|FP16,0,,,"4-bit has only 16 possible values, so it rounds most coarsely."
+131,6,categorize,exercise,128,Finer or coarser?,FP32↔Finer|4-bit↔Coarser|FP16↔Finer|INT8↔Coarser,,,,FP32 and FP16 are finer because they have more bits; 4-bit and INT8 are coarser.
+132,6,multi_select,exercise,128,What can rounding error affect?,Accuracy|Predictions|File size|Load time,0|1,,,"Rounding error can change the weights slightly, which can affect accuracy and the model's predictions."
 1321,6,multiple_choice,exercise,128,Outputs drift after switching to 4-bit. Cause?,Rounding error|Range overflow|Extra layers,0,,,"With fewer bits, numbers are rounded more coarsely, and small errors add up."
 1663,6,true_false,preview,1664,FP8 stores each number in only 8 bits.,,true,,,That is half the size of FP16's 16 bits.
 1664,6,multiple_choice,main,,FP8 is roughly what memory versus FP16?,Half|Double|Quarter,0,,,"FP8 is an 8-bit floating point format, half of FP16. Newer GPUs have hardware for it, so it can speed up math too. It comes in two flavors: E4M3 (more detail) and E5M2 (wider range)."
@@ -159,43 +159,43 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1666,6,multiple_choice,exercise,1664,FP8 comes as E4M3 and which other?,E5M2|E8M7|E2M5,0,,,E5M2 spends more bits on range; E4M3 spends more on detail.
 1667,6,multiple_choice,exercise,1664,E4M3 favors detail; E5M2 favors?,Range|Speed|Sparsity,0,,,More exponent bits let E5M2 cover bigger and smaller values.
 1668,6,multiple_choice,exercise,1664,GPU supports FP8; memory is tight. Try?,FP8 weights|FP32 weights|More padding,0,,,FP8 halves memory compared with FP16.
-1669,6,match_pairs,exercise,1664,Match each format to its size.,FP32↔32 bits|FP16↔16 bits|FP8↔8 bits|INT8↔8-bit integers,,,,
-1670,6,categorize,exercise,1664,Sort each by number type.,FP8↔Float|INT8↔Integer|BF16↔Float|INT4↔Integer,,,,
+1669,6,match_pairs,exercise,1664,Match each format to its size.,FP32↔32 bits|FP16↔16 bits|FP8↔8 bits|INT8↔8-bit integers,,,,"FP32 is 32 bits, FP16 is 16 bits, FP8 is 8 bits, and INT8 is 8-bit integers."
+1670,6,categorize,exercise,1664,Sort each by number type.,FP8↔Float|INT8↔Integer|BF16↔Float|INT4↔Integer,,,,"FP8 and BF16 are floating-point formats, while INT8 and INT4 store whole-number integers."
 133,7,true_false,preview,134,Post-training quantization needs no retraining.,,true,,,True: it shrinks a finished model without retraining it.
-134,7,order,main,,Order post-training quantization.,Train model|Quantize weights|Serve model,,,,"Quantization means storing numbers with fewer bits, such as INT8 instead of FP32. Post-training quantization (PTQ) does it to a finished model, quickly and without retraining."
-135,7,select_blank,exercise,134,PTQ shrinks a model that is already ___.,trained|untrained|blank,0,,,
-136,7,multiple_choice,exercise,134,Which route skips retraining?,Full retraining|Fine-tuning|PTQ,2,,,
-137,7,order,exercise,134,Order a PTQ workflow.,Train model|Quantize weights|Test accuracy|Deploy,,,,
-138,7,match_pairs,exercise,134,Match term to meaning.,PTQ↔After training|Quantization↔Fewer bits|INT8↔1 byte,,,,
+134,7,order,main,,Order the steps of post-training quantization.,Train model|Quantize weights|Serve model,,,,"Quantization means storing numbers with fewer bits, such as INT8 instead of FP32. Post-training quantization (PTQ) does it to a finished model, quickly and without retraining."
+135,7,select_blank,exercise,134,PTQ shrinks a model that is already ___.,trained|untrained|blank,0,,,"PTQ, post-training quantization, shrinks a model that is already trained."
+136,7,multiple_choice,exercise,134,Which route skips retraining?,Full retraining|Fine-tuning|PTQ,2,,,PTQ skips retraining: it converts a finished model's weights to fewer bits.
+137,7,order,exercise,134,Order a PTQ workflow.,Train model|Quantize weights|Test accuracy|Deploy,,,,"With PTQ you train the model first, then quantize the weights, test accuracy, and deploy."
+138,7,match_pairs,exercise,134,Match term to meaning.,PTQ↔After training|Quantization↔Fewer bits|INT8↔1 byte,,,,"PTQ happens after training, quantization means using fewer bits, and INT8 is 1 byte per number."
 1322,7,multiple_choice,exercise,134,"Finished model, no training budget. Approach?",Retrain fully|PTQ|Collect data,1,,,Post-training quantization shrinks a finished model without retraining.
 139,7,true_false,preview,140,Quantization maps float values onto a small integer range.,,true,,,Decimals get squeezed onto a short list of whole numbers.
 140,7,select_blank,main,,Converting back: float ≈ integer × ___.,scale|rank|batch,0,,,"The scale converts between floats and integers: real value ≈ integer × scale. If weights span -1 to 1 and INT8 spans -127 to 127, the scale is about 1/127."
-141,7,select_blank,exercise,140,Real value ≈ integer × ___.,scale|range|bias,0,,,
-142,7,multiple_choice,exercise,140,Weights span -1 to 1; INT8 scale?,1/255|1/127|1/128,1,,,
+141,7,select_blank,exercise,140,Real value ≈ integer × ___.,scale|range|bias,0,,,"A real value is approximately the integer times the scale factor, which maps integers back to real numbers."
+142,7,multiple_choice,exercise,140,Weights span -1 to 1; INT8 scale?,1/255|1/127|1/128,1,,,"INT8 covers -127 to 127, so weights spanning -1 to 1 use a scale of 1/127."
 143,7,multi_select,exercise,140,Which are needed to dequantize?,Integer|Scale|Test set|Batch size,0|1,,,Multiplying the stored integer by the scale recovers an approximate float.
-144,7,categorize,exercise,140,Float or integer?,0.73↔Float|93↔Integer|-0.2↔Float|-127↔Integer,,,,
+144,7,categorize,exercise,140,Float or integer?,0.73↔Float|93↔Integer|-0.2↔Float|-127↔Integer,,,,0.73 and -0.2 are floats with fractions; 93 and -127 are whole-number integers.
 1323,7,multiple_choice,exercise,140,"Integer 50, scale 0.02. Real value?",1.0|0.4|2500,0,,,Real value is roughly the integer times the scale: 50 x 0.02 = 1.0.
 145,7,true_false,preview,146,A calibration set helps choose good scales.,,true,,,Seeing typical values shows how wide the numbers really range.
 146,7,multiple_choice,main,,What is calibration data for?,Picking ranges|Updating weights|Testing accuracy,0,,,"You run a few hundred typical inputs through the model and record the value ranges, especially of activations. Nothing is trained or updated."
-147,7,select_blank,exercise,146,Calibration uses a ___ sample of real inputs.,full|small|labeled,1,,,
-148,7,multiple_choice,exercise,146,Does calibration update weights?,No|Yes|Slightly,0,,,
-149,7,order,exercise,146,Order calibration steps.,Collect samples|Record ranges|Pick scales|Quantize,,,,
-150,7,multi_select,exercise,146,Good calibration data is?,Representative|Realistic|Random noise|Blank inputs,0|1,,,
+147,7,select_blank,exercise,146,Calibration uses a ___ sample of real inputs.,full|small|labeled,1,,,Calibration uses a small sample of real inputs to measure typical value ranges.
+148,7,multiple_choice,exercise,146,Does calibration update weights?,No|Yes|Slightly,0,,,No. Calibration only measures ranges to choose scales; the weights are not retrained or updated.
+149,7,order,exercise,146,Order calibration steps.,Collect samples|Record ranges|Pick scales|Quantize,,,,"Collect samples, record the value ranges, pick scales from them, then quantize."
+150,7,multi_select,exercise,146,Good calibration data is?,Representative|Realistic|Random noise|Blank inputs,0|1,,,"Good calibration data is representative and realistic, so the ranges it shows match real use."
 1324,7,multiple_choice,exercise,146,Scales fit poorly on real traffic. Suspect?,Slow GPU|Bad samples|Long prompts,1,,,"Calibration data should be typical of real inputs, or the recorded ranges will be off."
 151,7,true_false,preview,152,"You can quantize just weights, or activations too.",,true,,,Weights and activations are separate sets of numbers; either can be shrunk.
 152,7,multiple_choice,main,,Which parts does weight-only quantization shrink?,Weights only|Activations only|Both together,0,,,Weight-only saves memory while activations stay at higher precision like FP16. Quantizing activations too can also speed up the math on hardware that supports it.
-153,7,select_blank,exercise,152,Weight-only quantization keeps ___ at higher precision.,activations|weights|checkpoints,0,,,
-154,7,multiple_choice,exercise,152,Which keeps activations in FP16?,Weight-only|Full INT8|Calibration,0,,,
-155,7,categorize,exercise,152,"Under weight-only, what shrinks?",Weights↔Shrunk|Activations↔Stays FP16|Weight matrix↔Shrunk|Layer outputs↔Stays FP16,,,,
-156,7,match_pairs,exercise,152,Match approach to benefit.,Weight-only↔Saves memory|Full INT8↔Faster math|Calibration↔Picks ranges,,,,
+153,7,select_blank,exercise,152,Weight-only quantization keeps ___ at higher precision.,activations|weights|checkpoints,0,,,"Weight-only quantization keeps activations at higher precision, such as FP16, and shrinks just the weights."
+154,7,multiple_choice,exercise,152,Which keeps activations in FP16?,Weight-only|Full INT8|Calibration,0,,,Weight-only quantization shrinks the weights but keeps the activations in FP16.
+155,7,categorize,exercise,152,"Under weight-only, what shrinks?",Weights↔Shrunk|Activations↔Stays FP16|Weight matrix↔Shrunk|Layer outputs↔Stays FP16,,,,"Under weight-only quantization, weights and the weight matrix shrink, while activations and layer outputs stay FP16."
+156,7,match_pairs,exercise,152,Match approach to benefit.,Weight-only↔Saves memory|Full INT8↔Faster math|Calibration↔Picks ranges,,,,"Weight-only saves memory, full INT8 makes the math faster, and calibration picks the value ranges."
 1325,7,multiple_choice,exercise,152,Save memory; keep activations FP16. Choose?,Activation-only|Weight-only|Full INT8,1,,,Weight-only quantization shrinks weights while activations stay at higher precision.
 1671,7,true_false,preview,1672,AWQ protects important weights by scaling them first.,,true,,,Scaling up the weights that matter most makes rounding hurt them less.
 1672,7,multiple_choice,main,,Which method scales important weights before rounding?,GPTQ|AWQ|FP16,1,,,"Both are popular post-training methods that make 4-bit weight-only models using a small calibration set. AWQ (activation-aware) spots the few weights that matter most by looking at activations and scales them up so rounding hurts less. GPTQ quantizes layer by layer, rounding weights one at a time and adjusting the remaining ones to cancel the error."
 1673,7,select_blank,exercise,1672,GPTQ adjusts leftover weights to cancel ___.,rounding error|padding|latency,0,,,"It rounds one weight, then nudges the rest to compensate."
 1674,7,multiple_choice,exercise,1672,AWQ needs what data?,Calibration data|Training run|Extra GPUs,0,,,A small sample shows which weights see large activations.
-1675,7,match_pairs,exercise,1672,Match each method to its idea.,GPTQ↔Layer-wise rounding|AWQ↔Activation scaling|Calibration↔Sample data,,,,
+1675,7,match_pairs,exercise,1672,Match each method to its idea.,GPTQ↔Layer-wise rounding|AWQ↔Activation scaling|Calibration↔Sample data,,,,"GPTQ rounds weights layer by layer, AWQ scales by activation importance, and calibration uses sample data."
 1676,7,multiple_choice,exercise,1672,Need 4-bit LLM without retraining. Option?,"GPTQ, AWQ|FP32 weights|More epochs",0,,,Both quantize a finished model after training.
-1677,7,multi_select,exercise,1672,Which describe both methods?,Post-training|Weight-only|Needs retraining|FP32 only,0|1,,,
+1677,7,multi_select,exercise,1672,Which describe both methods?,Post-training|Weight-only|Needs retraining|FP32 only,0|1,,,"Both GPTQ and AWQ are post-training, weight-only methods."
 1678,7,true_false,preview,1679,Group-wise quantization gives each small group its own scale.,,true,,,"It gives each small group of weights its own scale, so one odd value only harms its own group."
 1679,7,select_blank,main,,Each weight group gets its own ___.,scale|layer|tensor,0,,,"Instead of one scale per layer, weights are split into small groups (often 32 to 128 values), each with its own quantization scale. An outlier then damages only its group. Smaller groups improve accuracy but store more scales, so files grow a bit."
 1680,7,select_blank,exercise,1679,Smaller groups mean ___ scales stored.,more|fewer|zero,0,,,More groups means more scale numbers saved.
@@ -203,441 +203,441 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1682,7,multiple_choice,exercise,1679,Group-wise scales limit damage from?,Outliers|Padding|Latency,0,,,A single extreme value only stretches its own group's scale.
 1683,7,multiple_choice,exercise,1679,4-bit model lost accuracy. Cheap fix?,Smaller groups|Larger groups|Drop scales,0,,,Finer groups fit the values more closely.
 1684,7,order,exercise,1679,"Order by accuracy, best first.",Group 32|Group 128|Whole layer,,,,Usually finer scales give better accuracy.
-1685,7,match_pairs,exercise,1679,Match each term to its meaning.,Group↔Shared scale|Small group↔More scales|Large group↔Fewer scales|Outlier↔Odd value,,,,
+1685,7,match_pairs,exercise,1679,Match each term to its meaning.,Group↔Shared scale|Small group↔More scales|Large group↔Fewer scales|Outlier↔Odd value,,,,"A group shares one scale; smaller groups mean more scales, larger groups fewer, and an outlier is an odd value."
 157,8,true_false,preview,158,QAT simulates low precision during training.,,true,,,True: QAT simulates rounding during training so the weights adapt. Doing it afterwards is post-training quantization.
-158,8,order,main,,Order quantization-aware training.,Start pretrained|Add fake rounding|Fine-tune briefly,,,,"Quantization-aware training (QAT) inserts fake quantization steps that round numbers like INT8 would, but during training, so the weights adapt."
-159,8,select_blank,exercise,158,QAT lets the model learn to tolerate ___.,rounding|latency|batching,0,,,
-160,8,multiple_choice,exercise,158,Which stage is QAT part of?,Serving|Training|Evaluation,1,,,
-161,8,order,exercise,158,Order a QAT workflow.,Insert fake quantization|Train or fine-tune|Convert to INT8|Deploy,,,,
-162,8,match_pairs,exercise,158,Match term to meaning.,PTQ↔After training|QAT↔During training|Fake quantization↔Simulated rounding,,,,
+158,8,order,main,,Order the steps of quantization-aware training.,Start pretrained|Add fake rounding|Fine-tune briefly,,,,"Quantization-aware training (QAT) inserts fake quantization steps that round numbers like INT8 would, but during training, so the weights adapt."
+159,8,select_blank,exercise,158,QAT lets the model learn to tolerate ___.,rounding|latency|batching,0,,,"QAT lets the model learn to tolerate rounding, because it trains while rounding is simulated."
+160,8,multiple_choice,exercise,158,Which stage is QAT part of?,Serving|Training|Evaluation,1,,,"QAT, quantization-aware training, is part of the training stage."
+161,8,order,exercise,158,Order a QAT workflow.,Insert fake quantization|Train or fine-tune|Convert to INT8|Deploy,,,,"Insert fake quantization, train or fine-tune with it, convert to INT8, then deploy."
+162,8,match_pairs,exercise,158,Match term to meaning.,PTQ↔After training|QAT↔During training|Fake quantization↔Simulated rounding,,,,"PTQ happens after training, QAT during training, and fake quantization is simulated rounding."
 1326,8,multiple_choice,exercise,158,Train a model to tolerate INT8 rounding. Use?,PTQ|QAT|Calibration,1,,,Quantization-aware training simulates rounding during training so the model adapts.
 163,8,true_false,preview,164,QAT costs more effort than post-training quantization.,,true,,,"It needs training runs, while PTQ does not."
 164,8,multiple_choice,main,,When is QAT usually worth it?,Accuracy tight|Speed irrelevant|Data missing,0,,,"Reach for QAT when very low bits, like 4-bit, make PTQ lose too much accuracy. The price is training data and compute."
-165,8,select_blank,exercise,164,"At 4-bit, ___ may lose accuracy QAT keeps.",PTQ|Pruning|Batching,0,,,
-166,8,multiple_choice,exercise,164,PTQ lost too much accuracy; next?,Try QAT|Fewer bits|Skip tests,0,,,
-167,8,categorize,exercise,164,PTQ or QAT?,Needs training↔QAT|Fast to apply↔PTQ|Best low-bit accuracy↔QAT|Calibration only↔PTQ,,,,
-168,8,multi_select,exercise,164,Which are QAT downsides?,Training cost|Needs data|Lower accuracy|Bigger model,0|1,,,
+165,8,select_blank,exercise,164,"At 4-bit, ___ may lose accuracy QAT keeps.",PTQ|Pruning|Batching,0,,,"At 4-bit, PTQ may lose accuracy that QAT keeps, because QAT lets the model adapt to the rounding."
+166,8,multiple_choice,exercise,164,PTQ lost too much accuracy; next?,Try QAT|Fewer bits|Skip tests,0,,,"If PTQ lost too much accuracy, try QAT, which trains the model to handle the lower precision."
+167,8,categorize,exercise,164,PTQ or QAT?,Needs training↔QAT|Fast to apply↔PTQ|Best low-bit accuracy↔QAT|Calibration only↔PTQ,,,,QAT needs training and gives the best low-bit accuracy; PTQ is fast to apply and needs only calibration.
+168,8,multi_select,exercise,164,Which are QAT downsides?,Training cost|Needs data|Lower accuracy|Bigger model,0|1,,,QAT's downsides are its training cost and the need for training data.
 1327,8,multiple_choice,exercise,164,Shipping 4-bit; accuracy budget is very tight. Pick?,QAT|PTQ|Weight-only,0,,,"When PTQ loses too much accuracy at very low bits, QAT is worth its extra training cost."
 169,8,true_false,preview,170,QAT often starts from an already-trained model.,,true,,,You don't rebuild the model; you polish one that already works.
 170,8,multiple_choice,main,,How does QAT usually start?,Fresh model|Trained model|Quantized copy,1,,,"Teams take a pretrained model (one already trained) and fine-tune it briefly with fake quantization, which is far cheaper than training from scratch."
-171,8,select_blank,exercise,170,QAT often fine-tunes for a ___ time.,short|long|full,0,,,
-172,8,multiple_choice,exercise,170,Starting QAT from scratch is?,Costly|Cheap|Required,0,,,
-173,8,order,exercise,170,Order the QAT recipe.,Pretrained model|Add fake quantization|Fine-tune briefly|Export INT8,,,,
-174,8,match_pairs,exercise,170,Match term to meaning.,Pretrained↔Already trained|QAT↔Train with rounding|PTQ↔No retraining,,,,
+171,8,select_blank,exercise,170,QAT often fine-tunes for a ___ time.,short|long|full,0,,,"QAT often fine-tunes for a short time, since starting from a pretrained model is enough to adapt it."
+172,8,multiple_choice,exercise,170,Starting QAT from scratch is?,Costly|Cheap|Required,0,,,"Starting QAT from scratch is costly, because you repeat full training instead of briefly fine-tuning."
+173,8,order,exercise,170,Order the QAT recipe.,Pretrained model|Add fake quantization|Fine-tune briefly|Export INT8,,,,"Start from a pretrained model, add fake quantization, fine-tune briefly, then export as INT8."
+174,8,match_pairs,exercise,170,Match term to meaning.,Pretrained↔Already trained|QAT↔Train with rounding|PTQ↔No retraining,,,,"Pretrained means already trained, QAT trains with rounding, and PTQ needs no retraining."
 1328,8,multiple_choice,exercise,170,"Little compute, pretrained model available. QAT plan?",Retrain fully|Fine-tune it|Start over,1,,,Start from the pretrained model and fine-tune briefly with fake quantization.
 301,9,true_false,preview,302,Pruning removes weights that barely affect the output.,,true,,,"Many weights are tiny and contribute almost nothing, so deleting them shrinks the model with little harm."
 302,9,multiple_choice,main,,What does pruning remove?,Extra data|Weak weights|Output labels,1,,,"Pruning drops the weights that matter least. Magnitude pruning, the simplest kind, removes those closest to zero first."
-303,9,select_blank,exercise,302,Pruning sets unimportant weights to ___.,random|zero|negative,1,,,
+303,9,select_blank,exercise,302,Pruning sets unimportant weights to ___.,random|zero|negative,1,,,"Pruning sets unimportant weights to zero, so they no longer affect the output."
 304,9,multiple_choice,exercise,302,Which weights get pruned first?,Largest|Earliest|Smallest,2,,,Magnitude means absolute size: a weight of 0.001 matters far less than one of 2.7.
-305,9,multi_select,exercise,302,Pick the goals of pruning.,Smaller model|Fewer computations|More parameters|Higher accuracy,0|1,,,
-306,9,categorize,exercise,302,Kept or pruned?,Tiny weight↔Pruned|Large weight↔Kept|Near-zero weight↔Pruned|Key weight↔Kept,,,,
+305,9,multi_select,exercise,302,Pick the goals of pruning.,Smaller model|Fewer computations|More parameters|Higher accuracy,0|1,,,Pruning aims for a smaller model and fewer computations by removing weights that matter little.
+306,9,categorize,exercise,302,Kept or pruned?,Tiny weight↔Pruned|Large weight↔Kept|Near-zero weight↔Pruned|Key weight↔Kept,,,,Tiny and near-zero weights are pruned; large and key weights are kept.
 1329,9,multiple_choice,exercise,302,Many weights sit near zero. What now?,Prune them|Add layers|Quantize all,0,,,"Near-zero weights influence results least, so pruning removes them with little harm."
 307,9,true_false,preview,308,Removing whole channels is coarser than removing single weights.,,true,,,"True: removing whole chunks is coarser. Removing single weights is the fine-grained, unstructured kind."
 308,9,categorize,main,,Structured or unstructured pruning?,Whole channels↔Structured|Single weights↔Unstructured|Whole neurons↔Structured|Scattered zeros↔Unstructured,,,,"Structured pruning deletes whole neurons or channels, leaving a smaller dense model that ordinary hardware runs faster. Unstructured pruning zeroes scattered single weights instead."
-309,9,select_blank,exercise,308,Unstructured pruning zeroes ___ weights.,individual|whole-layer|entire-head,0,,,
+309,9,select_blank,exercise,308,Unstructured pruning zeroes ___ weights.,individual|whole-layer|entire-head,0,,,"Unstructured pruning zeroes individual weights, wherever they are in the matrix."
 310,9,multiple_choice,exercise,308,Which pruning speeds up ordinary GPUs?,Structured|Unstructured,0,,,"A smaller dense matrix just works on normal hardware, while scattered zeros usually need special support."
-311,9,categorize,exercise,308,Which pruning style?,Single weight↔Unstructured|Whole channel↔Structured|Entire neuron↔Structured|Scattered zero↔Unstructured,,,,
+311,9,categorize,exercise,308,Which pruning style?,Single weight↔Unstructured|Whole channel↔Structured|Entire neuron↔Structured|Scattered zero↔Unstructured,,,,Single weights and scattered zeros are unstructured pruning; whole channels and neurons are structured pruning.
 312,9,multiple_choice,exercise,308,Removing a whole attention head is which pruning?,Structured|Unstructured|Neither|Both,0,,,"Whole heads go as one block, so it is structured pruning."
 1330,9,multiple_choice,exercise,308,You deleted 20 whole channels. Pruning type?,Structured|Unstructured|Dense,0,,,Removing whole channels or neurons is structured pruning.
 313,9,true_false,preview,314,Zeros only save time if skipped.,,true,,,Zeros only save time when the hardware or software actually skips them; otherwise they get multiplied like any other number.
 314,9,multiple_choice,main,,What is sparsity?,Parameter count|Share of zeros|Weight range,1,,,A 90%-sparse model has 90% of its weights equal to zero. That only speeds things up if the runtime skips the zeros; a dense engine still multiplies them.
-315,9,select_blank,exercise,314,A 90% sparse model is mostly ___.,zeros|ones|negatives,0,,,
+315,9,select_blank,exercise,314,A 90% sparse model is mostly ___.,zeros|ones|negatives,0,,,A 90% sparse model is mostly zeros: 90% of its weights are zero.
 316,9,multiple_choice,exercise,314,Why can sparse models stay slow?,Lower precision|Zeros computed|Bigger files,1,,,"Ordinary dense math kernels don't know which weights are zero, so they do the work anyway."
-317,9,order,exercise,314,"Order by sparsity, least to most.",0% zeros|50% zeros|90% zeros|99% zeros,,,,
+317,9,order,exercise,314,"Order by sparsity, least to most.",0% zeros|50% zeros|90% zeros|99% zeros,,,,"Sparsity is the share of zeros: 0% is least, then 50%, 90%, and 99% is most."
 318,9,multiple_choice,exercise,314,What makes scattered zeros save time?,Sparse support|Dense kernels|Wider layers,0,,,"Some chips and libraries can skip zeros, which is when unstructured sparsity finally pays off."
 1331,9,multiple_choice,exercise,314,Runtime skips zeros. 90% sparse model result?,Speedup|No change|Slowdown,0,,,"When the runtime actually skips zeros, sparsity finally saves time."
 319,9,true_false,preview,320,Pruned models usually need a little fine-tuning.,,true,,,True: a brief round of fine-tuning after pruning usually recovers lost accuracy.
 320,9,multiple_choice,main,,What follows pruning to recover accuracy?,Quantizing|Calibrating|Fine-tuning,2,,,Fine-tuning means a short round of extra training so the surviving weights compensate for the removed ones.
-321,9,select_blank,exercise,320,"Prune, then ___ to recover accuracy.",fine-tune|re-prune|export,0,,,
-322,9,order,exercise,320,Order the pruning workflow.,Train model|Prune weights|Fine-tune|Evaluate,,,,
+321,9,select_blank,exercise,320,"Prune, then ___ to recover accuracy.",fine-tune|re-prune|export,0,,,"Prune, then fine-tune to recover the accuracy lost when weights were removed."
+322,9,order,exercise,320,Order the pruning workflow.,Train model|Prune weights|Fine-tune|Evaluate,,,,"Train the model, prune weights, fine-tune to recover accuracy, then evaluate the result."
 323,9,multiple_choice,exercise,320,Pruning too much causes what?,Higher latency|Accuracy loss|More memory,1,,,"Past a point the model loses too much capacity, so you evaluate after each pruning step."
-324,9,match_pairs,exercise,320,Match the step to its purpose.,Train↔Learn weights|Prune↔Cut weights|Fine-tune↔Recover accuracy|Evaluate↔Measure result,,,,
+324,9,match_pairs,exercise,320,Match the step to its purpose.,Train↔Learn weights|Prune↔Cut weights|Fine-tune↔Recover accuracy|Evaluate↔Measure result,,,,"Train learns weights, prune cuts weights, fine-tune recovers accuracy, and evaluate measures the result."
 1332,9,multiple_choice,exercise,320,"Pruned 60%, accuracy dropped. Next step?",Prune more|Fine-tune|Add data,1,,,A short round of fine-tuning lets surviving weights compensate for the removed ones.
 325,10,true_false,preview,326,A small student model can learn from a big teacher.,,true,,,That's knowledge distillation: a compact model is trained to imitate a large one.
 326,10,match_pairs,main,,Match each model role.,"Teacher↔Big, accurate|Student↔Small, shipped|Soft labels↔Probability outputs",,,,"In distillation the big, accurate teacher guides a small student; only the cheap student ships to production."
-327,10,select_blank,exercise,326,The ___ model is the smaller one.,student|teacher|frozen,0,,,
-328,10,match_pairs,exercise,326,Match each distillation term.,Teacher↔Big model|Student↔Small model|Distillation↔Transfers knowledge|Goal↔Cheaper inference,,,,
+327,10,select_blank,exercise,326,The ___ model is the smaller one.,student|teacher|frozen,0,,,"In distillation the student is the smaller model, trained to imitate the larger teacher."
+328,10,match_pairs,exercise,326,Match each distillation term.,Teacher↔Big model|Student↔Small model|Distillation↔Transfers knowledge|Goal↔Cheaper inference,,,,"The teacher is the big model, the student the small one, distillation transfers knowledge, and the goal is cheaper inference."
 329,10,multiple_choice,exercise,326,Which model ships to production?,Teacher|Student|Baseline,1,,,"The student is the small, fast one you serve."
-330,10,multi_select,exercise,326,Distillation typically yields:,Smaller model|Faster inference|Larger teacher|Lower cost,0|1|3,,,
+330,10,multi_select,exercise,326,Distillation typically yields:,Smaller model|Faster inference|Larger teacher|Lower cost,0|1|3,,,"Distillation typically yields a smaller model, faster inference and lower cost."
 1333,10,multiple_choice,exercise,326,Small model must mimic a big one. Method?,Distillation|Quantization|Pruning,0,,,Distillation trains a small student to imitate a large teacher.
 331,10,true_false,preview,332,A probability spread carries more information than one answer.,,true,,,Knowing an image is 70% cat and 25% dog tells you more than just 'cat'.
 332,10,multiple_choice,main,,What do students copy from teachers?,Raw weights|Layer sizes|Soft labels,2,,,"Soft labels are the teacher's full probability outputs. They reveal which wrong answers are nearly right, which a hard label hides."
-333,10,select_blank,exercise,332,Soft labels are output ___.,activations|probabilities|checkpoints,1,,,
+333,10,select_blank,exercise,332,Soft labels are output ___.,activations|probabilities|checkpoints,1,,,"Soft labels are output probabilities, such as 70% cat and 30% dog, instead of a single hard answer."
 334,10,multiple_choice,exercise,332,"Teacher: cat 70%, dog 25%. Reveals?",Class overlap|Teacher error|Labeling noise,0,,,"The second-place guess shows the classes look alike, extra signal the student can learn from."
-335,10,categorize,exercise,332,Hard or soft label?,Only 'cat'↔Hard|70% cat↔Soft|30% dog↔Soft|Exact answer↔Hard,,,,
-336,10,order,exercise,332,Order the distillation flow.,Train teacher|Teacher labels data|Train student|Deploy student,,,,
+335,10,categorize,exercise,332,Hard or soft label?,Only 'cat'↔Hard|70% cat↔Soft|30% dog↔Soft|Exact answer↔Hard,,,,Hard labels give only the exact answer; soft labels give probabilities for several answers.
+336,10,order,exercise,332,Order the distillation flow.,Train teacher|Teacher labels data|Train student|Deploy student,,,,"Train the teacher, let it label data, train the student on those labels, then deploy the student."
 1334,10,multiple_choice,exercise,332,Student sees only final answers. Missing?,Hard labels|Soft labels|Bigger data,1,,,The teacher's full probabilities reveal which wrong answers are nearly right.
 337,10,true_false,preview,338,Higher temperature makes probabilities flatter.,,true,,,True: higher temperature makes probabilities flatter and more evenly spread.
 338,10,select_blank,main,,Higher temperature makes probabilities ___.,flatter|sharper|larger,0,,,"Dividing the model's raw scores by a larger temperature evens out the probabilities, so runner-up answers become easier to see."
-339,10,select_blank,exercise,338,Low temperature makes outputs ___.,peaked|flat|random,0,,,
+339,10,select_blank,exercise,338,Low temperature makes outputs ___.,peaked|flat|random,0,,,Low temperature makes outputs peaked: the top choice gets most of the probability.
 340,10,multiple_choice,exercise,338,Why raise temperature in distillation?,Speed training|Show runner-ups|Shrink weights,1,,,A flatter distribution exposes how the teacher ranks the wrong answers.
-341,10,match_pairs,exercise,338,Match the temperature idea.,Low temp↔Peaked|High temp↔Flat|Runner-up↔Second choice|Soft label↔Probability,,,,
+341,10,match_pairs,exercise,338,Match the temperature idea.,Low temp↔Peaked|High temp↔Flat|Runner-up↔Second choice|Soft label↔Probability,,,,"Low temperature is peaked, high temperature is flat, the runner-up is the second choice, and a soft label is a probability."
 1335,10,multiple_choice,exercise,338,Teacher's runner-up scores barely visible. Temperature?,Raise|Lower|Zero,0,,,Raising the temperature flattens probabilities so runner-ups show.
 342,10,true_false,preview,343,A distilled student usually loses some teacher accuracy.,,true,,,Shrinking a model rarely comes entirely free.
 343,10,multiple_choice,main,,What do you give up distilling?,Accuracy|Speed gains|File size,0,,,"A student typically lands slightly below its teacher, so you give up a bit of accuracy. DistilBERT, for instance, is roughly 40% smaller than BERT yet keeps most of its quality."
-344,10,multiple_choice,exercise,343,DistilBERT is a distilled version of?,BERT|ResNet|Whisper,0,,,
-345,10,multi_select,exercise,343,Pick distillation traits.,Trains student|Needs teacher|Rounds weights|Lowers precision,0|1,,,
-346,10,categorize,exercise,343,Distillation or quantization?,Needs teacher↔Distillation|Fewer bits↔Quantization|Student model↔Distillation|INT8 weights↔Quantization,,,,
-347,10,select_blank,exercise,343,Distillation trades a bit of accuracy for ___.,labels|speed|teachers,1,,,
+344,10,multiple_choice,exercise,343,DistilBERT is a distilled version of?,BERT|ResNet|Whisper,0,,,"DistilBERT is a smaller, faster model distilled from BERT."
+345,10,multi_select,exercise,343,Pick distillation traits.,Trains student|Needs teacher|Rounds weights|Lowers precision,0|1,,,Distillation trains a student model and needs a teacher model to learn from.
+346,10,categorize,exercise,343,Distillation or quantization?,Needs teacher↔Distillation|Fewer bits↔Quantization|Student model↔Distillation|INT8 weights↔Quantization,,,,A teacher and student model mean distillation; fewer bits and INT8 weights mean quantization.
+347,10,select_blank,exercise,343,Distillation trades a bit of accuracy for ___.,labels|speed|teachers,1,,,"Distillation trades a bit of accuracy for speed, since the student is smaller and faster than the teacher."
 1336,10,multiple_choice,exercise,343,Student scored 1% below teacher. Normal?,"Yes, normal|No, failed|No, broken",0,,,A student typically lands slightly below its teacher.
 348,11,true_false,preview,349,Low-rank factors store far fewer numbers than the original.,,true,,,"Two thin factors hold far fewer numbers than one huge matrix, e.g. 100,000 instead of 1,000,000."
 349,11,multiple_choice,main,,Low-rank factorization splits a matrix into?,Pruned rows|Thin factors|Fewer bits,1,,,"A 1000x1000 matrix holds 1,000,000 weights; two factors of 1000x50 hold only 100,000 combined."
-350,11,select_blank,exercise,349,A 1000x1000 matrix has ___ weights.,1 million|100 thousand|2 thousand,0,,,
-351,11,multiple_choice,exercise,349,Why do two thin matrices save memory?,Fewer weights|Fewer layers|Lower precision,0,,,
-352,11,multi_select,exercise,349,Low-rank factorization can cut:,Memory|Compute|Accuracy always|Bit depth,0|1,,,
-353,11,match_pairs,exercise,349,Match the sizes.,Original↔1M weights|Factored↔100K weights|Savings↔About 90%,,,,
+350,11,select_blank,exercise,349,A 1000x1000 matrix has ___ weights.,1 million|100 thousand|2 thousand,0,,,1000 x 1000 is one million weights.
+351,11,multiple_choice,exercise,349,Why do two thin matrices save memory?,Fewer weights|Fewer layers|Lower precision,0,,,"Two thin matrices together hold fewer weights than one big matrix, so they use less memory."
+352,11,multi_select,exercise,349,Low-rank factorization can cut:,Memory|Compute|Accuracy always|Bit depth,0|1,,,"Low-rank factorization can cut memory and compute, because fewer weights mean less to store and multiply."
+353,11,match_pairs,exercise,349,Match the sizes.,Original↔1M weights|Factored↔100K weights|Savings↔About 90%,,,,"1M weights factored into two thin matrices can need only about 100K, a saving of roughly 90%."
 1400,11,multiple_choice,exercise,349,Weight matrix hogs memory. Best move?,Low-rank split|Wider matrix|Higher precision,0,,,Splitting the big matrix into two thin factors stores far fewer numbers.
 354,11,true_false,preview,355,"Lower rank means a smaller, simpler approximation.",,true,,,Rank is the width of the narrow middle between the two factors.
 355,11,multiple_choice,main,,What does rank control here?,Inner width|Batch size|Bit depth,0,,,A rank of 8 forces the approximation through 8 numbers; rank 512 keeps far more detail but saves less.
-356,11,select_blank,exercise,355,Lower rank compresses more but ___ accuracy.,may hurt|improves|ignores,0,,,
-357,11,order,exercise,355,"Order by rank, lowest to highest.",Rank 4|Rank 16|Rank 64|Rank 256,,,,
-358,11,multiple_choice,exercise,355,Which rank compresses most?,Rank 8|Rank 64|Rank 512,0,,,
-359,11,categorize,exercise,355,Compression or fidelity?,Low rank↔Smaller size|High rank↔Better fidelity|Rank 4↔Smaller size|Rank 512↔Better fidelity,,,,
+356,11,select_blank,exercise,355,Lower rank compresses more but ___ accuracy.,may hurt|improves|ignores,0,,,"Lower rank compresses more but may hurt accuracy, because less information is kept."
+357,11,order,exercise,355,"Order by rank, lowest to highest.",Rank 4|Rank 16|Rank 64|Rank 256,,,,"Lowest to highest rank: 4, 16, 64, then 256; a higher rank keeps more information."
+358,11,multiple_choice,exercise,355,Which rank compresses most?,Rank 8|Rank 64|Rank 512,0,,,"Rank 8 is the lowest rank listed, so it compresses the most."
+359,11,categorize,exercise,355,Compression or fidelity?,Low rank↔Smaller size|High rank↔Better fidelity|Rank 4↔Smaller size|Rank 512↔Better fidelity,,,,Low ranks such as 4 give a smaller size; high ranks such as 512 give better fidelity to the original.
 1401,11,multiple_choice,exercise,355,Squeezed too hard; accuracy dropped. Fix?,Lower rank|Raise rank|Shrink batch,1,,,"A higher rank keeps more detail, at the price of less compression."
 360,11,true_false,preview,361,Weight sharing reuses one set of weights in many places.,,true,,,"Instead of storing separate copies, the model points several spots at the same numbers."
 361,11,select_blank,main,,Weight sharing reuses the ___ weights.,same|pruned|quantized,0,,,"ALBERT, for example, reuses one layer's weights across all its layers. Tied embeddings share one table between input and output."
-362,11,select_blank,exercise,361,Sharing weights across layers cuts ___.,parameters|precision|batch size,0,,,
-363,11,multiple_choice,exercise,361,ALBERT shares weights across its?,layers|tokens|heads,0,,,
-364,11,match_pairs,exercise,361,Match the sharing idea.,Shared layer↔Fewer parameters|Unshared↔More parameters|Tied embeddings↔Reused table|ALBERT↔Layer sharing,,,,
-365,11,multi_select,exercise,361,Weight sharing benefits:,Smaller model|Less memory|Unique layers|More parameters,0|1,,,
+362,11,select_blank,exercise,361,Sharing weights across layers cuts ___.,parameters|precision|batch size,0,,,"Sharing weights across layers cuts parameters, because the same weights are reused instead of stored again."
+363,11,multiple_choice,exercise,361,ALBERT shares weights across its?,layers|tokens|heads,0,,,"ALBERT shares weights across its layers, which reduces its parameter count."
+364,11,match_pairs,exercise,361,Match the sharing idea.,Shared layer↔Fewer parameters|Unshared↔More parameters|Tied embeddings↔Reused table|ALBERT↔Layer sharing,,,,"A shared layer means fewer parameters, unshared means more, tied embeddings reuse a table, and ALBERT shares layers."
+365,11,multi_select,exercise,361,Weight sharing benefits:,Smaller model|Less memory|Unique layers|More parameters,0|1,,,"Weight sharing gives a smaller model and uses less memory, since fewer distinct weights are stored."
 1402,11,multiple_choice,exercise,361,Twelve layers store separate copies. Best fix?,Add layers|Share weights|Widen layers,1,,,Sharing lets all twelve layers point at one stored set of weights.
 366,11,true_false,preview,367,"Sharing a layer saves memory, not math.",,true,,,"Sharing stores the layer once, but its math still runs at each use, so memory shrinks while compute does not."
 367,11,multiple_choice,main,,Shared layers still cost what?,Less compute|Full compute|Extra memory,1,,,"If one layer is reused 12 times, you store it once but still run its math 12 times, so memory shrinks while speed barely changes."
 368,11,select_blank,exercise,367,"Shared layer stored once, but math ___ every use.",runs again|gets cached|shrinks,0,,,"Weight sharing saves storage, but each use of the layer still needs its math to run."
-369,11,multiple_choice,exercise,367,Where does weight sharing help most?,Runtime speed|Model size|Compute cost,1,,,
-370,11,categorize,exercise,367,Saved or unchanged?,Parameters↔Saved|Storage↔Saved|Math steps↔Unchanged|Layer passes↔Unchanged,,,,
+369,11,multiple_choice,exercise,367,Where does weight sharing help most?,Runtime speed|Model size|Compute cost,1,,,"Weight sharing helps most with model size, because the number of stored parameters shrinks."
+370,11,categorize,exercise,367,Saved or unchanged?,Parameters↔Saved|Storage↔Saved|Math steps↔Unchanged|Layer passes↔Unchanged,,,,"Sharing saves parameters and storage, but the math steps and layer passes still run, so compute is unchanged."
 371,11,multiple_choice,exercise,367,Low-rank matrices reduce which cost?,Weight storage|Layer count|Latency budget,0,,,"Fewer stored numbers also means fewer multiplications, so low-rank saves both."
 1403,11,multiple_choice,exercise,367,Layer shared across 12 uses. Compute?,Runs once|Runs 12x|Half runs,1,,,"Stored once, but its math still runs at every use."
 372,12,true_false,preview,373,A GPU runs thousands of simple operations in parallel.,,true,,,"Parallel means at the same time; that suits neural networks, which are mostly huge matrix multiplications."
 373,12,multiple_choice,main,,Why do GPUs suit neural networks?,Parallel cores|Larger caches|Faster clocks,0,,,A CPU has a few strong cores; a GPU has thousands of simple ones that can each handle a piece of a matrix multiply at once.
-374,12,select_blank,exercise,373,GPUs have thousands of ___ cores.,simple|powerful|serial,0,,,
-375,12,match_pairs,exercise,373,Match each processor trait.,CPU↔Few strong cores|GPU↔Many simple cores|Matrix multiply↔Parallel work|Branching logic↔CPU strength,,,,
-376,12,categorize,exercise,373,CPU or GPU?,Branchy logic↔CPU|Matrix math↔GPU|Serial tasks↔CPU|Big tensors↔GPU,,,,
-377,12,multiple_choice,exercise,373,Which suits many small matrix multiplies?,GPU|CPU,0,,,
+374,12,select_blank,exercise,373,GPUs have thousands of ___ cores.,simple|powerful|serial,0,,,GPUs have thousands of simple cores that can all work at the same time.
+375,12,match_pairs,exercise,373,Match each processor trait.,CPU↔Few strong cores|GPU↔Many simple cores|Matrix multiply↔Parallel work|Branching logic↔CPU strength,,,,"A CPU has a few strong cores, a GPU has many simple cores, matrix multiply is parallel work, and branching logic suits a CPU."
+376,12,categorize,exercise,373,CPU or GPU?,Branchy logic↔CPU|Matrix math↔GPU|Serial tasks↔CPU|Big tensors↔GPU,,,,Branchy logic and serial tasks suit a CPU; matrix math and big tensors suit a GPU.
+377,12,multiple_choice,exercise,373,Which suits many small matrix multiplies?,GPU|CPU,0,,,"A GPU suits many small matrix multiplies, because its many cores can do them in parallel."
 1404,12,multiple_choice,exercise,373,One complex serial task. Which chip fits?,CPU|GPU,0,,,A CPU's few strong cores suit complex serial work; a GPU's thousands of simple cores suit parallel math.
 378,12,true_false,preview,379,Weights that exceed VRAM run slower.,,true,,,"If the weights don't fit in GPU memory, they must be shuffled in from slower storage, so speed drops."
 379,12,multiple_choice,main,,What is VRAM?,GPU's memory|CPU cache|Disk space,0,,,VRAM is the GPU's own memory. A 7B-parameter model in FP16 needs roughly 14 GB just for weights (7 billion x 2 bytes).
-380,12,select_blank,exercise,379,A 7B model in FP16 needs ~___ GB.,14|7|70,0,,,
-381,12,multiple_choice,exercise,379,Model exceeds VRAM. Best fix?,Raise precision|Quantize it|Train longer,1,,,
-382,12,multi_select,exercise,379,Ways to fit in VRAM:,Quantize|Prune|Raise precision|Bigger batch,0|1,,,
-383,12,order,exercise,379,"Order by memory, smallest first.",INT4 weights|INT8 weights|FP16 weights|FP32 weights,,,,
+380,12,select_blank,exercise,379,A 7B model in FP16 needs ~___ GB.,14|7|70,0,,,7B parameters at 2 bytes each in FP16 is about 14 GB.
+381,12,multiple_choice,exercise,379,Model exceeds VRAM. Best fix?,Raise precision|Quantize it|Train longer,1,,,"Quantizing shrinks the weights to fewer bits, so a model that exceeds VRAM can fit without changing its design."
+382,12,multi_select,exercise,379,Ways to fit in VRAM:,Quantize|Prune|Raise precision|Bigger batch,0|1,,,"Quantizing and pruning both shrink the model, which helps it fit in VRAM."
+383,12,order,exercise,379,"Order by memory, smallest first.",INT4 weights|INT8 weights|FP16 weights|FP32 weights,,,,"Memory per weight grows with bits: INT4 is smallest, then INT8, FP16, and FP32 is largest."
 1405,12,multiple_choice,exercise,379,7B FP16 needs 14 GB; GPU has 8. Result?,"Fits fine|Won't fit|Fits, faster",1,,,"Weights larger than VRAM can't sit on the GPU, so you must shrink them or shuffle data in."
 384,12,true_false,preview,385,Accelerators are chips built for neural-network math.,,true,,,"Beyond CPUs and GPUs, some chips are designed specifically for AI workloads."
 385,12,multiple_choice,main,,What is an NPU?,Graphics card|AI chip|Memory module,1,,,An NPU (neural processing unit) is a low-power AI chip often found in phones and laptops. A TPU is Google's tensor processing unit.
-386,12,match_pairs,exercise,385,Match each chip.,GPU↔Graphics-born|TPU↔Google's chip|NPU↔Phone AI chip|CPU↔General purpose,,,,
-387,12,select_blank,exercise,385,TPU stands for Tensor ___ Unit.,Processing|Power|Program,0,,,
-388,12,multiple_choice,exercise,385,Where do NPUs often live?,Phones|Routers|Printers,0,,,
-389,12,categorize,exercise,385,General or specialized?,CPU↔General|TPU↔Specialized|NPU↔Specialized|Laptop CPU↔General,,,,
+386,12,match_pairs,exercise,385,Match each chip.,GPU↔Graphics-born|TPU↔Google's chip|NPU↔Phone AI chip|CPU↔General purpose,,,,"GPU began as graphics hardware, TPU is Google's chip, NPU is a phone AI chip, and CPU is general purpose."
+387,12,select_blank,exercise,385,TPU stands for Tensor ___ Unit.,Processing|Power|Program,0,,,"TPU stands for Tensor Processing Unit, Google's chip built for tensor math."
+388,12,multiple_choice,exercise,385,Where do NPUs often live?,Phones|Routers|Printers,0,,,"NPUs, neural processing units, often live in phones, where they run AI efficiently on little power."
+389,12,categorize,exercise,385,General or specialized?,CPU↔General|TPU↔Specialized|NPU↔Specialized|Laptop CPU↔General,,,,CPUs are general-purpose; TPUs and NPUs are specialized chips built for AI math.
 1406,12,multiple_choice,exercise,385,Low-power AI on a phone. Which chip?,NPU|TPU|CPU,0,,,NPUs are low-power AI chips often built into phones and laptops.
 390,12,true_false,preview,391,Chips usually do math faster than they fetch numbers.,,true,,,"Chips usually do math faster than they can fetch numbers from memory, so moving data can cost more time than math."
 391,12,multiple_choice,main,,Memory-bound means waiting on what?,Math units|Memory reads|Disk writes,1,,,Memory-bound work spends its time reading weights; compute-bound work is limited by math speed instead. LLM generation is often memory-bound.
-392,12,select_blank,exercise,391,Compute-bound work is limited by ___.,math speed|memory reads|disk speed,0,,,
+392,12,select_blank,exercise,391,Compute-bound work is limited by ___.,math speed|memory reads|disk speed,0,,,Compute-bound work is limited by math speed: the chip cannot do the calculations any faster.
 393,12,multiple_choice,exercise,391,Why does INT8 speed memory-bound work?,Fewer bytes|More math|Bigger caches,0,,,Half the bytes to read means roughly half the waiting.
-394,12,match_pairs,exercise,391,Match the bottleneck idea.,Bandwidth↔Bytes per second|Compute↔Math per second|Memory-bound↔Waiting on data|Compute-bound↔Waiting on math,,,,
-395,12,categorize,exercise,391,Memory or compute-bound?,Reading huge weights↔Memory-bound|Big matrix multiply↔Compute-bound|Loading 14GB↔Memory-bound|Dense math↔Compute-bound,,,,
+394,12,match_pairs,exercise,391,Match the bottleneck idea.,Bandwidth↔Bytes per second|Compute↔Math per second|Memory-bound↔Waiting on data|Compute-bound↔Waiting on math,,,,"Bandwidth is bytes per second and compute is math per second; memory-bound waits on data, compute-bound on math."
+395,12,categorize,exercise,391,Memory or compute-bound?,Reading huge weights↔Memory-bound|Big matrix multiply↔Compute-bound|Loading 14GB↔Memory-bound|Dense math↔Compute-bound,,,,Reading huge weights and loading 14GB are memory-bound; big matrix multiplies and dense math are compute-bound.
 1407,12,multiple_choice,exercise,391,Memory-bound chatbot too slow. First fix?,Add cores|Shrink weights|Faster math,1,,,"Fewer bytes to read means less waiting, which is what limits memory-bound work."
 396,13,true_false,preview,397,Batching processes several inputs in one pass.,,true,,,"Instead of running inputs one by one, you stack them and run them together."
 397,13,multiple_choice,main,,What is batching?,Grouped inputs|Split models|Cached weights,0,,,"Batching stacks several inputs so a GPU handles them in one pass, keeping its many cores busy."
-398,13,select_blank,exercise,397,A batch of 8 means ___ inputs together.,8|1|64,0,,,
+398,13,select_blank,exercise,397,A batch of 8 means ___ inputs together.,8|1|64,0,,,A batch of 8 means 8 inputs are processed together in one pass.
 399,13,multiple_choice,exercise,397,Why batch on GPUs?,GPU utilization|Smaller weights|Lower precision,0,,,Utilization is how much of the chip is actually working. One input rarely fills it.
-400,13,match_pairs,exercise,397,Match the batch idea.,Batch size 1↔Idle GPU|Batch size 32↔Busy GPU|Batch↔Grouped inputs|Throughput↔Items per second,,,,
-401,13,multi_select,exercise,397,Batching can improve:,Throughput|GPU utilization|Model accuracy|Weight count,0|1,,,
+400,13,match_pairs,exercise,397,Match the batch idea.,Batch size 1↔Idle GPU|Batch size 32↔Busy GPU|Batch↔Grouped inputs|Throughput↔Items per second,,,,"Batch size 1 leaves a GPU idle, size 32 keeps it busy, a batch is grouped inputs, and throughput is items per second."
+401,13,multi_select,exercise,397,Batching can improve:,Throughput|GPU utilization|Model accuracy|Weight count,0|1,,,"Batching can improve throughput and GPU utilization, because the GPU does more useful work per pass."
 1408,13,multiple_choice,exercise,397,GPU idles serving one request. Fix?,Prune weights|Batch inputs|Quantize it,1,,,Stacking inputs into a batch keeps the GPU's many cores busy.
 402,13,true_false,preview,403,Bigger batches usually make each request wait longer.,,true,,,"Bigger batches raise total throughput, but each request waits for the batch to fill and run, so individual latency grows."
 403,13,multiple_choice,main,,What does a bigger batch usually cost?,Lower throughput|Extra latency|Less accuracy,1,,,"Each request waits for others to arrive and the whole batch takes longer, so individual replies slow down even as total throughput rises."
-404,13,select_blank,exercise,403,Bigger batches trade latency for ___.,throughput|accuracy|precision,0,,,
-405,13,order,exercise,403,"Order batch size, smallest first.",Batch 1|Batch 8|Batch 64|Batch 512,,,,
-406,13,categorize,exercise,403,Latency or throughput first?,Chat reply↔Latency|Overnight job↔Throughput|Live typing↔Latency|Bulk scoring↔Throughput,,,,
-407,13,multiple_choice,exercise,403,Which workload favors big batches?,Offline scoring|Live chat|Voice assistant,0,,,
+404,13,select_blank,exercise,403,Bigger batches trade latency for ___.,throughput|accuracy|precision,0,,,"Bigger batches trade latency for throughput: each request may wait longer, but more are served per second."
+405,13,order,exercise,403,"Order batch size, smallest first.",Batch 1|Batch 8|Batch 64|Batch 512,,,,"Batch sizes from smallest to largest: 1, 8, 64, then 512."
+406,13,categorize,exercise,403,Latency or throughput first?,Chat reply↔Latency|Overnight job↔Throughput|Live typing↔Latency|Bulk scoring↔Throughput,,,,"A chat reply and live typing need fast responses, so latency comes first; overnight and bulk jobs care about throughput."
+407,13,multiple_choice,exercise,403,Which workload favors big batches?,Offline scoring|Live chat|Voice assistant,0,,,"Offline scoring has no one waiting, so large batches can maximize throughput."
 1409,13,multiple_choice,exercise,403,Live chat lags at batch 256. Fix?,Raise batch|Lower batch|Wait longer,1,,,"Smaller batches mean less waiting, trading some throughput for latency."
 408,13,true_false,preview,409,Servers can wait briefly to collect requests into a batch.,,true,,,A short pause lets several requests join one GPU pass.
 409,13,multiple_choice,main,,Dynamic batching waits for what?,Cache flush|Time window|Model update,1,,,"Dynamic batching collects incoming requests until either a maximum size or a maximum wait is reached, then runs them together."
-410,13,select_blank,exercise,409,Dynamic batching groups requests within a ___.,time window|token limit|weight file,0,,,
-411,13,multiple_choice,exercise,409,What limits how long to wait?,Model size|Latency budget|Weight count,1,,,
-412,13,match_pairs,exercise,409,Match the setting.,Max batch↔Size cap|Max wait↔Time cap|Dynamic batching↔Auto grouping|Static batch↔Fixed size,,,,
-413,13,multi_select,exercise,409,Dynamic batching tunables:,Max size|Max wait|Weight decay|Bit width,0|1,,,
+410,13,select_blank,exercise,409,Dynamic batching groups requests within a ___.,time window|token limit|weight file,0,,,Dynamic batching groups requests that arrive within a short time window.
+411,13,multiple_choice,exercise,409,What limits how long to wait?,Model size|Latency budget|Weight count,1,,,The latency budget limits how long to wait for more requests before running the batch.
+412,13,match_pairs,exercise,409,Match the setting.,Max batch↔Size cap|Max wait↔Time cap|Dynamic batching↔Auto grouping|Static batch↔Fixed size,,,,"Max batch caps the size, max wait caps the time, dynamic batching groups automatically, and a static batch has a fixed size."
+413,13,multi_select,exercise,409,Dynamic batching tunables:,Max size|Max wait|Weight decay|Bit width,0|1,,,Dynamic batching is tuned with a maximum batch size and a maximum wait time.
 1410,13,multiple_choice,exercise,409,Traffic arrives unevenly. Which batching fits?,Fixed|Dynamic|Batch 1,1,,,Dynamic batching groups whatever arrives within a size or time limit.
 414,13,true_false,preview,415,Batched inputs of different lengths need padding to match.,,true,,,"Stacked data must form a neat rectangle, so short items get filler values."
 415,13,select_blank,main,,Padding gives batch items the same ___.,length|meaning|label,0,,,Short inputs get dummy values so every item has the same length. That filler takes compute but carries no information.
-416,13,select_blank,exercise,415,Padding wastes ___ on dummy values.,compute|accuracy|precision,0,,,
-417,13,multiple_choice,exercise,415,Mixing long and short inputs causes?,Wasted padding|Faster math|Less memory,0,,,
-418,13,categorize,exercise,415,Waste or work?,Padding↔Waste|Real inputs↔Work|Dummy values↔Waste|Actual math↔Work,,,,
+416,13,select_blank,exercise,415,Padding wastes ___ on dummy values.,compute|accuracy|precision,0,,,"Padding fills shorter inputs with dummy values, and the compute spent on them is wasted."
+417,13,multiple_choice,exercise,415,Mixing long and short inputs causes?,Wasted padding|Faster math|Less memory,0,,,"Mixing long and short inputs in a batch means the short ones are padded, so padding work is wasted."
+418,13,categorize,exercise,415,Waste or work?,Padding↔Waste|Real inputs↔Work|Dummy values↔Waste|Actual math↔Work,,,,Padding and dummy values are waste; real inputs and actual math are useful work.
 419,13,multiple_choice,exercise,415,Similar-length batches reduce what?,Padding waste|Model size|Accuracy,0,,,Sorting requests by length before batching means less filler.
 1411,13,multiple_choice,exercise,415,Batch mixes tiny and huge inputs. Fix?,Pad more|Group lengths|Drop long,1,,,Batching similar-length inputs together leaves less dummy filler to compute.
 420,14,true_false,preview,421,Fusing two operations avoids writing intermediate results to memory.,,true,,,The combined step keeps the in-between numbers inside the chip.
 421,14,multiple_choice,main,,What does operator fusion combine?,Whole models|Adjacent ops|Multiple GPUs,1,,,"Fusion merges steps like matmul, bias add and ReLU into one kernel (a small program run on the GPU), so results aren't written out and read back between them."
-422,14,select_blank,exercise,421,Fused ops skip writing intermediate ___.,results|weights|inputs,0,,,
-423,14,multiple_choice,exercise,421,Fusing add + ReLU saves what?,Weight count|Memory trips|Model size,1,,,
-424,14,match_pairs,exercise,421,Match each operation.,Matmul↔Matrix multiply|ReLU↔Zero negatives|Bias add↔Shift outputs|Fused kernel↔One combined step,,,,
-425,14,multi_select,exercise,421,Fusion benefits:,Fewer launches|Less traffic|Larger weights|Lower accuracy,0|1,,,
+422,14,select_blank,exercise,421,Fused ops skip writing intermediate ___.,results|weights|inputs,0,,,Fused operations skip writing intermediate results to memory and reading them back.
+423,14,multiple_choice,exercise,421,Fusing add + ReLU saves what?,Weight count|Memory trips|Model size,1,,,"Fusing add and ReLU saves memory trips, since the intermediate value is not written out and read back."
+424,14,match_pairs,exercise,421,Match each operation.,Matmul↔Matrix multiply|ReLU↔Zero negatives|Bias add↔Shift outputs|Fused kernel↔One combined step,,,,"Matmul is matrix multiply, ReLU zeroes negatives, bias add shifts outputs, and a fused kernel combines steps into one."
+425,14,multi_select,exercise,421,Fusion benefits:,Fewer launches|Less traffic|Larger weights|Lower accuracy,0|1,,,Fusion means fewer kernel launches and less memory traffic.
 1412,14,multiple_choice,exercise,421,Three small GPU steps waste memory trips. Fix?,Split them|Fuse them|Prune them,1,,,Fusing merges them into one kernel so intermediate results stay on-chip.
 426,14,true_false,preview,427,"In a model graph, nodes are the operations.",,true,,,Nodes are the operations; edges show the data flowing between them.
 427,14,match_pairs,main,,Match each graph part.,Node↔Operation|Edge↔Data flow|Graph↔Model map,,,,A computation graph records the operations of a model as nodes and the tensors flowing between them as edges. It lets tools see what could be merged.
-428,14,select_blank,exercise,427,Graph nodes are ___.,operations|tensors|weights,0,,,
-429,14,multiple_choice,exercise,427,Why does a compiler want the graph?,Add layers|Find fusions|Retrain it,1,,,
-430,14,match_pairs,exercise,427,Match the graph piece.,Node↔One operation|Edge↔Data flow|Graph↔Whole model|Fusion↔Merged nodes,,,,
-431,14,categorize,exercise,427,Node or edge?,Add op↔Node|Tensor flow↔Edge|Matmul↔Node|Data link↔Edge,,,,
+428,14,select_blank,exercise,427,Graph nodes are ___.,operations|tensors|weights,0,,,"In a computation graph, the nodes are operations, such as matrix multiply or add."
+429,14,multiple_choice,exercise,427,Why does a compiler want the graph?,Add layers|Find fusions|Retrain it,1,,,A compiler wants the graph so it can see the whole model and find operations to fuse.
+430,14,match_pairs,exercise,427,Match the graph piece.,Node↔One operation|Edge↔Data flow|Graph↔Whole model|Fusion↔Merged nodes,,,,"A node is one operation, an edge is data flow, the graph is the whole model, and fusion merges nodes."
+431,14,categorize,exercise,427,Node or edge?,Add op↔Node|Tensor flow↔Edge|Matmul↔Node|Data link↔Edge,,,,"Add and matmul are nodes, which are operations; tensor flow and data links are edges."
 1413,14,multiple_choice,exercise,427,Compiler must spot mergeable steps. Needs?,Weight file|Graph view|Checkpoint,1,,,"A computation graph shows operations and data flow, which reveals what can be merged."
 432,14,true_false,preview,433,A graph compiler rewrites your model into faster code.,,true,,,It analyzes the whole graph and produces an optimized version.
 433,14,multiple_choice,main,,What does a graph compiler do?,Trains weights|Optimizes graphs|Converts formats,1,,,"Graph compilers such as TensorRT, XLA, TVM and PyTorch's torch.compile fuse operations and pick fast kernels for your hardware."
-434,14,multiple_choice,exercise,433,Which is a graph compiler?,Pandas|XLA|NumPy,1,,,
-435,14,select_blank,exercise,433,torch.compile speeds PyTorch by ___ graphs.,optimizing|retraining|quantizing,0,,,
-436,14,match_pairs,exercise,433,Match the compiler.,TensorRT↔NVIDIA|XLA↔Google|TVM↔Apache|torch.compile↔PyTorch,,,,
-437,14,multi_select,exercise,433,Compilers can:,Fuse ops|Pick kernels|Retrain model|Add layers,0|1,,,
+434,14,multiple_choice,exercise,433,Which is a graph compiler?,Pandas|XLA|NumPy,1,,,XLA is a graph compiler that turns a model's graph into optimized machine code.
+435,14,select_blank,exercise,433,torch.compile speeds PyTorch by ___ graphs.,optimizing|retraining|quantizing,0,,,`torch.compile` speeds up PyTorch by optimizing the model's computation graphs.
+436,14,match_pairs,exercise,433,Match the compiler.,TensorRT↔NVIDIA|XLA↔Google|TVM↔Apache|torch.compile↔PyTorch,,,,"TensorRT comes from NVIDIA, XLA from Google, TVM from Apache, and `torch.compile` from PyTorch."
+437,14,multi_select,exercise,433,Compilers can:,Fuse ops|Pick kernels|Retrain model|Add layers,0|1,,,Compilers can fuse operations and pick the best kernels for the hardware.
 1414,14,multiple_choice,exercise,433,PyTorch model needs graph optimization. Call?,torch.save|torch.compile|torch.load,1,,,torch.compile is PyTorch's graph compiler entry point.
 438,14,true_false,preview,439,Compiling takes time up front but runs faster afterwards.,,true,,,"You pay the optimization cost once, then reuse the result."
 439,14,multiple_choice,main,,What's the cost of compiling?,Upfront wait|Lower accuracy|Bigger weights,0,,,"The first run includes compilation time, which is why the first request after startup is often slower."
-440,14,select_blank,exercise,439,First run is slower due to ___.,compilation|batching|padding,0,,,
-441,14,multiple_choice,exercise,439,"Compile once, then run ___.",many times|once only|per layer,0,,,
-442,14,order,exercise,439,Order the compile workflow.,Export graph|Optimize graph|Compile kernels|Serve requests,,,,
-443,14,categorize,exercise,439,Once or every request?,Compiling↔Once|Fusing↔Once|Inference↔Every request|Matmul↔Every request,,,,
+440,14,select_blank,exercise,439,First run is slower due to ___.,compilation|batching|padding,0,,,The first run is slower because compilation happens then; later runs reuse the compiled result.
+441,14,multiple_choice,exercise,439,"Compile once, then run ___.",many times|once only|per layer,0,,,"Compile once, then run many times, so the one-time cost is spread across all later requests."
+442,14,order,exercise,439,Order the compile workflow.,Export graph|Optimize graph|Compile kernels|Serve requests,,,,"Export the graph, optimize it, compile kernels, then serve requests."
+443,14,categorize,exercise,439,Once or every request?,Compiling↔Once|Fusing↔Once|Inference↔Every request|Matmul↔Every request,,,,Compiling and fusing happen once; inference and matmul run on every request.
 1415,14,multiple_choice,exercise,439,Millions of requests hit one model. Compile?,Never pays|Pays off|Doubles cost,1,,,The one-time compile cost is spread across all later fast runs.
 444,15,true_false,preview,445,ONNX is a shared file format for models.,,true,,,A common format lets one framework's model run in another's tools.
 445,15,match_pairs,main,,Match each file format to its use.,ONNX↔Portable models|GGUF↔Local LLMs|Q4↔4-bit weights,,,,"ONNX (Open Neural Network Exchange) stores a model's graph and weights so you can export from PyTorch and run it elsewhere, e.g. in ONNX Runtime."
-446,15,select_blank,exercise,445,ONNX stands for Open Neural Network ___.,Engine|Exchange|Execution,1,,,
-447,15,multiple_choice,exercise,445,Why use a portable format?,Run elsewhere|Train faster|Shrink files,0,,,
-448,15,match_pairs,exercise,445,Match the term.,PyTorch↔Framework|ONNX↔Exchange format|ONNX Runtime↔Executes ONNX|.onnx↔Model file,,,,
-449,15,multi_select,exercise,445,ONNX files contain:,Graph|Weights|Training data|Optimizer state,0|1,,,
+446,15,select_blank,exercise,445,ONNX stands for Open Neural Network ___.,Engine|Exchange|Execution,1,,,"ONNX stands for Open Neural Network Exchange, a format for moving models between tools."
+447,15,multiple_choice,exercise,445,Why use a portable format?,Run elsewhere|Train faster|Shrink files,0,,,"A portable format lets a model run elsewhere, outside the framework it was trained in."
+448,15,match_pairs,exercise,445,Match the term.,PyTorch↔Framework|ONNX↔Exchange format|ONNX Runtime↔Executes ONNX|.onnx↔Model file,,,,"PyTorch is a framework, ONNX an exchange format, ONNX Runtime executes ONNX models, and `.onnx` is the model file."
+449,15,multi_select,exercise,445,ONNX files contain:,Graph|Weights|Training data|Optimizer state,0|1,,,An ONNX file contains the model's graph and its weights.
 1416,15,multiple_choice,exercise,445,PyTorch model must run in other tools. Format?,Pickle|ONNX|Checkpoint,1,,,ONNX is a shared exchange format that many tools can read.
 450,15,true_false,preview,451,GGUF packs a quantized LLM into a single file.,,true,,,One file holds the weights and the info needed to load them.
 451,15,multiple_choice,main,,What is GGUF?,Inference engine|LLM file format|Training library,1,,,"GGUF is the file format of the llama.cpp project, widely used (e.g. by Ollama) for running quantized language models on laptops."
-452,15,select_blank,exercise,451,GGUF files are loaded by ___.cpp.,`llama`|`numpy`|`torch`,0,,,
-453,15,multiple_choice,exercise,451,Which format suits laptop LLMs?,GGUF|JSON|Pickle,0,,,
-454,15,match_pairs,exercise,451,Match the format.,ONNX↔Cross-framework|GGUF↔Local LLMs|.onnx↔ONNX file|.gguf↔GGUF file,,,,
-455,15,categorize,exercise,451,ONNX or GGUF?,llama.cpp↔GGUF|ONNX Runtime↔ONNX|Quantized LLM↔GGUF|Vision export↔ONNX,,,,
+452,15,select_blank,exercise,451,GGUF files are loaded by ___.cpp.,`llama`|`numpy`|`torch`,0,,,"GGUF files are loaded by `llama.cpp`, a runtime for running LLMs locally."
+453,15,multiple_choice,exercise,451,Which format suits laptop LLMs?,GGUF|JSON|Pickle,0,,,"GGUF suits laptop LLMs, because it holds quantized weights that `llama.cpp` can run on ordinary hardware."
+454,15,match_pairs,exercise,451,Match the format.,ONNX↔Cross-framework|GGUF↔Local LLMs|.onnx↔ONNX file|.gguf↔GGUF file,,,,"ONNX works across frameworks, GGUF is for local LLMs, `.onnx` is an ONNX file, and `.gguf` is a GGUF file."
+455,15,categorize,exercise,451,ONNX or GGUF?,llama.cpp↔GGUF|ONNX Runtime↔ONNX|Quantized LLM↔GGUF|Vision export↔ONNX,,,,`llama.cpp` and quantized LLMs use GGUF; ONNX Runtime and vision exports use ONNX.
 1417,15,multiple_choice,exercise,451,llama.cpp needs a model file. Which type?,.onnx|.gguf|.pt,1,,,GGUF is llama.cpp's own file format.
 456,15,true_false,preview,457,Converted models can differ slightly from the original.,,true,,,"Conversion can change operators or numerics slightly, so outputs may differ."
 457,15,multiple_choice,main,,"After conversion, verify what?",Layer names|Outputs match|Export speed,1,,,"Compare the converted model's outputs to the original on sample inputs; tiny numeric differences are normal, big ones signal a problem."
-458,15,select_blank,exercise,457,Compare outputs against the ___ model's.,original|smaller|newest,0,,,
-459,15,order,exercise,457,Order the conversion workflow.,Train in PyTorch|Export to ONNX|Verify outputs|Deploy runtime,,,,
-460,15,multiple_choice,exercise,457,Which call exports PyTorch to ONNX?,torch.save|torch.onnx.export|torch.compile,1,,,
-461,15,match_pairs,exercise,457,Match the step.,Export↔Convert format|Verify↔Compare outputs|Deploy↔Serve model|Train↔Learn weights,,,,
+458,15,select_blank,exercise,457,Compare outputs against the ___ model's.,original|smaller|newest,0,,,"Compare outputs against the original model's, to confirm the converted model still gives matching results."
+459,15,order,exercise,457,Order the conversion workflow.,Train in PyTorch|Export to ONNX|Verify outputs|Deploy runtime,,,,"Train in PyTorch, export to ONNX, verify the outputs match, then deploy on a runtime."
+460,15,multiple_choice,exercise,457,Which call exports PyTorch to ONNX?,torch.save|torch.onnx.export|torch.compile,1,,,`torch.onnx.export` is the call that converts a PyTorch model to ONNX.
+461,15,match_pairs,exercise,457,Match the step.,Export↔Convert format|Verify↔Compare outputs|Deploy↔Serve model|Train↔Learn weights,,,,"Train learns weights, export converts the format, verify compares outputs, and deploy serves the model."
 1418,15,multiple_choice,exercise,457,Converted outputs differ wildly from original. Do?,Ship anyway|Investigate|Retrain more,1,,,"Tiny numeric differences are normal, but big ones signal a conversion problem."
 462,15,true_false,preview,463,Q4 in GGUF names means roughly 4-bit weights.,,true,,,"Q4 means roughly 4-bit weights, Q8 roughly 8-bit. It describes precision, not layer count."
 463,15,select_blank,main,,Q4 in GGUF suggests ___ weights.,4-bit|4-layer|4-GPU,0,,,Names like Q4_K_M signal the quantization level. A lower number gives a smaller file but more quality loss.
-464,15,select_blank,exercise,463,Q8 files are ___ than Q4 files.,larger|smaller|identical,0,,,
-465,15,order,exercise,463,"Order by file size, smallest first.",Q2|Q4|Q8|FP16,,,,
-466,15,multiple_choice,exercise,463,Which usually keeps most quality?,Q8|Q4|Q2,0,,,
-467,15,categorize,exercise,463,Smaller or higher quality?,Q2↔Smaller file|Q8↔Higher quality|Q3↔Smaller file|FP16↔Higher quality,,,,
+464,15,select_blank,exercise,463,Q8 files are ___ than Q4 files.,larger|smaller|identical,0,,,"Q8 uses 8 bits per weight and Q4 uses 4, so Q8 files are larger."
+465,15,order,exercise,463,"Order by file size, smallest first.",Q2|Q4|Q8|FP16,,,,"File size grows with bits: Q2 is smallest, then Q4, Q8, and FP16 is largest."
+466,15,multiple_choice,exercise,463,Which usually keeps most quality?,Q8|Q4|Q2,0,,,"Q8 usually keeps most quality, because 8 bits per weight loses little detail."
+467,15,categorize,exercise,463,Smaller or higher quality?,Q2↔Smaller file|Q8↔Higher quality|Q3↔Smaller file|FP16↔Higher quality,,,,Q2 and Q3 give smaller files; Q8 and FP16 give higher quality.
 1419,15,multiple_choice,exercise,463,Laptop RAM is tight. Smallest file?,FP16|Q4|Q8,1,,,"A lower number like Q4 means a smaller file, at some quality cost."
 601,16,true_false,preview,602,A runtime is the program that executes trained models.,,true,,,"A model file is just numbers. Something has to load them and do the math on your hardware, and that is the runtime."
 602,16,multiple_choice,main,,What does an inference runtime do?,Trains models|Runs models|Converts models,1,,,"It loads a saved model's weights and executes it on your CPU or GPU, turning inputs into predictions."
-603,16,select_blank,exercise,602,A ___ executes a saved model on your hardware.,runtime|trainer|converter,0,,,
-604,16,match_pairs,exercise,602,Match each term to its meaning.,Weights↔Learned numbers|Latency↔Response time|Runtime↔Runs model|GGUF↔File format,,,,
+603,16,select_blank,exercise,602,A ___ executes a saved model on your hardware.,runtime|trainer|converter,0,,,A runtime is the software that executes a saved model on your hardware.
+604,16,match_pairs,exercise,602,Match each term to its meaning.,Weights↔Learned numbers|Latency↔Response time|Runtime↔Runs model|GGUF↔File format,,,,"Weights are learned numbers, latency is response time, a runtime runs the model, and GGUF is a file format."
 605,16,multi_select,exercise,602,Which are runtime jobs?,Load weights|Schedule kernels|Update weights|Label data,0|1,,,"Scheduling kernels means deciding which small GPU programs run, and in what order."
-606,16,order,exercise,602,Order one prediction's journey.,Load model|Prepare input|Run model|Return output,,,,
+606,16,order,exercise,602,Order one prediction's journey.,Load model|Prepare input|Run model|Return output,,,,"One prediction's journey: load the model, prepare the input, run the model, then return the output."
 1420,16,multiple_choice,exercise,602,Model file exists but nothing executes it. Need?,Dataset|Runtime|Trainer,1,,,A runtime loads the saved weights and runs them on your hardware.
 607,16,true_false,preview,608,TensorRT is a runtime built for NVIDIA GPUs.,,true,,,"TensorRT is NVIDIA's runtime, tuned for its own GPUs. OpenVINO is the one aimed at Intel hardware."
 608,16,match_pairs,main,,Match each runtime to its focus.,TensorRT↔NVIDIA GPUs|llama.cpp↔GGUF models|ONNX Runtime↔ONNX files|OpenVINO↔Intel chips,,,,Each runtime has a home turf. Vendor runtimes squeeze the most from their own chips; ONNX Runtime and llama.cpp aim for wide reach.
-609,16,multiple_choice,exercise,608,Which runtime targets NVIDIA GPUs?,TensorRT|OpenVINO|llama.cpp,0,,,
+609,16,multiple_choice,exercise,608,Which runtime targets NVIDIA GPUs?,TensorRT|OpenVINO|llama.cpp,0,,,"TensorRT targets NVIDIA GPUs, using kernels tuned for them."
 610,16,select_blank,exercise,608,___ runs GGUF models on ordinary CPUs.,llama.cpp|TensorRT|OpenVINO,0,,,"llama.cpp began as a way to run LLMs on laptops, and it now supports GPUs too."
 611,16,multi_select,exercise,608,Which runtimes can read ONNX files?,ONNX Runtime|OpenVINO|TensorRT|llama.cpp,0|1|2,,,"ONNX is a shared format, so several runtimes import it. llama.cpp uses GGUF instead."
-612,16,multiple_choice,exercise,608,Why pick a hardware-specific runtime?,More speed|Wider support|Easier training,0,,,
+612,16,multiple_choice,exercise,608,Why pick a hardware-specific runtime?,More speed|Wider support|Easier training,0,,,"A hardware-specific runtime is tuned for that chip, so it usually gives more speed."
 1421,16,multiple_choice,exercise,608,Intel chip target. Which vendor runtime?,TensorRT|OpenVINO|llama.cpp,1,,,OpenVINO is the vendor runtime tuned for Intel hardware.
 613,16,true_false,preview,614,One runtime can send work to different hardware backends.,,true,,,"ONNX Runtime, for example, can run the same model on a CPU or a GPU just by switching backend."
 614,16,multiple_choice,main,,What is an execution provider?,Cloud vendor|Hardware backend|Model format,1,,,"In ONNX Runtime, an execution provider is a plug-in backend for one kind of hardware, such as CPU, CUDA GPU or TensorRT."
-615,16,select_blank,exercise,614,ONNX Runtime picks an execution ___ per chip.,format|provider|kernel,1,,,
+615,16,select_blank,exercise,614,ONNX Runtime picks an execution ___ per chip.,format|provider|kernel,1,,,"ONNX Runtime picks an execution provider for each chip, the backend that actually runs the operations."
 616,16,multiple_choice,exercise,614,Best way to choose a runtime?,Benchmark yours|Trust headlines|Pick newest,0,,,"Speeds vary by model and hardware, so measure your own model rather than trusting charts."
-617,16,match_pairs,exercise,614,Match each term to its meaning.,Latency↔Response time|Throughput↔Requests per second|Profiling↔Finding bottlenecks|Benchmark↔Repeatable test,,,,
-618,16,multi_select,exercise,614,Which can be execution providers?,CPU|CUDA GPU|TensorRT|GGUF,0|1|2,,,
+617,16,match_pairs,exercise,614,Match each term to its meaning.,Latency↔Response time|Throughput↔Requests per second|Profiling↔Finding bottlenecks|Benchmark↔Repeatable test,,,,"Latency is response time, throughput is requests per second, profiling finds bottlenecks, and a benchmark is a repeatable test."
+618,16,multi_select,exercise,614,Which can be execution providers?,CPU|CUDA GPU|TensorRT|GGUF,0|1|2,,,"CPU, CUDA GPU and TensorRT can all be execution providers in ONNX Runtime."
 1422,16,multiple_choice,exercise,614,Same ONNX model moves from CPU to GPU. Change?,Weights|Provider|Model graph,1,,,Switch the execution provider; the model itself stays the same.
 619,17,true_false,preview,620,LLMs read text as small chunks called tokens.,,true,,,"A token is often a word or part of a word, like 'un' + 'believ' + 'able'."
 620,17,multiple_choice,main,,What is a token?,Whole sentence|Text chunk|Model layer,1,,,"Language models split text into tokens: whole short words, word pieces, or punctuation. English averages roughly three quarters of a word per token."
-621,17,select_blank,exercise,620,A long word may split into several ___.,tokens|models|layers,0,,,
+621,17,select_blank,exercise,620,A long word may split into several ___.,tokens|models|layers,0,,,"A long or rare word may split into several tokens, such as word pieces."
 622,17,multiple_choice,exercise,620,What splits text into tokens?,Tokenizer|Compiler|Profiler,0,,,"The tokenizer is a small program with a fixed vocabulary of pieces, applied before the model runs."
-623,17,multi_select,exercise,620,Which can be a token?,Word piece|Whole word|Punctuation mark|Model layer,0|1|2,,,
-624,17,order,exercise,620,Order the text-to-reply path.,Raw text|Tokenizer|Model|New tokens,,,,
+623,17,multi_select,exercise,620,Which can be a token?,Word piece|Whole word|Punctuation mark|Model layer,0|1|2,,,"A token can be a word piece, a whole word or a punctuation mark."
+624,17,order,exercise,620,Order the text-to-reply path.,Raw text|Tokenizer|Model|New tokens,,,,"Raw text goes to the tokenizer, then the model, which produces new tokens."
 1423,17,multiple_choice,exercise,620,Text gets split into small chunks. Called?,Kernels|Tokens|Layers,1,,,"Language models read text as tokens: words, word pieces or punctuation."
 625,17,true_false,preview,626,The context window caps prompt and reply together.,,true,,,"The window caps prompt and reply tokens together, so a long prompt leaves less room for the answer."
 626,17,multiple_choice,main,,What limits prompt plus reply length?,Batch size|Context window|Vocabulary size,1,,,"The context window is the maximum number of tokens, prompt and reply together, a model can consider at once."
-627,17,select_blank,exercise,626,Prompt and reply must fit the ___ window.,context|batch|weight,0,,,
+627,17,select_blank,exercise,626,Prompt and reply must fit the ___ window.,context|batch|weight,0,,,"Prompt and reply must fit the context window, the maximum number of tokens the model can handle."
 628,17,multiple_choice,exercise,626,If the prompt overflows the window?,Widened|Cut off|Cached,1,,,"Depending on the app, the oldest text is dropped or an error is returned."
 629,17,multi_select,exercise,626,What counts toward the window?,Your prompt|The reply|System instructions|Model weights,0|1|2,,,Hidden system instructions use tokens too.
-630,17,match_pairs,exercise,626,Match each term to its meaning.,Token↔Text chunk|Window↔Token limit|Tokenizer↔Splits text|Latency↔Response time,,,,
+630,17,match_pairs,exercise,626,Match each term to its meaning.,Token↔Text chunk|Window↔Token limit|Tokenizer↔Splits text|Latency↔Response time,,,,"A token is a text chunk, the window is the token limit, a tokenizer splits text, and latency is response time."
 1424,17,multiple_choice,exercise,626,Chatbot drops the oldest messages. Why?,Small batch|Full window|Bad weights,1,,,"When prompt plus reply exceed the context window, older text is cut off."
 631,17,true_false,preview,632,Longer prompts usually cost more time and memory.,,true,,,More tokens means more work for the model and more memory for its working data.
 632,17,multiple_choice,main,,Longer prompts mostly raise what?,Weight count|Extra cost|Vocabulary size,1,,,"Weights stay the same size, but every extra token adds compute time and memory use, and often money on paid APIs."
-633,17,multiple_choice,exercise,632,Cheapest way to cut cost?,Shorter prompts|Longer prompts|Bigger model,0,,,
-634,17,select_blank,exercise,632,Trimming prompt tokens saves time and ___.,money|weights|accuracy,0,,,
+633,17,multiple_choice,exercise,632,Cheapest way to cut cost?,Shorter prompts|Longer prompts|Bigger model,0,,,"Shorter prompts are the cheapest way to cut cost, because you pay and wait per token."
+634,17,select_blank,exercise,632,Trimming prompt tokens saves time and ___.,money|weights|accuracy,0,,,"Trimming prompt tokens saves time and money, since both grow with the number of tokens processed."
 635,17,categorize,exercise,632,Sort each prompt by its cost.,Long chat history↔Costs more|Short question↔Costs less|Pasted document↔Costs more|One-line prompt↔Costs less,,,,"Cost tracks token count, not how hard the question seems."
-636,17,order,exercise,632,"Order prompts by token cost, low to high.",Greeting|Paragraph|Long article|Whole book,,,,
-637,17,multi_select,exercise,632,Which cut prompt tokens?,Trim history|Summarize chat|Add filler|Repeat rules,0|1,,,
+636,17,order,exercise,632,"Order prompts by token cost, low to high.",Greeting|Paragraph|Long article|Whole book,,,,"Token cost grows with length: a greeting, then a paragraph, a long article, and a whole book is the most."
+637,17,multi_select,exercise,632,Which cut prompt tokens?,Trim history|Summarize chat|Add filler|Repeat rules,0|1,,,Trimming history and summarizing the chat both reduce the number of prompt tokens.
 1425,17,multiple_choice,exercise,632,Chat history grows every turn. Tweak?,Keep all|Summarize it|Repeat it,1,,,"Summarizing old turns cuts prompt tokens, which cuts time, memory and cost."
 638,18,true_false,preview,639,LLMs write replies one token at a time.,,true,,,"Each new token is chosen using all the tokens before it, then added to the text."
 639,18,multiple_choice,main,,How do LLMs generate replies?,In parallel|Sequentially|In reverse,1,,,"This is called autoregressive decoding: the model predicts one token, appends it, and repeats until done."
-640,18,select_blank,exercise,639,Each new token depends on the ___ ones.,earlier|later|nearby,0,,,
+640,18,select_blank,exercise,639,Each new token depends on the ___ ones.,earlier|later|nearby,0,,,"Each new token depends on the earlier ones, so the model must generate them one after another."
 641,18,multiple_choice,exercise,639,Why is generation sequential?,Needs history|Slow disks|Small batches,0,,,You cannot pick token five before you know tokens one to four.
-642,18,order,exercise,639,Order the decoding loop.,Read prompt|Pick token|Append token|Repeat,,,,
-643,18,match_pairs,exercise,639,Match each term to its meaning.,Prompt↔Input text|Decoding↔Generating tokens|Token↔Text chunk|Context window↔Token limit,,,,
+642,18,order,exercise,639,Order the decoding loop.,Read prompt|Pick token|Append token|Repeat,,,,"Decoding loops: read the prompt, pick a token, append it, then repeat until the reply is finished."
+643,18,match_pairs,exercise,639,Match each term to its meaning.,Prompt↔Input text|Decoding↔Generating tokens|Token↔Text chunk|Context window↔Token limit,,,,"The prompt is the input text, decoding generates tokens, a token is a text chunk, and the context window is the token limit."
 1426,18,multiple_choice,exercise,639,Model writes 100 tokens. Decoding steps?,Just 1|Around 100|Around 10,1,,,"Decoding predicts one token per step, repeating until the reply is done."
 644,18,true_false,preview,645,Saving past attention results avoids recomputing them.,,true,,,"Attention is the step where a model looks back at earlier tokens. Old tokens never change, so their results can be stored and reused for every new token."
 645,18,multi_select,main,,Which does the KV cache hold?,Key vectors|Value vectors|Model weights|Output text,0|1,,,"For each earlier token, attention produces a key and a value. The KV cache keeps them so each new token only computes its own."
-646,18,select_blank,exercise,645,The KV cache avoids ___ old tokens' work.,redoing|storing|shrinking,0,,,
+646,18,select_blank,exercise,645,The KV cache avoids ___ old tokens' work.,redoing|storing|shrinking,0,,,The KV cache avoids redoing old tokens' work by saving the attention keys and values already computed.
 647,18,multiple_choice,exercise,645,KV cache trades what for speed?,Accuracy|Memory|Precision,1,,,You spend GPU memory to save repeated computation.
-648,18,multi_select,exercise,645,KV cache benefits?,Faster decoding|Less recompute|Smaller weights|Higher accuracy,0|1,,,
-649,18,match_pairs,exercise,645,Match each term to its meaning.,KV cache↔Saved attention|Weights↔Learned numbers|Token↔Text chunk|Attention↔Compares tokens,,,,
+648,18,multi_select,exercise,645,KV cache benefits?,Faster decoding|Less recompute|Smaller weights|Higher accuracy,0|1,,,The KV cache speeds up decoding and avoids recomputing attention for earlier tokens.
+649,18,match_pairs,exercise,645,Match each term to its meaning.,KV cache↔Saved attention|Weights↔Learned numbers|Token↔Text chunk|Attention↔Compares tokens,,,,"The KV cache saves attention results, weights are learned numbers, a token is a text chunk, and attention compares tokens."
 1427,18,multiple_choice,exercise,645,Decoding redoes old tokens each step. Fix?,Add layers|KV cache|Lower rank,1,,,Storing keys and values for earlier tokens lets each step compute only the new one.
 650,18,true_false,preview,651,The KV cache grows as chats grow.,,true,,,"Each new token adds another key and value to store, so the cache grows and long chats eat memory."
 651,18,multi_select,main,,What makes the KV cache grow?,More tokens|More users|Smaller weights|Fewer tokens,0|1,,,Cache size grows with context length and with the number of requests served at once.
-652,18,select_blank,exercise,651,Long chats can exhaust GPU ___.,memory|cores|drivers,0,,,
+652,18,select_blank,exercise,651,Long chats can exhaust GPU ___.,memory|cores|drivers,0,,,"Long chats can exhaust GPU memory, because the KV cache grows with every token."
 653,18,multiple_choice,exercise,651,More simultaneous users means?,More cache|Less cache|Same cache,0,,,Each conversation keeps its own cache.
-654,18,categorize,exercise,651,Sort each change by cache effect.,Longer context↔Bigger cache|Shorter chat↔Smaller cache|More users↔Bigger cache|Fewer users↔Smaller cache,,,,
+654,18,categorize,exercise,651,Sort each change by cache effect.,Longer context↔Bigger cache|Shorter chat↔Smaller cache|More users↔Bigger cache|Fewer users↔Smaller cache,,,,Longer context and more users mean a bigger cache; shorter chats and fewer users mean a smaller one.
 655,18,multi_select,exercise,651,Ways to shrink KV memory?,Quantize cache|Shorter context|More tokens|Bigger prompts,0|1,,,Storing the cache in INT8 or lower precision is a real technique.
 1428,18,multiple_choice,exercise,651,Long chats overflow GPU memory. First fix?,More users|Cap context|Longer replies,1,,,"Shorter context means fewer stored keys and values, so a smaller cache."
 656,19,true_false,preview,657,Attention compares each token with every other token.,,true,,,That is how the model decides which earlier words matter for the current one.
 657,19,multiple_choice,main,,Attention compares each token to?,Only itself|All others|Nearby only,1,,,Attention scores how relevant every token is to every other. That all-pairs comparison is powerful but expensive.
-658,19,select_blank,exercise,657,Attention work grows with length ___.,squared|linearly|slowly,0,,,
+658,19,select_blank,exercise,657,Attention work grows with length ___.,squared|linearly|slowly,0,,,"Attention work grows with length squared, since every token is compared with every other token."
 659,19,multiple_choice,exercise,657,Doubling length makes attention?,2x work|4x work|Half work,1,,,All pairs of n tokens is about n times n comparisons.
-660,19,multi_select,exercise,657,When does attention hurt most?,Long prompts|Long documents|Short prompts|Tiny inputs,0|1,,,
-661,19,match_pairs,exercise,657,Match each term to its meaning.,Attention↔Compares tokens|Context window↔Token limit|KV cache↔Saves recompute|Token↔Text chunk,,,,
+660,19,multi_select,exercise,657,When does attention hurt most?,Long prompts|Long documents|Short prompts|Tiny inputs,0|1,,,"Attention hurts most on long prompts and long documents, where the squared cost becomes large."
+661,19,match_pairs,exercise,657,Match each term to its meaning.,Attention↔Compares tokens|Context window↔Token limit|KV cache↔Saves recompute|Token↔Text chunk,,,,"Attention compares tokens, the context window is the token limit, the KV cache saves recompute, and a token is a text chunk."
 1429,19,multiple_choice,exercise,657,Long-document summaries crawl. Likely culprit?,Vocabulary|Attention cost|Model rank,1,,,"All-pairs comparison grows with length squared, so long inputs get costly."
 662,19,true_false,preview,663,FlashAttention moves less data through slow GPU memory.,,true,,,It computes attention in small tiles kept in fast on-chip memory instead of writing big intermediate tables out.
 663,19,select_blank,main,,FlashAttention mainly cuts ___ traffic.,memory|network|token,0,,,"GPUs often wait on memory, not math. FlashAttention cuts reads and writes to slow HBM by using tiny fast SRAM, giving the exact same result."
-664,19,select_blank,exercise,663,FlashAttention gives the same ___ faster.,weights|results|tokens,1,,,
+664,19,select_blank,exercise,663,FlashAttention gives the same ___ faster.,weights|results|tokens,1,,,"FlashAttention gives the same results faster, by computing attention in a way that moves less data in memory."
 665,19,multiple_choice,exercise,663,FlashAttention's output is?,Approximate|Exact|Pruned,1,,,"It is a smarter way to compute, not an approximation."
 666,19,categorize,exercise,663,Sort each memory by traits.,On-chip cache↔Small/fast|Main GPU memory↔Big/slow|SRAM↔Small/fast|HBM↔Big/slow,,,,SRAM sits on the chip; HBM is the large memory package beside it.
-667,19,multi_select,exercise,663,FlashAttention helps with?,Faster attention|Less memory|Fewer weights|Fewer tokens,0|1,,,
+667,19,multi_select,exercise,663,FlashAttention helps with?,Faster attention|Less memory|Fewer weights|Fewer tokens,0|1,,,FlashAttention makes attention faster and uses less memory.
 1430,19,multiple_choice,exercise,663,GPU waits on memory during attention. Fix?,Lower rank|FlashAttention|More layers,1,,,FlashAttention cuts slow memory reads and writes without changing results.
 668,19,true_false,preview,669,Grouped-query attention shrinks the KV cache.,,true,,,"Sharing keys and values across heads means fewer of them are stored, so the KV cache gets smaller."
 669,19,multiple_choice,main,,Grouped-query attention shrinks what?,Context window|KV cache|Batch size,1,,,"Attention runs in parallel 'heads'. In grouped-query attention several heads share one set of keys and values, cutting cache memory with little quality loss."
-670,19,select_blank,exercise,669,Sliding-window attention looks at ___ tokens.,distant|nearby|all,1,,,
+670,19,select_blank,exercise,669,Sliding-window attention looks at ___ tokens.,distant|nearby|all,1,,,"Sliding-window attention looks only at nearby tokens, which keeps the cost from growing with the whole length."
 671,19,multiple_choice,exercise,669,Sliding window trades away what?,Long-range view|Speed|Memory,0,,,"Each token only sees recent ones, so far-away details can be missed."
-672,19,multi_select,exercise,669,Which help tame attention cost?,Grouped-query|Sliding window|FlashAttention|Longer prompts,0|1|2,,,
-673,19,match_pairs,exercise,669,Match each trick to its idea.,GQA↔Shares K/V|Sliding window↔Nearby tokens|FlashAttention↔Less traffic|KV cache↔Saves recompute,,,,
+672,19,multi_select,exercise,669,Which help tame attention cost?,Grouped-query|Sliding window|FlashAttention|Longer prompts,0|1|2,,,"Grouped-query attention, sliding window and FlashAttention all tame attention cost in different ways."
+673,19,match_pairs,exercise,669,Match each trick to its idea.,GQA↔Shares K/V|Sliding window↔Nearby tokens|FlashAttention↔Less traffic|KV cache↔Saves recompute,,,,"GQA shares keys and values, sliding window looks at nearby tokens, FlashAttention moves less data, and the KV cache saves recompute."
 1431,19,multiple_choice,exercise,669,KV cache overflows in long chats. Which trick?,Extra heads|Grouped-query|Bigger window,1,,,Sharing keys and values across heads means less cache to store.
 674,20,true_false,preview,675,A small draft model can guess tokens cheaply.,,true,,,"Small models are fast, and much of ordinary text is easy to predict."
 675,20,multiple_choice,main,,What does a draft model do?,Verifies tokens|Guesses tokens|Stores cache,1,,,"In speculative decoding a small, fast draft model proposes several next tokens ahead of the big target model."
-676,20,select_blank,exercise,675,The draft model is small and ___.,fast|huge|slow,0,,,
-677,20,multiple_choice,exercise,675,Draft model size versus target?,Much smaller|Much larger|Identical,0,,,
-678,20,match_pairs,exercise,675,Match each role to its job.,Draft model↔Small guesser|Target model↔Big checker|Token↔Text chunk|Decoding↔Generating tokens,,,,
-679,20,multi_select,exercise,675,Good draft model traits?,Fast|Small|Very large|Slow,0|1,,,
+676,20,select_blank,exercise,675,The draft model is small and ___.,fast|huge|slow,0,,,"The draft model is small and fast, so it can guess several tokens cheaply."
+677,20,multiple_choice,exercise,675,Draft model size versus target?,Much smaller|Much larger|Identical,0,,,The draft model is much smaller than the target model; that is why its guesses are cheap.
+678,20,match_pairs,exercise,675,Match each role to its job.,Draft model↔Small guesser|Target model↔Big checker|Token↔Text chunk|Decoding↔Generating tokens,,,,"The draft model is a small guesser, the target model a big checker, a token is a text chunk, and decoding generates tokens."
+679,20,multi_select,exercise,675,Good draft model traits?,Fast|Small|Very large|Slow,0|1,,,"A good draft model is fast and small, so guessing costs far less than running the target."
 1432,20,multiple_choice,exercise,675,Need cheap guesses of upcoming tokens. Use?,Target model|Draft model|Tokenizer,1,,,"A small, fast draft model proposes tokens ahead of the big one."
 680,20,true_false,preview,681,The big model checks all drafted tokens in one pass.,,true,,,Checking many tokens together costs about the same as generating one.
 681,20,multiple_choice,main,,How are drafted tokens checked?,Stepwise|One pass|Twice over,1,,,"The target model scores every drafted token in one parallel pass. Correct guesses are kept, and the first wrong one is replaced."
-682,20,select_blank,exercise,681,Wrong drafted tokens get ___.,kept|rejected|cached,1,,,
+682,20,select_blank,exercise,681,Wrong drafted tokens get ___.,kept|rejected|cached,1,,,"Wrong drafted tokens get rejected by the target model, and the output stays exactly what the target would produce."
 683,20,multiple_choice,exercise,681,Final output quality is?,Unchanged|Worse|Better,0,,,The verification rule makes results match what the big model would produce alone.
-684,20,order,exercise,681,Order one speculative step.,Draft tokens|Verify together|Accept matches|Fix first miss,,,,
-685,20,categorize,exercise,681,Sort each job by speculative-decoding model.,Guesses ahead↔Draft model|Checks in one pass↔Target model|Runs cheaply↔Draft model|Sets final quality↔Target model,,,,
+684,20,order,exercise,681,Order one speculative step.,Draft tokens|Verify together|Accept matches|Fix first miss,,,,"Draft tokens, verify them together, accept the ones that match, then fix the first miss."
+685,20,categorize,exercise,681,Sort each job by speculative-decoding model.,Guesses ahead↔Draft model|Checks in one pass↔Target model|Runs cheaply↔Draft model|Sets final quality↔Target model,,,,The draft model guesses ahead cheaply; the target model checks in one pass and sets the final quality.
 1433,20,multiple_choice,exercise,681,Draft proposes four tokens; third is wrong. Kept?,All four|First two|Only third,1,,,"Matches are kept until the first miss, which the big model then replaces."
 686,20,true_false,preview,687,Speculative speedup depends on how often guesses are accepted.,,true,,,"Accepted tokens are nearly free while rejected ones waste effort, so the acceptance rate drives the speedup."
 687,20,select_blank,main,,Speedup depends on the ___ rate.,acceptance|refresh|sampling,0,,,"The acceptance rate is the share of drafted tokens the target model keeps. Predictable text, like boilerplate code, tends to score high."
-688,20,select_blank,exercise,687,High acceptance means ___ speedup.,smaller|bigger|unchanged,1,,,
+688,20,select_blank,exercise,687,High acceptance means ___ speedup.,smaller|bigger|unchanged,1,,,"High acceptance means a bigger speedup, because more drafted tokens are kept per target pass."
 689,20,multiple_choice,exercise,687,A poor draft model causes?,Wasted work|Faster replies|Worse quality,0,,,"If guesses keep failing, you pay for drafting and gain little."
-690,20,multi_select,exercise,687,Speculation helps when?,Guesses match|Predictable text|Guesses wrong|Huge draft,0|1,,,
-691,20,match_pairs,exercise,687,Match each term to its meaning.,Acceptance rate↔Share kept|Draft model↔Small guesser|Latency↔Response time|Speculation↔Guessing ahead,,,,
+690,20,multi_select,exercise,687,Speculation helps when?,Guesses match|Predictable text|Guesses wrong|Huge draft,0|1,,,"Speculation helps when the guesses match the target, such as with predictable text."
+691,20,match_pairs,exercise,687,Match each term to its meaning.,Acceptance rate↔Share kept|Draft model↔Small guesser|Latency↔Response time|Speculation↔Guessing ahead,,,,"Acceptance rate is the share of guesses kept, the draft model is the small guesser, latency is response time, and speculation guesses ahead."
 1434,20,multiple_choice,exercise,687,Guesses keep getting rejected. Best fix?,Bigger target|Better draft|Longer prompt,1,,,A draft model that guesses better raises the acceptance rate and the speedup.
 692,21,true_false,preview,693,Static batching leaves short-reply slots idle.,,true,,,"True: in static batching, short replies leave their slots idle until the longest reply in the batch finishes."
 693,21,multi_select,main,,Which describe static batching?,Fixed group|Idle waiting|Refills slots|Live joins,0|1,,,"Static batching runs a fixed group of requests together. Because replies have different lengths, the GPU wastes time on finished ones."
-694,21,select_blank,exercise,693,Short replies wait for ___ ones.,cached|long|new,1,,,
+694,21,select_blank,exercise,693,Short replies wait for ___ ones.,cached|long|new,1,,,"In a static batch, short replies wait for long ones, because the whole batch finishes together."
 695,21,multiple_choice,exercise,693,Replies finish at?,The same time|Every step|Different times,2,,,"Some answers take five tokens, others five hundred."
-696,21,multi_select,exercise,693,Static batch downsides?,Idle slots|Higher latency|Refilled slots|Lower cost,0|1,,,
-697,21,match_pairs,exercise,693,Match each term to its meaning.,Batching↔Grouping requests|Throughput↔Requests per second|Latency↔Response time|Static batch↔Fixed group,,,,
+696,21,multi_select,exercise,693,Static batch downsides?,Idle slots|Higher latency|Refilled slots|Lower cost,0|1,,,Static batches leave idle slots after short replies finish and raise latency for those who wait.
+697,21,match_pairs,exercise,693,Match each term to its meaning.,Batching↔Grouping requests|Throughput↔Requests per second|Latency↔Response time|Static batch↔Fixed group,,,,"Batching groups requests, throughput is requests per second, latency is response time, and a static batch is a fixed group."
 1500,21,multiple_choice,exercise,693,Batch of 8 waits on one long reply. Cause?,Static batching|Cache miss|Continuous batching,0,,,"Static batches run in a fixed group, so everyone waits for the slowest reply."
 698,21,true_false,preview,699,Continuous batching lets new requests join as others finish.,,true,,,Freed slots get refilled right away instead of sitting idle.
 699,21,multi_select,main,,Continuous batching does what?,Exits early|Joins mid-run|Waits together|Fixed group,0|1,,,"After every token step, finished requests leave and waiting ones join, keeping the GPU busy and raising throughput."
-700,21,select_blank,exercise,699,Finished requests free ___ for new ones.,weights|slots|layers,1,,,
+700,21,select_blank,exercise,699,Finished requests free ___ for new ones.,weights|slots|layers,1,,,"Finished requests free slots for new ones, so the batch stays full."
 701,21,multiple_choice,exercise,699,Continuous batching mainly improves what?,Throughput|Accuracy|Model size,0,,,"Keeping every GPU slot busy lets the server finish more requests per second. It doesn't change what the model knows, so accuracy stays the same."
-702,21,order,exercise,699,Order one continuous-batch step.,Generate tokens|Finished leave|New requests join|Repeat,,,,
-703,21,categorize,exercise,699,Sort each trait by batching style.,Fixed group↔Static|Live swapping↔Continuous|Waits slowest↔Static|Refills slots↔Continuous,,,,
+702,21,order,exercise,699,Order one continuous-batch step.,Generate tokens|Finished leave|New requests join|Repeat,,,,"Generate tokens, let finished requests leave, let new requests join, then repeat."
+703,21,categorize,exercise,699,Sort each trait by batching style.,Fixed group↔Static|Live swapping↔Continuous|Waits slowest↔Static|Refills slots↔Continuous,,,,Static batching means a fixed group that waits for the slowest; continuous batching swaps requests live and refills slots.
 1501,21,multiple_choice,exercise,699,GPU idles as chats finish at different times. Fix?,Static batching|Continuous batching|Bigger weights,1,,,Refilling freed slots after each token step keeps the GPU busy.
 704,21,true_false,preview,705,A serving engine handles many LLM requests efficiently.,,true,,,"It bundles batching, cache handling and scheduling so you do not build them yourself."
 705,21,multiple_choice,main,,What is a serving engine?,Model compiler|LLM server|Training tool,1,,,"A serving engine like vLLM or TensorRT-LLM accepts requests, batches them continuously, and manages the KV cache on the GPU."
 706,21,match_pairs,exercise,705,Match each engine to its trait.,vLLM↔Open-source engine|TensorRT-LLM↔NVIDIA-tuned|llama.cpp↔Local GGUF|Serving engine↔Handles requests,,,,"Each engine has a niche: vLLM is a popular open-source LLM server, TensorRT-LLM is tuned for NVIDIA GPUs, and llama.cpp runs GGUF models locally."
 707,21,multiple_choice,exercise,705,Which engine runs GGUF models locally?,llama.cpp|vLLM|TensorRT-LLM,0,,,"llama.cpp is the engine behind the GGUF format, popular for running quantized models on laptops."
-708,21,multiple_choice,exercise,705,Which engine is NVIDIA-tuned?,llama.cpp|TensorRT-LLM|vLLM,1,,,
-709,21,multi_select,exercise,705,Serving engines do what?,Batch requests|Manage cache|Train models|Prune weights,0|1,,,
+708,21,multiple_choice,exercise,705,Which engine is NVIDIA-tuned?,llama.cpp|TensorRT-LLM|vLLM,1,,,TensorRT-LLM is the NVIDIA-tuned serving engine.
+709,21,multi_select,exercise,705,Serving engines do what?,Batch requests|Manage cache|Train models|Prune weights,0|1,,,"Serving engines batch requests and manage the cache, so the hardware stays busy."
 1502,21,multiple_choice,exercise,705,Team wants batching built in. Best tool?,Training loop|Serving engine|Tokenizer,1,,,"A serving engine such as vLLM bundles batching, cache handling and scheduling."
 1686,21,true_false,preview,1687,PagedAttention stores the KV cache in small blocks.,,true,,,Fixed-size blocks can be placed anywhere there is room.
 1687,21,multiple_choice,main,,What does PagedAttention reduce?,Fragmentation|Model size|Token count,0,,,"Older engines reserved one big contiguous chunk of GPU memory per request, sized for the longest possible reply, so much sat unused. PagedAttention splits the KV cache into fixed-size KV blocks (often 16 tokens) allocated on demand and tracked in a block table, like virtual memory pages. Waste drops sharply, so more requests fit at once."
 1688,21,select_blank,exercise,1687,KV cache is split into fixed-size ___.,blocks|layers|prompts,0,,,Each block holds keys and values for a few tokens.
 1689,21,multiple_choice,exercise,1687,What tracks where a request's blocks live?,Block table|Router|Tokenizer,0,,,It maps a request's logical positions to physical blocks.
 1690,21,multiple_choice,exercise,1687,Reserved cache sits mostly unused. Best fix?,Paged blocks|Longer prompts|Bigger weights,0,,,Allocating blocks on demand avoids reserving unused space.
-1691,21,match_pairs,exercise,1687,Match each term to its job.,KV block↔Cache chunk|Block table↔Tracks blocks|Fragmentation↔Wasted gaps,,,,
-1692,21,multi_select,exercise,1687,PagedAttention benefits?,Less waste|More requests|Smaller weights|Higher accuracy,0|1,,,
+1691,21,match_pairs,exercise,1687,Match each term to its job.,KV block↔Cache chunk|Block table↔Tracks blocks|Fragmentation↔Wasted gaps,,,,"A KV block is a chunk of cache, the block table tracks the blocks, and fragmentation is wasted gaps."
+1692,21,multi_select,exercise,1687,PagedAttention benefits?,Less waste|More requests|Smaller weights|Higher accuracy,0|1,,,"PagedAttention stores the KV cache in blocks, which wastes less memory and lets more requests fit."
 710,22,true_false,preview,711,Full fine-tuning updates every weight in the model.,,true,,,That means storing extra training data for billions of numbers.
 711,22,multiple_choice,main,,Full fine-tuning updates which weights?,Every one|Last layer|A few,0,,,"Fine-tuning adapts a pretrained model to your task. Doing it fully needs memory for weights, gradients and optimizer state."
-712,22,select_blank,exercise,711,Fine-tuning adapts a pretrained model to a new ___.,task|optimizer|format,0,,,
-713,22,multiple_choice,exercise,711,Why is full fine-tuning costly?,Tiny adapters|Frozen layers|Huge memory,2,,,
+712,22,select_blank,exercise,711,Fine-tuning adapts a pretrained model to a new ___.,task|optimizer|format,0,,,"Fine-tuning adapts a pretrained model to a new task, instead of training from scratch."
+713,22,multiple_choice,exercise,711,Why is full fine-tuning costly?,Tiny adapters|Frozen layers|Huge memory,2,,,"Full fine-tuning is costly because it updates every weight, which needs huge memory for gradients and optimizer state."
 714,22,multi_select,exercise,711,Memory hogs during fine-tuning?,Weights|Gradients|Optimizer state|Tokenizer file,0|1|2,,,Gradients are the correction signals computed during training.
-715,22,match_pairs,exercise,711,Match each term to its meaning.,Fine-tuning↔Adapts model|Inference↔Running model|Training↔Learning weights|Weights↔Learned numbers,,,,
+715,22,match_pairs,exercise,711,Match each term to its meaning.,Fine-tuning↔Adapts model|Inference↔Running model|Training↔Learning weights|Weights↔Learned numbers,,,,"Fine-tuning adapts a model, inference runs it, training learns weights, and weights are the learned numbers."
 1503,22,multiple_choice,exercise,711,Full fine-tuning exhausts GPU memory. Likely reason?,Full updates|Frozen layers|Tiny adapters,0,,,Updating every weight means storing gradients and optimizer state for all of them.
 716,22,true_false,preview,717,LoRA freezes big weights and trains small add-ons.,,true,,,"Only the tiny add-ons learn, so training needs far less memory."
 717,22,multi_select,main,,Which are true of LoRA?,Small adapters|Base trains|Adapters learn|Huge adapters,0|2,,,"LoRA adds small low-rank matrices called adapters beside the frozen weights. Only those learn, often well under 1 percent of the parameters."
-718,22,select_blank,exercise,717,LoRA uses low-___ matrices.,cost|speed|rank,2,,,
-719,22,multiple_choice,exercise,717,Base weights during LoRA are?,Retrained|Frozen|Pruned,1,,,
+718,22,select_blank,exercise,717,LoRA uses low-___ matrices.,cost|speed|rank,2,,,"LoRA uses low-rank matrices, small pairs of matrices that add a cheap update to the base weights."
+719,22,multiple_choice,exercise,717,Base weights during LoRA are?,Retrained|Frozen|Pruned,1,,,During LoRA the base weights are frozen; only the small adapter matrices are trained.
 720,22,multi_select,exercise,717,LoRA benefits?,Fewer trainables|Tiny files|Bigger base|Costlier GPUs,0|1,,,"An adapter is often megabytes, not gigabytes, so you can keep many."
-721,22,categorize,exercise,717,Sort each part by LoRA role.,Base weights↔Frozen|Adapter matrices↔Trained|Pretrained layers↔Frozen|Low-rank pieces↔Trained,,,,
+721,22,categorize,exercise,717,Sort each part by LoRA role.,Base weights↔Frozen|Adapter matrices↔Trained|Pretrained layers↔Frozen|Low-rank pieces↔Trained,,,,Base weights and pretrained layers stay frozen; the adapter matrices and low-rank pieces are trained.
 1504,22,multiple_choice,exercise,717,"Limited GPU memory, need custom behavior. Try?",Larger model|LoRA adapters|Full tuning,1,,,Training small adapters next to frozen weights needs far less memory.
 722,22,true_false,preview,723,QLoRA keeps its frozen base model in 4-bit.,,true,,,"True: QLoRA keeps the frozen base in 4-bit, roughly a quarter of the FP16 memory."
 723,22,select_blank,main,,QLoRA keeps its frozen base in ___-bit.,4|8|16,0,,,QLoRA combines quantization with LoRA: the frozen base sits in 4-bit while small adapters train in higher precision.
-724,22,select_blank,exercise,723,QLoRA quantizes the ___ model.,base|output|adapter,0,,,
+724,22,select_blank,exercise,723,QLoRA quantizes the ___ model.,base|output|adapter,0,,,"QLoRA quantizes the base model to 4-bit, then trains small LoRA adapters on top."
 725,22,multiple_choice,exercise,723,QLoRA lets you tune on?,Smaller GPUs|Clusters|Bigger GPUs,0,,,Big models can often be tuned on a single GPU.
-726,22,multi_select,exercise,723,QLoRA combines what?,Quantization|LoRA|Pruning|Distillation,0|1,,,
-727,22,match_pairs,exercise,723,Match each term to its idea.,LoRA↔Small adapters|QLoRA↔4-bit base|Quantization↔Fewer bits|Fine-tuning↔Adapts model,,,,
+726,22,multi_select,exercise,723,QLoRA combines what?,Quantization|LoRA|Pruning|Distillation,0|1,,,"QLoRA combines quantization, which shrinks the base model, with LoRA, which trains small adapters."
+727,22,match_pairs,exercise,723,Match each term to its idea.,LoRA↔Small adapters|QLoRA↔4-bit base|Quantization↔Fewer bits|Fine-tuning↔Adapts model,,,,"LoRA trains small adapters, QLoRA adds a 4-bit base, quantization means fewer bits, and fine-tuning adapts a model."
 1505,22,multiple_choice,exercise,723,Tuning a 70B model on one GPU. Try?,Bigger batches|QLoRA|Full tuning,1,,,A 4-bit frozen base plus small adapters can often fit on one GPU.
 1600,30,true_false,preview,1601,Decode produces output tokens one at a time.,,true,,,"After the prompt is read, the model writes its reply one token per step, and each step builds on the tokens before it."
 1601,30,order,main,,Order a reply's phases.,Prompt arrives|Prefill|First token|Decode,,,,"Prefill processes all prompt tokens together, which is heavy on math. Decode then makes one token per step and mostly waits on memory, since every step reads the weights and the KV cache."
 1602,30,select_blank,exercise,1601,Decode makes ___ new token per step.,one|ten|all,0,,,"Each new token depends on the ones before it, so decode goes step by step."
 1603,30,multiple_choice,exercise,1601,Which phase is usually memory-bound?,Decode|Prefill|Tokenizing,0,,,"Every decode step re-reads the weights and cache to produce just one token, so memory bandwidth is the limit."
-1604,30,match_pairs,exercise,1601,Match each phase to its job.,Prefill↔Reads prompt|Decode↔Writes reply|KV cache↔Saved history|Memory-bound↔Data waiting,,,,
+1604,30,match_pairs,exercise,1601,Match each phase to its job.,Prefill↔Reads prompt|Decode↔Writes reply|KV cache↔Saved history|Memory-bound↔Data waiting,,,,"Prefill reads the prompt, decode writes the reply, the KV cache holds history, and memory-bound means waiting on data."
 1605,30,multiple_choice,exercise,1601,Huge prompt delays the first word. Blame?,Decode|Prefill|Caching,1,,,"Reading a very long prompt is prefill work, and it must finish before any reply token appears."
-1606,30,categorize,exercise,1601,Sort each trait by phase.,Whole prompt↔Prefill|One token↔Decode|Math-heavy↔Prefill|Memory-heavy↔Decode,,,,
+1606,30,categorize,exercise,1601,Sort each trait by phase.,Whole prompt↔Prefill|One token↔Decode|Math-heavy↔Prefill|Memory-heavy↔Decode,,,,Prefill processes the whole prompt and is math-heavy; decode makes one token at a time and is memory-heavy.
 1607,30,true_false,preview,1608,TPOT is the average gap between tokens.,,true,,,True: the wait before the first token is TTFT. TPOT is the average gap between tokens after that.
 1608,30,multiple_choice,main,,Gap between streamed tokens is measured by?,TPOT|TTFT|Throughput,0,,,"TTFT (time to first token) is the wait until the first word appears, mostly prefill. TPOT (time per output token) is the average gap afterwards, mostly decode. Tokens per second is roughly 1 divided by TPOT."
 1609,30,select_blank,exercise,1608,TTFT is mostly set by ___.,prefill|decode|routing,0,,,A longer prompt means more prefill work before the first token.
 1610,30,multiple_choice,exercise,1608,TPOT is 50 ms; tokens per second?,20|50|200,0,,,1 second divided by 0.05 seconds is 20 tokens per second.
 1611,30,order,exercise,1608,Order a streamed reply's timeline.,Request sent|First token|Later tokens,,,,The gap up to the first token is TTFT; the gaps after it are TPOT.
 1612,30,multiple_choice,exercise,1608,Chat starts fast but types slowly. Metric?,TTFT|TPOT|Padding,1,,,Fast start means a good TTFT; slow typing means a high TPOT.
-1613,30,match_pairs,exercise,1608,Match each metric to its phase.,TTFT↔Prefill|TPOT↔Decode|Tokens/sec↔Reply speed,,,,
+1613,30,match_pairs,exercise,1608,Match each metric to its phase.,TTFT↔Prefill|TPOT↔Decode|Tokens/sec↔Reply speed,,,,"TTFT, time to first token, reflects prefill; TPOT, time per output token, reflects decode; tokens per second measures reply speed."
 1614,30,true_false,preview,1615,Chunked prefill splits a long prompt into smaller pieces.,,true,,,"Instead of processing a giant prompt in one go, the engine handles it a slice at a time."
 1615,30,multi_select,main,,What does chunked prefill do?,Splits prompts|Mixes decode|Skips prefill|Shrinks weights,0|1,,,"A giant prompt processed in one go can stall every other user's decoding. Chunks are mixed in with decode steps, keeping TPOT steady, at the cost of a slightly slower TTFT for that long prompt."
 1616,30,select_blank,exercise,1615,Chunks are mixed with ___ steps.,decode|training|pruning,0,,,The engine fills each step with a bit of prompt work plus everyone's next tokens.
 1617,30,multiple_choice,exercise,1615,One huge prompt freezes everyone's typing. Fix?,Bigger batch|Chunked prefill|Fewer GPUs,1,,,Chunking stops one long prefill from blocking other users' decode steps.
 1618,30,multiple_choice,exercise,1615,What does chunking cost the long prompt?,Slower TTFT|Lower accuracy|More weights,0,,,"Its prefill is spread over several steps, so its first token can come a little later."
-1619,30,multi_select,exercise,1615,Chunking mainly protects?,Steady TPOT|Other users|Model accuracy|Disk space,0|1,,,
-1620,30,match_pairs,exercise,1615,Match each term to its role.,Chunk↔Prompt piece|Decode step↔One token|TPOT↔Typing gap|Prefill↔Prompt reading,,,,
+1619,30,multi_select,exercise,1615,Chunking mainly protects?,Steady TPOT|Other users|Model accuracy|Disk space,0|1,,,"Chunking mainly protects steady TPOT and other users, so a long prompt does not stall their replies."
+1620,30,match_pairs,exercise,1615,Match each term to its role.,Chunk↔Prompt piece|Decode step↔One token|TPOT↔Typing gap|Prefill↔Prompt reading,,,,"A chunk is a piece of the prompt, a decode step is one token, TPOT is the typing gap, and prefill is prompt reading."
 1621,30,true_false,preview,1622,Raw throughput alone can hide unhappy users.,,true,,,Throughput can look great while many users wait too long. Goodput counts only requests that meet their targets.
 1622,30,multiple_choice,main,,What does goodput count?,Timely requests|Finished requests|Generated tokens,0,,,"An SLO (service level objective) is a target such as TTFT under 1 second and TPOT under 50 ms. Goodput is the request rate that meets those targets. Bigger batches raise tokens per second but slow each user, so throughput alone can hide unhappy users."
 1623,30,select_blank,exercise,1622,An SLO is a ___ you promise users.,target|cache|layer,0,,,"For example, first token within one second for most requests."
 1624,30,multiple_choice,exercise,1622,Throughput doubled yet users complain. Check?,Goodput|Padding|Sparsity,0,,,Goodput shows how many requests still hit their latency targets.
 1625,30,multiple_choice,exercise,1622,Larger batches often slow?,Each user|The GPU|Total output,0,,,A bigger batch raises total tokens per second but each user's tokens arrive a bit slower.
-1626,30,multi_select,exercise,1622,Typical SLO targets?,TTFT limit|TPOT limit|Weight count|Batch shape,0|1,,,
-1627,30,categorize,exercise,1622,Sort each metric by type.,Tokens/sec total↔Throughput|Requests served↔Throughput|TTFT↔Latency|TPOT↔Latency,,,,
+1626,30,multi_select,exercise,1622,Typical SLO targets?,TTFT limit|TPOT limit|Weight count|Batch shape,0|1,,,"Typical SLO targets limit TTFT, how soon the first token appears, and TPOT, how fast tokens follow."
+1627,30,categorize,exercise,1622,Sort each metric by type.,Tokens/sec total↔Throughput|Requests served↔Throughput|TTFT↔Latency|TPOT↔Latency,,,,Total tokens per second and requests served are throughput; TTFT and TPOT are latency.
 1628,31,true_false,preview,1629,A 70-billion-parameter FP16 model needs about 140 GB.,,true,,,"FP16 uses 2 bytes per weight, and 70 billion times 2 bytes is about 140 GB, more than one typical GPU holds."
 1629,31,multiple_choice,main,,Model too big for one GPU. Best fix?,Split model|Clone model|Bigger batch,0,,,"When the weights exceed one GPU's memory, you shard them across several GPUs. Data parallelism instead makes full copies (replicas) to serve more traffic, but every copy must still fit on its own GPU or GPUs."
 1630,31,select_blank,exercise,1629,Weights of 70B FP16 need about ___ GB.,140|35|700,0,,,2 bytes times 70 billion parameters.
 1631,31,multiple_choice,exercise,1629,Replicas mainly add?,Request capacity|Memory capacity|Accuracy,0,,,Copies serve more users at once but don't make a too-big model fit.
-1632,31,match_pairs,exercise,1629,Match each fix to its goal.,Sharding↔Fit model|Replicas↔More traffic|Quantization↔Smaller weights,,,,
+1632,31,match_pairs,exercise,1629,Match each fix to its goal.,Sharding↔Fit model|Replicas↔More traffic|Quantization↔Smaller weights,,,,"Sharding splits a model to fit it, replicas handle more traffic, and quantization makes weights smaller."
 1633,31,multiple_choice,exercise,1629,Model fits fine; traffic doubled. Best move?,Shard weights|Add replicas|Prune more,1,,,"The model already fits, so extra copies add capacity."
-1634,31,categorize,exercise,1629,Sort each situation by fix.,Weights too big↔Shard|Busy server↔Replicate|Won't load↔Shard|Long queue↔Replicate,,,,
+1634,31,categorize,exercise,1629,Sort each situation by fix.,Weights too big↔Shard|Busy server↔Replicate|Won't load↔Shard|Long queue↔Replicate,,,,"When weights are too big or will not load, shard the model; when the server is busy or the queue long, replicate it."
 1635,31,true_false,preview,1636,Tensor parallelism splits each layer across several GPUs.,,true,,,"Every layer's big weight matrices are cut into slices, one slice per GPU."
 1636,31,multiple_choice,main,,Tensor parallelism splits what across GPUs?,Layer matrices|Whole requests|Token lists,0,,,"Each GPU holds a slice of every layer and all GPUs work on the same token together, combining partial results after each layer. That can lower latency but needs constant fast GPU-to-GPU communication, so it is usually used inside one machine."
 1637,31,select_blank,exercise,1636,Tensor-parallel GPUs all work on the ___ request.,same|next|oldest,0,,,They cooperate on one request instead of taking separate ones.
 1638,31,multiple_choice,exercise,1636,Tensor parallelism depends on fast?,GPU links|Disks|Tokenizers,0,,,"Partial results are exchanged after every layer, so slow links become the bottleneck."
-1639,31,multi_select,exercise,1636,Tensor parallelism effects?,Splits matrices|Cuts latency|Fast links|Model copies,0|1|2,,,
+1639,31,multi_select,exercise,1636,Tensor parallelism effects?,Splits matrices|Cuts latency|Fast links|Model copies,0|1|2,,,"Tensor parallelism splits matrices across GPUs, which cuts latency but needs fast links between them."
 1640,31,multiple_choice,exercise,1636,Slow single-user chat on 4 GPUs. Try?,Tensor parallel|Bigger batch|Add replicas,0,,,Splitting each layer's math across GPUs can speed up a single request; replicas only add capacity.
-1641,31,order,exercise,1636,Order one tensor-parallel layer.,Compute slices|Combine results|Next layer,,,,
+1641,31,order,exercise,1636,Order the steps of one tensor-parallel layer.,Compute slices|Combine results|Next layer,,,,"Each GPU computes its slice, the results are combined, and then the next layer starts."
 1642,31,true_false,preview,1643,Pipeline parallelism gives each GPU a block of layers.,,true,,,"Each GPU holds a different block of layers, like stations on an assembly line."
 1643,31,multiple_choice,main,,Pipeline parallelism gives each GPU what?,Some layers|All layers|Some tokens,0,,,"GPU 1 runs the first layers, GPU 2 the next block, and so on, passing activations along. It needs less communication than tensor parallelism, so it copes with slower links, but a single request still passes through every stage, so its latency doesn't improve. Many requests keep all stages busy."
 1644,31,select_blank,exercise,1643,Pipeline stages pass ___ to the next GPU.,activations|gradients|datasets,0,,,The output of one block of layers is the input of the next.
 1645,31,multiple_choice,exercise,1643,"Versus tensor parallelism, GPU traffic is?",Lower|Higher|Identical,0,,,"Data crosses GPUs only between stages, not after every layer."
 1646,31,multiple_choice,exercise,1643,"Big model, slow GPU links. Which split?",Pipeline|Tensor|Replicas,0,,,"Pipeline sends less data between GPUs, and replicas can't fit a too-big model."
-1647,31,multi_select,exercise,1643,Pipeline parallelism traits?,Layer stages|Lighter traffic|Faster replies|Slice matrices,0|1,,,
-1648,31,match_pairs,exercise,1643,Match each split to its trait.,Tensor parallel↔Splits matrices|Pipeline parallel↔Splits layers|Data parallel↔Copies model,,,,
+1647,31,multi_select,exercise,1643,Pipeline parallelism traits?,Layer stages|Lighter traffic|Faster replies|Slice matrices,0|1,,,"Pipeline parallelism splits the model into layer stages, and it needs lighter traffic between GPUs than tensor parallelism."
+1648,31,match_pairs,exercise,1643,Match each split to its trait.,Tensor parallel↔Splits matrices|Pipeline parallel↔Splits layers|Data parallel↔Copies model,,,,"Tensor parallel splits matrices, pipeline parallel splits layers, and data parallel copies the whole model."
 1649,31,true_false,preview,1650,A mixture-of-experts model uses only some experts per token.,,true,,,"A router picks a few small sub-networks for each token, leaving the rest idle."
 1650,31,multi_select,main,,Which are true of MoE?,Router routes|Experts load|All compute|Memory drops,0|1,,,"A router sends each token to a few experts (sub-networks), so only a fraction of the parameters, the active parameters, do math. But every expert must still be loaded, so memory needs follow the total parameter count."
 1651,31,select_blank,exercise,1650,All ___ must still fit in GPU memory.,experts|tokens|prompts,0,,,"Any expert might be chosen for the next token, so all stay loaded."
 1652,31,multiple_choice,exercise,1650,Who picks the experts for a token?,Router|Tokenizer|Scheduler,0,,,The router scores the experts and selects the top few.
 1653,31,multiple_choice,exercise,1650,MoE runs 2 of 8 experts. Memory needed?,All 8|Just 2|Just 1,0,,,"Compute drops, but the weights of all 8 experts still sit in memory."
-1654,31,match_pairs,exercise,1650,Match each term to its meaning.,Expert↔Sub-network|Router↔Picks experts|Active parameters↔Used per token|Dense model↔Uses everything,,,,
-1655,31,categorize,exercise,1650,Sort each fact by resource.,All experts stored↔Memory|Few experts run↔Compute|Weights loaded↔Memory|Math per token↔Compute,,,,
+1654,31,match_pairs,exercise,1650,Match each term to its meaning.,Expert↔Sub-network|Router↔Picks experts|Active parameters↔Used per token|Dense model↔Uses everything,,,,"An expert is a sub-network, the router picks experts, active parameters are those used per token, and a dense model uses everything."
+1655,31,categorize,exercise,1650,Sort each fact by resource.,All experts stored↔Memory|Few experts run↔Compute|Weights loaded↔Memory|Math per token↔Compute,,,,"All experts must be stored, which uses memory; only a few run per token, so compute is small."
 1656,31,true_false,preview,1657,NVLink is typically faster than PCIe between GPUs.,,true,,,"NVLink, NVIDIA's dedicated GPU-to-GPU link, is typically many times faster than PCIe."
 1657,31,multiple_choice,main,,Which link is typically fastest between GPUs?,NVLink|PCIe|Ethernet,0,,,"An interconnect is the wiring that moves data between GPUs. NVLink is dedicated GPU-to-GPU wiring, far faster than PCIe, the general slot linking GPUs to the rest of the computer. Tensor parallelism exchanges data every layer, so it suffers on slow links; pipeline parallelism sends less and copes better."
 1658,31,select_blank,exercise,1657,Slow links hurt ___ parallelism most.,tensor|pipeline|data,0,,,It swaps partial results after every single layer.
 1659,31,multiple_choice,exercise,1657,What is an interconnect?,GPU wiring|Model layer|Cache type,0,,,It is the physical path data takes between GPUs.
 1660,31,multiple_choice,exercise,1657,Tensor-parallel setup on PCIe runs slowly. Why?,Link bandwidth|Token count|Layer count,0,,,Constant exchanges saturate the slower link.
-1661,31,match_pairs,exercise,1657,Match each link to its trait.,NVLink↔Fast GPU link|PCIe↔General slot|Bandwidth↔Data per second|Tensor parallel↔Needs fast links,,,,
-1662,31,multi_select,exercise,1657,Which move data between GPUs?,NVLink|PCIe|HBM|SRAM,0|1,,,
+1661,31,match_pairs,exercise,1657,Match each link to its trait.,NVLink↔Fast GPU link|PCIe↔General slot|Bandwidth↔Data per second|Tensor parallel↔Needs fast links,,,,"NVLink is a fast GPU link, PCIe is a general slot, bandwidth is data per second, and tensor parallelism needs fast links."
+1662,31,multi_select,exercise,1657,Which move data between GPUs?,NVLink|PCIe|HBM|SRAM,0|1,,,"NVLink and PCIe both move data between GPUs, but NVLink is much faster."
 901,23,true_false,preview,902,Repeated identical requests can reuse a stored answer.,,true,,,"A response cache saves the answer to a request. If the exact same request shows up again, you return the saved answer instead of running the model."
 902,23,select_blank,main,,A response cache stores past ___.,answers|weights|tokens,0,,,It keeps finished answers keyed by the request. A repeated question like 'What are your opening hours?' costs almost nothing the second time.
 903,23,select_blank,exercise,902,A cache hit skips running the ___.,model|network|prompt,0,,,"On a hit the stored answer is returned directly, so no model compute happens."
@@ -667,7 +667,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 924,23,multiple_choice,exercise,922,What does a cascade do on doubt?,Retries small|Escalates|Caches it,1,,,"In a cascade the small model answers first. If it is unsure, the request goes to a larger model."
 925,23,multi_select,exercise,922,Routing can save which things?,Money|Latency|Weight size|Model accuracy,0|1,,,Cheap models cost less and respond faster. You still must check quality.
 926,23,categorize,exercise,922,Route each request to a model size.,Greeting↔Small|Legal analysis↔Large|FAQ lookup↔Small|Complex reasoning↔Large,,,,"Simple, predictable requests go small; hard ones go large."
-927,23,order,exercise,922,Order a cascade.,Small model|Check confidence|Escalate|Large model,,,,"Try cheap first, judge the confidence, and only then pay for the big model."
+927,23,order,exercise,922,Order the steps of a cascade.,Small model|Check confidence|Escalate|Large model,,,,"Try cheap first, judge the confidence, and only then pay for the big model."
 1509,23,multiple_choice,exercise,922,Simple greetings hit the largest model. Fix?,Model routing|Prefix caching|Bigger GPU,0,,,"A router can send easy requests to a small, cheap model."
 928,24,true_false,preview,929,Autoscaling changes the replica count with load.,,true,,,"True: autoscaling changes the replica count, adding copies when load rises and removing them when it falls."
 929,24,multiple_choice,main,,What does autoscaling change?,Prompt text|Replica count|Weight values,1,,,Autoscaling adds copies (replicas) of your model server when load rises and removes them when it falls.
@@ -675,10 +675,10 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 931,24,multiple_choice,exercise,929,Why scale down when idle?,Save money|Add capacity|Cut latency,0,,,"Idle GPUs still bill by the hour, so removing unneeded replicas cuts cost."
 932,24,multi_select,exercise,929,Autoscaling helps with which problems?,Traffic spikes|Idle waste|Low accuracy|Slow decoding,0|1,,,It handles surges by adding capacity and saves money by trimming it later.
 933,24,match_pairs,exercise,929,Match the scaling term.,Scale out↔Add replicas|Scale in↔Remove replicas|Replica↔Model copy,,,,"Scaling out or in changes the number of copies, unlike scaling up, which means a bigger machine."
-934,24,order,exercise,929,Order a traffic surge response.,Load rises|Metric trips|Replica added|Load shared,,,,"A metric crosses a limit, the scaler launches a replica, then requests spread across replicas."
+934,24,order,exercise,929,Order the steps of a traffic surge response.,Load rises|Metric trips|Replica added|Load shared,,,,"A metric crosses a limit, the scaler launches a replica, then requests spread across replicas."
 1510,24,multiple_choice,exercise,929,"Traffic spikes at noon, servers overwhelmed. Fix?",Pruning|Autoscaling|Quantization,1,,,Autoscaling adds replicas when load rises and removes them later.
 935,24,true_false,preview,936,A brand-new server must load large weights before answering.,,true,,,A model with billions of weights may take tens of seconds or minutes to read from disk into GPU memory.
-936,24,order,main,,Order a cold start.,Instance starts|Weights load|Gets ready|Serves request,,,,"A cold start is the delay while a new instance starts, loads weights, and gets ready to serve its first request."
+936,24,order,main,,Order the steps of a cold start.,Instance starts|Weights load|Gets ready|Serves request,,,,"A cold start is the delay while a new instance starts, loads weights, and gets ready to serve its first request."
 937,24,select_blank,exercise,936,Cold starts are dominated by loading ___.,weights|prompts|logs,0,,,Reading large weight files into memory is usually the biggest part of startup time.
 938,24,multiple_choice,exercise,936,Who feels a cold start?,First requests|Every request|Cached ones,0,,,"Requests arriving while a new replica boots wait longer, or fail if they time out."
 939,24,multi_select,exercise,936,What lengthens cold starts?,Big weights|Slow disk|Warm pool|Small image,0|1,,,More bytes to read and slower storage both add delay. A warm pool does the opposite.
@@ -707,7 +707,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 959,25,multiple_choice,exercise,957,"A $3/hour GPU serves 3,000 requests. Cost each?",$0.1|$0.001|$0.01,1,,,"$3 divided by 3,000 requests equals $0.001 per request."
 960,25,multi_select,exercise,957,Which are cost-per-request inputs?,Hourly price|Requests served|Weight bits|Layer count,0|1,,,Only money spent and work done matter for the ratio.
 961,25,match_pairs,exercise,957,Match the quantity.,Cost↔Money spent|Throughput↔Requests per second|Unit cost↔Per request,,,,"Unit cost combines money spent with work done, using throughput to link them."
-962,25,order,exercise,957,Order the calculation.,Total spend|Count requests|Divide|Unit cost,,,,"Total the bill, count the work, divide, and you have the price per request."
+962,25,order,exercise,957,Order the steps of the calculation.,Total spend|Count requests|Divide|Unit cost,,,,"Total the bill, count the work, divide, and you have the price per request."
 1514,25,multiple_choice,exercise,957,An hour costs $5 for 500 requests. Cost each?,$0.1|$0.01|$0.001,1,,,$5 divided by 500 requests is $0.01 per request.
 963,25,true_false,preview,964,An idle rented GPU still bills hourly.,,true,,,"True: a rented GPU bills the same hourly rate whether it is busy or idle, so unused time is waste."
 964,25,multiple_choice,main,,What is GPU utilization?,Hourly rate|Total spend|Busy share,2,,,Utilization measures how much of the GPU's capacity is actually doing useful work.
@@ -755,7 +755,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1001,26,multiple_choice,exercise,999,Which runtime targets Apple devices?,vLLM|TensorRT-LLM|Core ML,2,,,"Core ML is Apple's framework for running models on its devices, using its neural hardware."
 1002,26,multi_select,exercise,999,Which are on-device chips?,CPU|GPU|NPU|Data center,0|1|2,,,"Phones may run models on any of these three. A data center is a place, not a chip."
 1003,26,match_pairs,exercise,999,Match chip to trait.,CPU↔General purpose|GPU↔Parallel math|NPU↔Neural specialist,,,,Each chip is tuned differently; NPUs are best for neural nets.
-1004,26,order,exercise,999,Order by AI specialization.,CPU|GPU|NPU,,,,"General-purpose CPUs are least specialized, GPUs handle parallel math, and NPUs are built for neural networks."
+1004,26,order,exercise,999,"Order by specialization, most general first.",CPU|GPU|NPU,,,,"General-purpose CPUs are least specialized, GPUs handle parallel math, and NPUs are built for neural networks."
 1520,26,multiple_choice,exercise,999,Battery drains fast running a vision model. Try?,CPU only|Bigger model|Use NPU,2,,,An NPU does the same neural math with less energy.
 1005,26,true_false,preview,1006,Hybrid apps use both local and cloud models.,,true,,,True: a hybrid app answers locally when it can and falls back to a bigger cloud model for hard requests.
 1006,26,multiple_choice,main,,What is a hybrid setup?,Cloud only|Edge only|Edge+cloud,2,,,"Hybrid deployment splits work between the device and the cloud, playing to each one's strengths."
@@ -763,7 +763,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1008,26,multiple_choice,exercise,1006,How do device models get updated?,App update|Server patch|Live retraining,0,,,"New model files are delivered like other app data, so they need versioning and size care."
 1009,26,multi_select,exercise,1006,Hybrid trade-offs include?,Complexity|Privacy limits|Free compute|Sync issues,0|1|3,,,"More moving parts appear, and cloud fallback sends data off-device."
 1010,26,match_pairs,exercise,1006,Match task to place.,Wake word↔Local|Long essay↔Cloud|Photo blur↔Local,,,,"Small, private, latency-critical tasks stay local; heavy generation goes to the cloud."
-1011,26,order,exercise,1006,Order a hybrid request.,Try local|Low confidence|Call cloud|Return answer,,,,"Attempt cheap local inference first, escalate when needed, then return the result."
+1011,26,order,exercise,1006,Order the steps of a hybrid request.,Try local|Low confidence|Call cloud|Return answer,,,,"Attempt cheap local inference first, escalate when needed, then return the result."
 1521,26,multiple_choice,exercise,1006,"Phone answers easy prompts, hard ones fail. Design?",Hybrid fallback|Smaller model|Local only,0,,,Try local first and escalate hard requests to a bigger cloud model.
 1012,27,true_false,preview,1013,Optimizing can quietly break a model that worked before.,,true,,,"After quantizing, a model might still run yet misread rare inputs. You only notice by checking."
 1013,27,multiple_choice,main,,What is a regression?,Model update|Speed boost|Quality drop,2,,,"A regression is something that used to work correctly and now does not, such as lower accuracy after an optimization."
@@ -771,7 +771,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1015,27,multiple_choice,exercise,1013,When should you regression-test?,After changes|At launch|Before changes,0,,,"Every optimization can change outputs, so check right after each change."
 1016,27,multi_select,exercise,1013,Which need a baseline?,Accuracy|Latency|Output quality|Model name,0|1|2,,,Any metric you want to protect needs a known starting value to compare against.
 1017,27,match_pairs,exercise,1013,Match the term.,Baseline↔Original results|Regression↔Got worse|Tolerance↔Allowed drop,,,,A tolerance says how much loss is acceptable before you reject the change.
-1018,27,order,exercise,1013,Order a regression check.,Save baseline|Optimize|Rerun tests|Compare,,,,"Record what good looks like, apply the change, rerun, and compare against the baseline."
+1018,27,order,exercise,1013,Order the steps of a regression check.,Save baseline|Optimize|Rerun tests|Compare,,,,"Record what good looks like, apply the change, rerun, and compare against the baseline."
 1522,27,multiple_choice,exercise,1013,Quality fell after optimizing. Name for this?,Tolerance|Baseline|Regression,2,,,Something that used to work well and now does not is a regression.
 1019,27,true_false,preview,1020,A fixed set of test inputs makes comparisons fair.,,true,,,Running the same 500 questions before and after an optimization shows exactly what changed.
 1020,27,multiple_choice,main,,What is a golden set?,Fixed tests|Random tests|Best weights,0,,,"A golden set is a curated collection of inputs with known good outputs, reused for every comparison."
@@ -787,7 +787,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1029,27,multiple_choice,exercise,1027,Accuracy fell 3 points. Tolerance is 1. Ship?,Yes|No,1,,,"The drop exceeds the tolerance you set, so the change fails the check."
 1030,27,multi_select,exercise,1027,Which should you compare after optimizing?,Accuracy|p99 latency|Memory use|Prompt wording,0|1|2,,,"Quality, speed, and resources are the three things optimization trades."
 1031,27,match_pairs,exercise,1027,Match each metric to what it measures.,Accuracy↔Answer quality|p99 latency↔Slowest requests|Memory use↔Footprint,,,,Each metric watches a different side of the trade-off.
-1032,27,order,exercise,1027,Order by strictness.,Median|p95|p99,,,,"Higher percentiles reach further into the slow tail, so p99 is the strictest of the three."
+1032,27,order,exercise,1027,"Order by strictness, least strict first.",Median|p95|p99,,,,"Higher percentiles reach further into the slow tail, so p99 is the strictest of the three."
 1524,27,multiple_choice,exercise,1027,"Average latency looks fine, users complain. Check?",p99 latency|Mean latency|Model size,0,,,p99 exposes the slow tail that averages hide.
 1033,27,true_false,preview,1034,Models can be tested on live traffic.,,true,,,Sending a small share of users to the optimized model limits damage if something is wrong.
 1034,27,match_pairs,main,,Match each term to its meaning.,Canary↔Small share|Shadow test↔Hidden copies|Regression↔Quality drop,,,,"A canary sends a small share of real traffic to the new model first, so problems show up before everyone is affected. A shadow test is safer still: the new model sees copies of real requests, but its answers are never shown."
@@ -795,7 +795,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1036,27,multiple_choice,exercise,1034,Which test risks no users?,Shadow|Canary|Full release,0,,,"Shadow answers are never shown, so users cannot be harmed."
 1037,27,multi_select,exercise,1034,Safe release steps include?,Shadow test|Canary|Instant rollback|Skip tests,0|1|2,,,Layered gradual checks plus an easy way back reduce risk.
 1038,27,categorize,exercise,1034,Which sees users?,Shadow↔No|Canary↔Yes|Full rollout↔Yes|Offline test↔No,,,,Only canary and full rollouts show answers to real users.
-1039,27,order,exercise,1034,Order a safe rollout.,Offline tests|Shadow|Canary|Full,,,,"Move from least to most exposure, checking at each stage."
+1039,27,order,exercise,1034,Order the steps of a safe rollout.,Offline tests|Shadow|Canary|Full,,,,"Move from least to most exposure, checking at each stage."
 1525,27,multiple_choice,exercise,1034,Want zero user risk testing a new model. Use?,Shadow test|Canary|Full rollout,0,,,Shadow answers are logged but never shown to users.
 1040,28,true_false,preview,1041,You cannot fix a slowdown until you know its cause.,,true,,,"Guessing wastes time. If memory is the limit, faster math changes nothing."
 1041,28,multiple_choice,main,,What comes first in optimizing?,Pick technique|Find bottleneck|Add replicas,1,,,"Measure where time, memory, or money is going, so you spend effort on the real limit."
@@ -843,7 +843,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1078,29,multiple_choice,exercise,1076,Why repeat benchmark runs?,Save time|Skip warmup|Reduce noise,2,,,"One run can be a fluke, so repeat and use percentiles."
 1079,29,multi_select,exercise,1076,Which improve benchmark trust?,Warmup|Realistic inputs|Repeated runs|Tiny prompt,0|1|2,,,"Realism, warmup, and repetition make numbers reliable."
 1080,29,categorize,exercise,1076,Sound or flawed benchmark step?,Warmup first↔Sound|Single run↔Flawed|Real prompts↔Sound|Tiny prompts only↔Flawed,,,,Sound steps mimic production and remove noise.
-1081,29,order,exercise,1076,Order a benchmark.,Warmup|Run|Repeat|Report p95,,,,"Warm up, measure, repeat for stability, and report a percentile."
+1081,29,order,exercise,1076,Order the steps of a benchmark.,Warmup|Run|Repeat|Report p95,,,,"Warm up, measure, repeat for stability, and report a percentile."
 1531,29,multiple_choice,exercise,1076,Benchmark used tiny prompts; production slower. Why?,Extra layers|Warm caches|Toy inputs,2,,,Tiny prompts do not resemble real traffic.
 1082,29,true_false,preview,1083,Good average scores can hide rare failures.,,true,,,After quantization a chatbot may keep 99% accuracy overall but stumble on unusual numbers or languages.
 1083,29,select_blank,main,,Average accuracy can hide rare ___.,slices|inputs|layers,0,,,Average accuracy hides that small groups of unusual inputs can degrade much more.
@@ -859,7 +859,7 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1092,29,multiple_choice,exercise,1090,Chat apps should prefer?,Long queues|Huge batches|Small batches,2,,,Interactive users care about response time more than raw throughput.
 1093,29,multi_select,exercise,1090,Over-optimization pitfalls include?,Throughput only|Ignoring accuracy|Balanced targets|Overtuning,0|1|3,,,"Improving one number at the expense of others, or continuing after the goal, wastes effort."
 1094,29,match_pairs,exercise,1090,Match each optimization to its cost.,Big batch↔Higher latency|Pruning↔Some accuracy|Caching↔Stale answers,,,,"Each optimization gives up something, so know the price."
-1095,29,order,exercise,1090,Order by batch size.,Batch 1|Batch 8|Batch 64,,,,Larger batches raise throughput and typically increase waiting time.
+1095,29,order,exercise,1090,"Order by batch size, smallest first.",Batch 1|Batch 8|Batch 64,,,,Larger batches raise throughput and typically increase waiting time.
 1533,29,multiple_choice,exercise,1090,Live chat feels laggy at batch 128. Fix?,More retries|Smaller batches|Bigger batches,1,,,"Smaller batches cut waiting time, trading away some throughput."
 1693,7,true_false,preview,1694,A quantization scale turns stored integers back into real values.,,true,,,Real value is about the integer times the scale.
 1694,7,multiple_choice,main,,Real value equals integer times what?,Scale|Rank|Batch,0,,,The quantization scale converts a stored integer back to an approximate real value.

@@ -4,7 +4,7 @@
   "description": "How to make trained AI models smaller, faster and cheaper to run: quantization, pruning, distillation, batching, compilers and runtimes, LLM tricks like the KV cache and speculative decoding, plus serving cost and how to verify nothing broke. Built for developers new to ML. Builds on this library's mlops course for the wider production lifecycle (registries, pipelines, monitoring) — see it for that foundation.",
   "image": "cover.png",
   "file": "ai-model-optimization.zip",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "tags": [
     "ai",
     "machine-learning",
@@ -23,6 +23,11 @@
       "version": "1.1.0",
       "date": "2026-09-24",
       "notes": "Rewrote 42 preview true/false card(s) whose answer was false, so every preview statement is true; Wrapped code, commands and file names in backticks so they render as code (1 card(s))."
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-09-30",
+      "notes": "Added an explanation to 272 card(s) that had none; reworded 18 ordering prompt(s) to say which end comes first."
     }
   ],
   "toc": [
