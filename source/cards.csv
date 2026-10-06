@@ -992,3 +992,80 @@ id,unit_id,type,role,related_main_id,prompt,options,correct_index,image,audio,ex
 1821,32,match_pairs,exercise,1820,Pair every term with its gloss.,Canary release↔Few users first|Low-hanging fruit↔Cheap easy wins|Premature optimization↔Optimizing before measuring|Latency-throughput trade-off↔Bigger batches wait,,,,Each term is paired with its plain-language meaning.
 1822,32,match_pairs,exercise,1820,Which meaning fits each term?,Decode phase↔Writes reply|Time to first token↔Wait for output|Time per output token↔Gap between tokens|Service level objective↔Measurable promise,,,,Each term is paired with its plain-language meaning.
 1823,32,match_pairs,exercise,1820,Connect the terms to what they mean.,Mixture of experts↔Few experts run|Memory fragmentation↔Wasted scattered memory|Outlier↔Extreme weight|E5M2↔Wide-range FP8,,,,Each term is paired with its plain-language meaning.
+1824,1,multiple_choice,exam,,A model's weights are the numbers it:,Learns|Prints|Deletes,0,,,Change the weights and you change what the model does.
+1825,1,multiple_choice,exam,,A tensor is a grid of:,Files|Numbers|Words,1,,,"A scalar is 0-D, a vector 1-D and a matrix 2-D."
+1826,1,true_false,exam,,A 7B model has about 7 billion weights.,,true,,,The B stands for billion parameters.
+1827,1,multiple_choice,exam,,Higher temperature makes probabilities:,Flatter|Sharper|Negative,0,,,Lower temperature makes them more peaked.
+1828,2,multiple_choice,exam,,During inference the weights:,Are deleted|Stay fixed|Keep changing,1,,,Inference runs a trained model to get a prediction.
+1829,2,multiple_choice,exam,,Which pass does inference skip?,Forward|Both|Backward,2,,,The backward pass is only needed to train.
+1830,2,true_false,exam,,Training happens on every request.,,false,,,Training is rare; inference runs on every request.
+1831,3,multiple_choice,exam,,Latency is the wait for:,Training|One request|All requests,1,,,Throughput counts requests per second.
+1832,3,multiple_choice,exam,,Inference memory is filled by weights and:,Datasets|Gradients|Activations,2,,,Activations are the intermediate results.
+1833,7,multiple_choice,exam,,Serving cost mostly follows:,Hardware time|Model names|Prompt style,0,,,You pay for chip-hours.
+1834,4,multiple_choice,exam,,A profiler finds:,Licenses|Bottlenecks|Typos,1,,,A bottleneck is the slowest part limiting the system.
+1835,4,multiple_choice,exam,,A fair speed test starts with a:,Timed run|Final report|Warm-up run,2,,,The warm-up run is not counted.
+1836,4,multiple_choice,exam,,p95 latency means 95% of requests finish:,Sooner|Later|Never,0,,,p50 is the median.
+1837,4,multiple_choice,exam,,You should benchmark on the:,Cheapest cloud|Target hardware|Fastest laptop,1,,,Use realistic input sizes too.
+1838,5,multiple_choice,exam,,Making a model faster often costs some:,Memory|Money|Accuracy,2,,,That is the accuracy-speed trade-off.
+1839,5,multiple_choice,exam,,An accuracy budget is the allowed:,Loss|Gain|Cost,0,,,For example a drop of 1%.
+1840,5,multiple_choice,exam,,A baseline is the model's numbers:,Next year|Before changes|After changes,1,,,Every optimization is compared with it.
+1841,5,multiple_choice,exam,,A held-out test set is never used for:,Testing|Scoring|Training,2,,,Its score shows how well the model generalizes.
+1842,6,multiple_choice,exam,,How many bytes does one FP32 number take?,Four|Two|One,0,,,FP16 takes two and INT8 takes one.
+1843,6,multiple_choice,exam,,One FP16 number takes how many bytes?,Eight|Two|Four,1,,,It is half-precision.
+1844,6,multiple_choice,exam,,BF16 keeps FP32's number:,Detail|Size|Range,2,,,It has fewer detail bits.
+1845,6,multiple_choice,exam,,INT8 uses what share of FP16's memory?,Half|Double|A quarter,0,,,One byte versus two.
+1846,6,true_false,exam,,FP8 uses more memory than FP16.,,false,,,FP8 is roughly half of FP16.
+1847,6,multiple_choice,exam,,Rounding error is lost:,Memory|Time|Precision,2,,,A number that cannot be stored exactly is rounded.
+1848,7,multiple_choice,exam,,Post-training quantization stores numbers with fewer:,Bits|Layers|Users,0,,,It happens after training.
+1849,7,multiple_choice,exam,,The real value is roughly the integer times the:,Batch|Scale|Bias,1,,,The scale converts stored integers back to floats.
+1850,7,multiple_choice,exam,,Calibration data is used to pick:,Labels|Prompts|Ranges,2,,,A few hundred typical inputs are enough.
+1851,7,multiple_choice,exam,,Weight-only quantization shrinks the:,Weights|Activations|Dataset,0,,,Activations stay at higher precision.
+1852,7,multiple_choice,exam,,AWQ scales which weights before rounding?,All equally|Important ones|Smallest ones,1,,,It helps 4-bit models keep accuracy.
+1853,7,multiple_choice,exam,,An outlier weight stretches the quantization:,Dataset|Cache|Scale,2,,,It hurts the precision of its neighbours.
+1854,8,multiple_choice,exam,,QAT usually starts from a:,Trained model|Random model|Tiny dataset,0,,,It fine-tunes briefly with fake rounding.
+1855,8,multiple_choice,exam,,QAT is worth it when post-training loses too much:,Time|Accuracy|Memory,1,,,Very low bit widths are the typical case.
+1856,9,multiple_choice,exam,,Pruning removes which weights?,The strongest|Random ones|The weakest,2,,,It drops weights that matter least.
+1857,9,multiple_choice,exam,,Sparsity is the share of:,Zeros|Layers|Users,0,,,A 90%-sparse model has 90% zero weights.
+1858,9,multiple_choice,exam,,"After pruning, accuracy is recovered by:",Sharing|Fine-tuning|Quantizing,1,,,A short round of extra training.
+1859,10,multiple_choice,exam,,A distillation student copies the teacher's:,Hardware|Prompts|Soft labels,2,,,Soft labels are full probability outputs.
+1860,10,multiple_choice,exam,,In distillation the teacher is the:,Large model|Small model|Dataset,0,,,The student is the small model that ships.
+1861,10,true_false,exam,,A student usually matches its teacher exactly.,,false,,,It typically lands slightly below the teacher.
+1862,11,multiple_choice,exam,,Low-rank factorization splits a matrix into:,Equal halves|Single rows|Thin factors,2,,,It stores fewer weights.
+1863,11,multiple_choice,exam,,Weight sharing reuses the:,Same weights|Same prompts|Same users,0,,,ALBERT reuses one layer across all layers.
+1864,11,true_false,exam,,Shared layers still cost full compute.,,true,,,A layer reused 12 times is stored once but run 12 times.
+1865,12,multiple_choice,exam,,GPUs suit neural networks because of many:,Large caches|Fast disks|Parallel cores,2,,,Thousands of simple cores work at once.
+1866,12,multiple_choice,exam,,VRAM is a GPU's own:,Memory|Cooling|Clock,0,,,A 7B FP16 model needs about 14 GB for weights.
+1867,12,multiple_choice,exam,,An NPU is a low-power:,Disk|AI chip|Network card,1,,,It is common in phones and laptops.
+1868,12,multiple_choice,exam,,Memory-bound work waits mostly on:,Arithmetic|Network|Memory reads,2,,,Compute-bound work is limited by math.
+1869,13,multiple_choice,exam,,Batching stacks several inputs into one:,Pass|Model|Cache,0,,,It keeps the GPU's cores busy.
+1870,13,multiple_choice,exam,,A bigger batch usually adds:,Weights|Latency|Accuracy,1,,,Requests wait for the batch to fill.
+1871,13,multiple_choice,exam,,Padding gives batch items the same:,Meaning|Owner|Length,2,,,Short inputs get dummy values.
+1872,14,multiple_choice,exam,,Operator fusion combines adjacent:,Operations|Models|Devices,0,,,"For example matmul, bias add and ReLU in one kernel."
+1873,14,multiple_choice,exam,,A graph compiler optimizes the model's:,Prompt|Graph|Dataset,1,,,"TensorRT, XLA and TVM are examples."
+1874,14,multiple_choice,exam,,Compiling costs an upfront:,Dataset|License|Wait,2,,,The first request is slower.
+1875,15,multiple_choice,exam,,GGUF is a file format for running:,Local LLMs|Image editors|Databases,0,,,It comes from the llama.cpp project.
+1876,15,multiple_choice,exam,,"After converting a model, you should verify the:",Date|Outputs|File name,1,,,Compare them with the original on sample inputs.
+1877,15,multiple_choice,exam,,Q4 in a GGUF name suggests:,4 layers|4 GPUs|4-bit weights,2,,,A lower number means a smaller file.
+1878,16,multiple_choice,exam,,An inference runtime does what with a saved model?,Runs it|Trains it|Sells it,0,,,It loads the weights and executes them on a CPU or GPU.
+1879,16,multiple_choice,exam,,An execution provider is a hardware:,Prompt|Backend|Dataset,1,,,It is a plug-in in ONNX Runtime.
+1880,17,multiple_choice,exam,,A token is a chunk of:,Weights|Memory|Text,2,,,"It may be a short word, a word piece or punctuation."
+1881,17,multiple_choice,exam,,The context window limits prompt plus:,Reply|Weights|Users,0,,,It is measured in tokens.
+1882,17,multiple_choice,exam,,Longer prompts mostly raise:,Weights|Cost|Accuracy,1,,,Every extra token adds compute time and memory.
+1883,18,multiple_choice,exam,,LLMs generate replies:,All at once|Backwards|Token by token,2,,,This is autoregressive decoding.
+1884,18,multiple_choice,exam,,The KV cache holds keys and:,Values|Weights|Prompts,0,,,One pair per earlier token.
+1885,18,true_false,exam,,The KV cache grows with context length.,,true,,,It also grows with the number of requests served.
+1886,19,multiple_choice,exam,,Attention compares each token to:,The first|The last|All others,2,,,That all-pairs comparison grows with length.
+1887,19,multiple_choice,exam,,FlashAttention mainly cuts:,Memory traffic|Weights|Tokens,0,,,"GPUs often wait on memory, not math."
+1888,19,multiple_choice,exam,,Grouped-query attention shrinks the:,Batch size|KV cache|Vocabulary,1,,,Several heads share keys and values.
+1889,20,multiple_choice,exam,,A draft model in speculative decoding:,Trains weights|Stores data|Guesses tokens,2,,,The target model checks the guesses.
+1890,20,multiple_choice,exam,,Drafted tokens are checked in:,One pass|Many passes|Training,0,,,The target scores them in one parallel pass.
+1891,20,multiple_choice,exam,,Speculative speedup depends on the:,Disk speed|Acceptance rate|Batch size,1,,,It is the share of drafted tokens kept.
+1892,21,multiple_choice,exam,,Static batching runs a fixed:,Queue|Cache|Group,2,,,Idle waiting appears when requests finish early.
+1893,21,multiple_choice,exam,,Continuous batching lets finished requests:,Leave early|Wait|Restart,0,,,Waiting ones join after every token step.
+1894,21,multiple_choice,exam,,PagedAttention reduces memory:,Latency|Fragmentation|Weights,1,,,It avoids reserving one big contiguous chunk.
+1895,22,multiple_choice,exam,,LoRA adds small:,Layers|Datasets|Adapters,2,,,The base weights stay frozen.
+1896,22,multiple_choice,exam,,QLoRA keeps its frozen base in:,4-bit|8-bit|32-bit,0,,,Small adapters are trained on top.
+1897,22,true_false,exam,,Full fine-tuning updates every weight.,,true,,,LoRA updates only small adapters instead.
+1898,30,multiple_choice,exam,,TTFT is the time to the first:,Request|Batch|Token,2,,,TPOT measures the gap between streamed tokens.
+1899,30,multiple_choice,exam,,The prefill phase processes prompt tokens:,Together|Singly|Never,0,,,The decode phase then generates the reply stepwise.
+1900,30,multiple_choice,exam,,Goodput counts requests that are:,Cached|Timely|Large,1,,,It measures those meeting the SLO.
