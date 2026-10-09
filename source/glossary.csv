@@ -221,29 +221,29 @@ GPS,"Global Positioning System: satellite navigation, not a chip that runs neura
 UI,User interface: the screens and controls people use to work with software.,https://en.wikipedia.org/wiki/User_interface,1752
 Tensors,Multi-dimensional arrays of numbers that hold the data and weights of a neural network.,https://en.wikipedia.org/wiki/Tensor_(machine_learning),8
 Vectors,Ordered lists of numbers; in a transformer the keys and values held in the KV cache are vectors.,https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics),8
-Bottlenecks,"The slowest part of a system, which limits the speed of everything else.",https://en.wikipedia.org/wiki/Bottleneck_(software),56
+Bottlenecks,"The slowest part of a system, which limits the speed of everything else.",https://en.wikipedia.org/wiki/Bottleneck_(engineering),56
 Benchmarks,Standard tests used to measure and compare the speed or quality of models and systems.,https://en.wikipedia.org/wiki/Benchmark_(computing),62
-Warm-up runs,Untimed early runs that let caches and GPU kernels load so later timings are representative.,https://en.wikipedia.org/wiki/Cache_(computing),62
+Warm-up runs,Untimed early runs that let caches and GPU kernels load so later timings are representative.,https://en.wikipedia.org/wiki/Benchmark_(computing),62
 Bits,"The smallest unit of data, a 0 or a 1; the number of bits per weight sets a model's precision and size.",https://en.wikipedia.org/wiki/Bit,104
 Overflowing,"When a number grows past the largest value a format can hold, breaking the calculation.",https://en.wikipedia.org/wiki/Integer_overflow,116
 Overflows,Cases where a number exceeds the largest value a format can store.,https://en.wikipedia.org/wiki/Integer_overflow,116
-Ranks,"The order or position of an item in a sorted list, such as the runner-up answers a teacher model ranks.",https://en.wikipedia.org/wiki/Ranking,140
+Ranks,"The order or position of an item in a sorted list, such as the runner-up answers a teacher model ranks.",https://en.wikipedia.org/wiki/Rank_(linear_algebra),140
 Accelerators,Chips such as GPUs and NPUs built to run neural-network maths faster than a CPU.,https://en.wikipedia.org/wiki/AI_accelerator,1704
 Kernels,"Small programs that run on a GPU to perform one operation, such as a matrix multiply.",https://en.wikipedia.org/wiki/Compute_kernel,421
 Execution providers,"The ONNX Runtime back ends, such as CPU, CUDA or TensorRT, that actually run the model.",https://onnxruntime.ai/docs/execution-providers/,614
-Tokens,"Small chunks of text, such as word pieces, that a language model reads and writes.",https://en.wikipedia.org/wiki/Large_language_model#Tokenization,409
-Tokenizers,Programs that split text into tokens and convert them to numbers a model can read.,https://en.wikipedia.org/wiki/Large_language_model#Tokenization,1699
-Prompts,The instructions and context you give a language model to get a response.,https://en.wikipedia.org/wiki/Prompt_engineering,1785
-Speculative-decoding,A speed-up where a small draft model guesses several tokens ahead and the large model checks them at once.,https://en.wikipedia.org/wiki/Large_language_model#Speculative_decoding,675
-Serving engines,"Software such as vLLM that runs a model for many users, batching requests and managing the cache.",https://docs.vllm.ai/en/latest/,705
-Adapters,Small trainable layers added to a frozen model so it can be fine-tuned cheaply.,https://huggingface.co/docs/peft/index,717
+Tokens,"Small chunks of text, such as word pieces, that a language model reads and writes.",https://developers.google.com/machine-learning/glossary#token,409
+Tokenizers,Programs that split text into tokens and convert them to numbers a model can read.,https://developers.google.com/machine-learning/glossary#tokenizer,1699
+Prompts,The instructions and context you give a language model to get a response.,https://developers.google.com/machine-learning/glossary#prompt,1785
+Speculative-decoding,A speed-up where a small draft model guesses several tokens ahead and the large model checks them at once.,https://en.wikipedia.org/wiki/Speculative_decoding,675
+Serving engines,"Software such as vLLM that runs a model for many users, batching requests and managing the cache.",https://en.wikipedia.org/wiki/Inference_engine,705
+Adapters,Small trainable layers added to a frozen model so it can be fine-tuned cheaply.,https://huggingface.co/docs/peft/conceptual_guides/lora,717
 Cache misses,"Requests that are not found in the cache, so the full computation has to be done.",https://en.wikipedia.org/wiki/Cache_(computing)#Operation,693
 Embeddings,Lists of numbers that represent the meaning of words or other items so a model can compare them.,https://en.wikipedia.org/wiki/Word_embedding,909
-Replicas,Identical copies of a model server that share the incoming load.,https://en.wikipedia.org/wiki/Replication_(computing),929
+Replicas,Identical copies of a model server that share the incoming load.,https://developers.google.com/machine-learning/glossary#replica,929
 Cold starts,"The slow first request after a model server starts, while weights are still being loaded.",https://en.wikipedia.org/wiki/Cold_start_(computing),936
 Cold-start,The hyphenated form of cold start: the slow first request while weights load.,https://en.wikipedia.org/wiki/Cold_start_(computing),936
-Cost-per-request,"The price of serving a single request, worked out from hardware cost and how many requests it handles.",https://en.wikipedia.org/wiki/Cost_per_action,50
-Slices,Pieces of a tensor split across several GPUs in tensor parallelism.,https://en.wikipedia.org/wiki/Data_parallelism,1694
+Cost-per-request,"The price of serving a single request, worked out from hardware cost and how many requests it handles.",https://en.wikipedia.org/wiki/Unit_cost,50
+Slices,Pieces of a tensor split across several GPUs in tensor parallelism.,https://en.wikipedia.org/wiki/Array_slicing,1694
 Mixture-of-experts,A model design where a router sends each token to only a few specialised sub-networks.,https://en.wikipedia.org/wiki/Mixture_of_experts,1777
 Experts,The specialised sub-networks inside a mixture-of-experts model.,https://en.wikipedia.org/wiki/Mixture_of_experts,1650
-Outliers,"Unusual values far from the rest, such as a few very slow requests.",https://en.wikipedia.org/wiki/Outlier,1785
+Outliers,"Unusual values far from the rest, such as a few very slow requests.",https://huggingface.co/docs/optimum/concept_guides/quantization,1785
