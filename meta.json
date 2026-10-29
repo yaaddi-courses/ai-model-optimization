@@ -4,7 +4,7 @@
   "description": "How to make trained AI models smaller, faster and cheaper to run: quantization, pruning, distillation, batching, compilers and runtimes, LLM tricks like the KV cache and speculative decoding, plus serving cost and how to verify nothing broke. Built for developers new to ML. Builds on this library's mlops course for the wider production lifecycle (registries, pipelines, monitoring) — see it for that foundation.",
   "image": "cover.png",
   "file": "ai-model-optimization.zip",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "tags": [
     "ai",
     "machine-learning",
@@ -23,6 +23,16 @@
       "version": "1.0.1",
       "date": "2026-10-09",
       "notes": "Glossary: every term now points at one link, so the same word never sends you to two different pages."
+    },
+    {
+      "version": "1.0.2",
+      "date": "2026-10-28",
+      "notes": "One practice question named neither method it asked about; it now names GPTQ and AWQ."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-10-28",
+      "notes": "Adds a Learn more article for every glossary term (43 articles, each with a worked example); tapping a term now offers \"Read the full explanation\". Glossary entries Outlier, Outliers, Ranks and Slices now have one meaning each, and two practice cards say \"pieces\" instead of \"slices\" and \"scores\" instead of \"ranks\"."
     }
   ],
   "toc": [
