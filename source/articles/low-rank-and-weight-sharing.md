@@ -3,22 +3,22 @@
 **Covers:** Low-rank factorization, Rank, Weight sharing, ALBERT
 
 ## Two ways to store less {#overview}
-Pruning removes weights, and quantization stores each weight in fewer bits. A third family attacks the layout itself: it finds a way to describe the same weights using fewer numbers in total. This article covers the two main versions: approximating a big matrix by smaller ones, and reusing the same weights in several places.
+So far you have seen two ways to shrink a model: pruning removes weights, and quantization stores each weight in fewer bits. A third family goes after the layout itself. It finds a way to describe the same weights using fewer numbers in total. We will look at its two main versions: approximating a big matrix by smaller ones, and reusing the same weights in several places.
 
 ## Low-rank factorization {#low-rank-factorization}
-**Low-rank factorization** approximates one big weight matrix as the product of two thinner matrices. Imagine a table with 1,000 rows and 1,000 columns. Storing it takes a million numbers. If the table has a simple underlying pattern, you may be able to write it as a tall thin table (1,000 rows, a few columns) multiplied by a short wide one (a few rows, 1,000 columns). That stores only a small fraction of the numbers.
+Imagine a table with 1,000 rows and 1,000 columns. Storing it takes a million numbers. Now suppose the table has a simple underlying pattern. Then you may be able to write it as a tall thin table (1,000 rows, a few columns) multiplied by a short wide one (a few rows, 1,000 columns). **Low-rank factorization** does exactly that: it approximates one big weight matrix as the product of two thinner matrices. You store only a small fraction of the numbers.
 
 ## Rank {#rank}
-The **rank** is the shared inner width of the two thin matrices, the "few" in the sentence above. A lower rank compresses more but approximates the original less faithfully. A higher rank is closer to the original and saves less. Choosing the rank is the central decision. The word rank also has an everyday sense, a position in an ordered list, but in this article it always means this inner width.
+What does "a few columns" mean exactly? That number is the **rank**: the shared inner width of the two thin matrices. A lower rank compresses more but approximates the original less faithfully. A higher rank stays closer to the original and saves less. Choosing the rank is the central decision. The word rank also has an everyday sense, a position in an ordered list, but in this article it always means this inner width.
 
 ## Weight sharing {#weight-sharing}
-**Weight sharing** reuses the same set of weights in several places in a model. Instead of every layer having its own copy, several layers (or several places inside one layer) point at one copy. The model still computes with the shared weights wherever they are used, but it stores them only once, so the parameter count falls.
+The second idea is different. **Weight sharing** reuses the same set of weights in several places in a model. Instead of every layer having its own copy, several layers (or several places inside one layer) point at one copy. The model still computes with the shared weights wherever they are used, but it stores them only once, so the parameter count falls.
 
 ## ALBERT {#albert}
-**ALBERT** is a variant of BERT built around this idea. It shares weights across all its layers, so a stack of 12 layers stores the parameters of roughly one. ALBERT-base has about 12 million parameters, compared with about 110 million for BERT-base. It is smaller to store, but it does not run any faster: the computing is still done once per layer.
+**ALBERT** is a variant of BERT built around this idea. It shares weights across all its layers, so a stack of 12 layers stores the parameters of roughly one. ALBERT-base has about 12 million parameters, compared with about 110 million for BERT-base. It is smaller to store, but it does not run any faster, because the computing is still done once per layer.
 
 ## A worked example {#example}
-The saving from low-rank factorization, in numbers.
+Let's count the saving from low-rank factorization.
 
 ```python
 # Low-rank: a 1000 x 1000 matrix replaced by (1000 x r) times (r x 1000)
@@ -34,15 +34,15 @@ Reading the output:
 1. The full matrix has 1,000,000 numbers.
 2. The two thin matrices have 2 × 1,000 × 10 = 20,000 numbers.
 3. That is 2% of the storage, if a rank of 10 is good enough to approximate the matrix.
-4. Try rank 100 and the factored form has 200,000 numbers, 20% of the original: lower rank saves more.
+4. Try rank 100, and the factored form has 200,000 numbers, which is 20% of the original. A lower rank saves more.
 
-Whether the low-rank copy is accurate is a question you must test. The saving is certain, the quality is not.
+Whether the low-rank copy is accurate is a question you must test. The saving is certain, but the quality is not.
 
 ## A common mistake {#mistake}
-Assuming fewer parameters means faster. Weight sharing cuts storage, but the model still does the same number of calculations. Low-rank factorization can cut both, because multiplying by two thin matrices costs less than one large one.
+A common slip is assuming that fewer parameters means faster. Weight sharing cuts storage, but the model still does the same number of calculations. Low-rank factorization can cut both, because multiplying by two thin matrices costs less than multiplying by one large one.
 
 ## Key points {#key-points}
 - Low-rank factorization replaces a large matrix with a product of two thin ones.
-- Rank is the inner width; lower rank saves more and approximates less.
-- Weight sharing stores one set of weights and reuses it; ALBERT shares across layers.
-- Sharing saves storage but not computation, because the model still runs every layer; low-rank factorization can reduce both.
+- Rank is the inner width, and a lower rank saves more but approximates less.
+- Weight sharing stores one set of weights and reuses it, and ALBERT shares across layers.
+- Sharing saves storage but not computation, because the model still runs every layer, while low-rank factorization can reduce both.

@@ -3,23 +3,23 @@
 **Covers:** Grouped-query attention, GQA, Sliding-window attention
 
 ## Two ways to make attention cheaper {#overview}
-Standard attention is generous. Every attention head keeps its own keys and values, and every token looks at every earlier token. Both habits cost memory: the first makes the KV cache large, and the second makes the work grow with the length of the text. Two variants change one habit each. Grouped-query attention shares keys and values between heads, and sliding-window attention limits how far back a token looks.
+You already know that standard attention is generous. Every attention head keeps its own keys and values, and every token looks back at every earlier token. Each habit costs something. The first makes the KV cache large. The second makes the work grow with the length of the text. Two variants each change one habit: grouped-query attention shares keys and values between heads, and sliding-window attention limits how far back a token looks. Let's take them one at a time.
 
 ## Grouped-query attention {#grouped-query-attention}
-**Grouped-query attention** lets several attention heads share one set of keys and values. Each head still has its own query, so each can still look for something different, but they read the same stored keys and values. Instead of 32 sets to store for every token, a model might keep only 8, each shared by a group of 4 heads.
+Why does every head need its own keys and values? Often it does not. In **grouped-query attention**, several heads share one set of keys and values. Each head still has its own query, so each can still look for something different, but they all read the same stored keys and values. Instead of storing 32 sets for every token, a model might keep only 8, each shared by a group of 4 heads.
 
-The benefit is a much smaller KV cache, which means longer conversations or more users per GPU. The accuracy loss is usually small. Models trained this way from the start do better than models converted afterwards.
+The benefit is a much smaller KV cache, which means longer conversations or more users on each GPU. The accuracy loss is usually small. Models trained this way from the start do better than models converted afterwards.
 
 ## GQA {#gqa}
-**GQA** is the common abbreviation for grouped-query attention. You will see it in model descriptions, for example "32 query heads and 8 KV heads". At one extreme, every head has its own keys and values, which is the standard design. At the other, all heads share a single set. GQA sits between them.
+**GQA** is the short name for grouped-query attention, and you will meet it in model descriptions such as "32 query heads and 8 KV heads". Picture a dial. At one end, every head has its own keys and values, which is the standard design. At the other end, all heads share a single set. GQA is any setting between the two ends.
 
 ## Sliding-window attention {#sliding-window-attention}
-**Sliding-window attention** is a variant where each token attends only to a fixed number of recent tokens, the window, instead of to everything before it. The work and the memory no longer grow with the full length of the text. They grow with the window size.
+The second habit is looking at everything. In **sliding-window attention**, each token looks only at a fixed number of recent tokens, called the window, instead of at the whole text before it. The work and the memory no longer grow with the full length of the text. They grow with the size of the window.
 
-The price is reach: a token cannot directly see anything older than the window. Information can still pass further back indirectly, since each layer builds on the one before it, but long-range recall is weaker.
+What do you give up? Reach. A token cannot directly see anything older than the window. Information can still travel further back indirectly, because each layer builds on the one before it, but recall over long distances is weaker.
 
 ## A worked example {#example}
-First the KV cache saving of GQA, then how many token pairs sliding-window attention compares.
+We will do two things. First we measure the KV cache saving from GQA, then we count how many token pairs sliding-window attention compares.
 
 ```python
 layers, head_dim, bytes_per_number = 32, 128, 2
@@ -40,18 +40,18 @@ print(pairs_compared(8, window=3))              # 21
 print(pairs_compared(1000), pairs_compared(1000, window=128))   # 500500 119872
 ```
 
-How to read it:
+Here is what the numbers say:
 
-1. With 32 sets of keys and values, one token's cache is 524,288 bytes. With 8 sets, it is 131,072, four times smaller.
-2. For a 4,000-token conversation that is 524 MB instead of about 2.1 GB.
+1. With 32 sets of keys and values, one token's cache is 524,288 bytes. With 8 sets, it is 131,072 bytes, which is four times smaller.
+2. For a 4,000-token conversation, that is 524 MB instead of about 2.1 GB.
 3. For 8 tokens, full attention compares 36 pairs, while a window of 3 compares 21.
-4. At 1,000 tokens the gap is large: about 500,000 pairs against about 120,000 with a window of 128. The longer the text, the more the window saves.
+4. At 1,000 tokens the gap is wide: about 500,000 pairs against about 120,000 with a window of 128. The longer the text, the more the window saves.
 
 ## A common mistake {#mistake}
-Combining the two ideas without checking quality. A model's design fixes which variant it uses. You cannot switch a trained model to GQA or a window without retraining or fine-tuning, so choose a model that already has it.
+A common slip is thinking you can switch these on like a setting. A model's design fixes which variant it uses. You cannot turn a trained model into a GQA model or give it a window without retraining or fine-tuning it. So choose a model that already has the feature you need.
 
 ## Key points {#key-points}
-- Grouped-query attention shares keys and values among groups of heads, shrinking the KV cache.
-- GQA describes designs between one set per head and one set for all heads.
-- Sliding-window attention limits each token to recent tokens, so cost follows the window, not the full length.
+- Grouped-query attention shares keys and values among groups of heads, which shrinks the KV cache.
+- GQA covers any design between one set per head and one set for all heads.
+- Sliding-window attention limits each token to recent tokens, so the cost follows the window, not the full length.
 - Both are decided when a model is designed and trained.
