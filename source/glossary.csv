@@ -118,7 +118,7 @@ Cache hit,"A cache hit happens when a lookup finds a stored answer, which means 
 Cache miss,"A cache miss happens when a lookup finds nothing stored, so the model has to run as usual, and the fresh result can then be saved to serve future repeat requests.",,693,response-caching#cache-miss
 TTL,"TTL, or time to live, is how long a cache entry stays valid before it expires, which means old answers get refreshed instead of being served stale forever.",https://developers.google.com/machine-learning/glossary#ttl,1725,response-caching#ttl
 Semantic caching,"Semantic caching reuses a stored answer when a new request means about the same thing, found by comparing embeddings, so differently worded repeat questions can still skip the model.",,909,semantic-caching#semantic-caching
-Embedding,"An embedding is a list of numbers that captures the meaning of a piece of text, so texts with similar meanings get numbers that sit close together and can be compared mathematically.",,909,semantic-caching#embedding
+Embedding,"An embedding is a list of numbers that captures the meaning of a piece of text, so texts with similar meanings get numbers that sit close together and can be compared mathematically.",,361,semantic-caching#embedding
 Similarity threshold,"The similarity threshold is the cutoff for how close two embeddings must be before a cached answer is reused, so a higher value is safer but gets fewer cache hits.",,909,semantic-caching#similarity-threshold
 Prefix caching,"Prefix caching stores the KV cache computed for a prompt's shared beginning, such as a long system prompt, so later requests with that same start skip reprocessing it and respond faster.",,916,semantic-caching#prefix-caching
 Prefill,"Prefill is the first step of inference, where the model reads the whole prompt in one pass before it starts generating, so long prompts mostly slow down the time to the first token.",,1601,serving-metrics#prefill
@@ -238,7 +238,7 @@ Speculative-decoding,A speed-up where a small draft model guesses several tokens
 Serving engines,"Software such as vLLM that runs a model for many users, batching requests and managing the cache.",,705,continuous-batching#serving-engine
 Adapters,Small trainable layers added to a frozen model so it can be fine-tuned cheaply.,https://huggingface.co/docs/peft/conceptual_guides/lora,717,lora#adapter
 Cache misses,"Requests that are not found in the cache, so the full computation has to be done.",,693,response-caching#cache-miss
-Embeddings,Lists of numbers that represent the meaning of words or other items so a model can compare them.,,909,semantic-caching#embedding
+Embeddings,Lists of numbers that represent the meaning of words or other items so a model can compare them.,,361,semantic-caching#embedding
 Replicas,Identical copies of a model server that share the incoming load.,https://developers.google.com/machine-learning/glossary#replica,929,autoscaling#replica
 Cold starts,"The slow first request after a model server starts, while weights are still being loaded.",,936,cold-starts#cold-start
 Cold-start,The hyphenated form of cold start: the slow first request while weights load.,,936,cold-starts#cold-start
@@ -247,3 +247,5 @@ Slices,"The plural of slice: subgroups of your test data, such as one language o
 Mixture-of-experts,A model design where a router sends each token to only a few specialised sub-networks.,,1777,mixture-of-experts#mixture-of-experts
 Experts,The specialised sub-networks inside a mixture-of-experts model.,,1650,mixture-of-experts#expert
 Outliers,"Unusually extreme values far from the rest, such as a few huge weights or a few very slow requests among thousands.",https://huggingface.co/docs/optimum/concept_guides/quantization,1785,weight-only-quantization#outlier
+Cache hits,"Lookups that find a stored answer, so the model does not have to run at all.",,902,response-caching#cache-hit
+Computation graphs,Models written as operations connected by the tensors that flow between them.,,427,graph-compilers#computation-graph
